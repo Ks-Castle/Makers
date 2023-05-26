@@ -1,7 +1,7 @@
-import { Button } from "@/context/Index";
+import Layout from "@/components/UI/Layout";
 
 const Home = () => {
-  return <>HOME</>;
+  return <Layout>HOME</Layout>;
 };
 
 export default Home;

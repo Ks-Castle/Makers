@@ -1,8 +1,21 @@
-export enum ENUM {}
-export const STR = {};
+export enum ENUM {
+  RESOLUTION_PC = 1024,
+  RESOLUTION_MOBILE = 390,
+  RESOLUTION_FOLD = 280,
+}
+export const STR = {
+  LAYOUT_HEADER_HEIGHT: "60px",
+};
 
-export const Global_Font_12 = "1.2rem";
-export const Global_Font_16 = "1.6rem";
-export const Global_Font_20 = "2.0rem";
-export const Global_Font_30 = "3.0rem";
-export const Global_Font_45 = "4.5rem";
+export const SHADOW = {
+  BOTTOM_4: "0px 0px 4px rgba(0, 0, 0, 0.25)",
+};
+
+export const FONT_SIZE = {
+  12: "1.2rem",
+  16: "1.6rem",
+  20: "2.0rem",
+  25: "2.5rem",
+  30: "3.0rem",
+  50: "5.0rem",
+};

@@ -1,4 +1,4 @@
-import { Global_Font_12 } from "@/data/Enum";
+import { FONT_SIZE } from "@/data/Enum";
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 
@@ -43,7 +43,7 @@ const StyledInput = styled.input<InputProps>`
   width: 100%;
   max-width: ${(props) => props.width};
   height: ${(props) => props.height}px;
-  font-size: ${Global_Font_12};
+  font-size: ${FONT_SIZE[12]};
   border-radius: 10px;
   text-align: ${(props) => props.center && "center"};
 
