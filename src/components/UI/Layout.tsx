@@ -30,5 +30,6 @@ const Contents = styled.div`
   width: 90%;
   height: 100%;
   padding: 1rem;
+  margin: 1rem;
   border: 1px solid black;
 `;
