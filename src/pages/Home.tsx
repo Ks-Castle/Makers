@@ -1,5 +1,7 @@
+import { Button } from "@/context/Index";
+
 const Home = () => {
-  return <>Home</>;
+  return <>HOME</>;
 };
 
 export default Home;

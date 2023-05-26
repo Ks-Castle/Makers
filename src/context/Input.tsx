@@ -16,21 +16,26 @@ interface InputProps {
   marginType?: FiveWay;
   padding?: string;
   paddingType?: FiveWay;
-  name?: string;
   focus?: boolean;
-  basic?: string;
+  defaultValue?: string;
   center?: boolean | undefined;
   readOnly?: boolean;
 }
 
-const Input = ({ focus, basic, readOnly, ...props }: InputProps) => {
+const Input = ({ focus, defaultValue, readOnly, ...props }: InputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     focus && inputRef.current?.focus();
-  }, []);
+  }, [focus]);
+
   return (
-    <StyledInput {...props} ref={inputRef} value={basic} readOnly={readOnly} />
+    <StyledInput
+      {...props}
+      ref={inputRef}
+      value={defaultValue}
+      readOnly={readOnly}
+    />
   );
 };
 

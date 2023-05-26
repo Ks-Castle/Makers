@@ -1,5 +1,4 @@
 import flex from "@/assets/styles/flex";
-import { Global_Font_12 } from "@/data/Enum";
 import styled from "styled-components";
 
 type FiveWay = "top" | "bottom" | "left" | "right" | "all";
@@ -15,10 +14,15 @@ interface ButtonProps {
   borderType?: FiveWay;
   margin?: string;
   marginType?: FiveWay;
+  padding?: string;
+  paddingType?: FiveWay;
   color?: string;
   size?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   disabled?: boolean;
+  image?: boolean;
+  imageURL?: string;
+  imageSize?: string;
 }
 
 const Button = ({
@@ -56,11 +60,12 @@ const StyledButton = styled.button<ButtonProps>`
   height: ${(props) => props.height}px;
   color: ${(props) => props.color};
   font-size: ${(props) => props.size}rem;
-  @media (max-width: 1400px) {
-    font-size: ${Global_Font_12};
-  }
   background-color: ${(props) => props.bg};
   border-radius: ${(props) => props.round};
+  background-image: ${(props) => props.image && `url(${props.imageURL})`};
+  background-position: center;
+  background-size: ${(props) => props.image && props.imageSize};
+  background-repeat: no-repeat;
   ${(props) => props.borderType === "top" && `border-top: ${props.border};`}
   ${(props) =>
     props.borderType === "bottom" && `border-bottom: ${props.border};`}
@@ -76,4 +81,13 @@ const StyledButton = styled.button<ButtonProps>`
   ${(props) =>
     props.marginType === "right" && `margin-right: ${props.margin}rem;`}
   ${(props) => props.marginType === "all" && `margin: ${props.margin}rem;`}
+  ${(props) =>
+    props.paddingType === "top" && `padding-top: ${props.padding}rem;`}
+  ${(props) =>
+    props.paddingType === "bottom" && `padding-bottom: ${props.padding}rem; `}
+  ${(props) =>
+    props.paddingType === "left" && `padding-left: ${props.padding}rem;`}
+  ${(props) =>
+    props.paddingType === "right" && `padding-right: ${props.padding}rem;`}
+  ${(props) => props.paddingType === "all" && `padding: ${props.padding}rem;`}
 `;
