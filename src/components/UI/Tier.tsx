@@ -21,16 +21,19 @@ const Tier = ({ data }: { data: TierListDTO }) => {
         imageSize="cover"
         imageURL={data.titleImg}
       />
-      <span className="desc">Click to make your tier list</span>
       <div className="title-container">
         <p className="title-bg">{data.title}</p>
         <p className="title">{data.title}</p>
+      </div>
+      <div className="title-container">
+        <span className="desc">{data.gameTitle} Tier List</span>
       </div>
     </Wrapper>
   );
 };
 
 export default Tier;
+
 const Wrapper = styled.div`
   ${flex({ direction: "column" })}
   box-shadow: ${SHADOW.X_1_Y_4};
@@ -48,7 +51,6 @@ const Wrapper = styled.div`
   }
   .title-bg {
     position: absolute;
-    top: 10px;
     font-size: 2.2rem;
     -webkit-text-stroke-width: 10px;
     -webkit-text-stroke-color: var(--black);
@@ -57,17 +59,14 @@ const Wrapper = styled.div`
   }
   .title {
     position: absolute;
-    top: 10px;
     color: var(--white);
   }
   .desc {
-    position: absolute;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
+    font-size: 1.5rem;
     color: var(--black);
     width: 100%;
     text-align: center;
+    margin-top: 2rem;
   }
 `;
 
