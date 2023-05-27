@@ -48,6 +48,7 @@ const Wrapper = styled.div`
     font-weight: 900;
     width: 100%;
     text-shadow: ${SHADOW.X_1_Y_4};
+    z-index: 5;
   }
   .title-bg {
     position: absolute;

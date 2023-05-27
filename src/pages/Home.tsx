@@ -52,7 +52,6 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 200px);
   grid-gap: 1rem;
-  width: 100%;
   @media (max-width: ${RESOLUTION.TABLET}px) {
     grid-template-columns: repeat(2, 150px);
   }
