@@ -31,7 +31,6 @@ html{
   font-family: 'Roboto';
 }
 body{
-    background-color:  #F1F5F8;
 }
 
 :root {

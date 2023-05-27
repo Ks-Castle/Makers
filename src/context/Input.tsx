@@ -1,4 +1,4 @@
-import { FONT_SIZE } from "@/data/Enum";
+import { FONT_SIZE } from "@/data/str";
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 

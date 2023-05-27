@@ -1,8 +1,8 @@
 import flex from "@/assets/styles/flex";
+import { RESOLUTION } from "@/data/str";
 import React from "react";
 import styled from "styled-components";
 import Header from "./Header";
-import { ENUM } from "@/data/Enum";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -25,11 +25,10 @@ const ContentsWrapper = styled.div`
 `;
 
 const Contents = styled.div`
-  ${flex({ align: "flex-start" })}
-  max-width: ${ENUM.RESOLUTION_PC}px;
+  ${flex({})}
+  max-width: ${RESOLUTION.PC}px;
   width: 90%;
   height: 100%;
   padding: 1rem;
   margin: 1rem;
-  border: 1px solid black;
 `;

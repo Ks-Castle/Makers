@@ -23,12 +23,13 @@ interface ButtonProps {
   image?: boolean;
   imageURL?: string;
   imageSize?: string;
+  shadow?: string;
 }
 
 const Button = ({
   children,
   height = "50",
-  bg = "var(--blue)",
+  bg = "#5e5e5e",
   round = "10px",
   color = "var(--white)",
   disabled = false,
@@ -59,6 +60,7 @@ const StyledButton = styled.button<ButtonProps>`
   max-width: ${(props) => props.width}px;
   height: ${(props) => props.height}px;
   color: ${(props) => props.color};
+  box-shadow: ${(props) => props.shadow};
   font-size: ${(props) => props.size}rem;
   background-color: ${(props) => props.bg};
   border-radius: ${(props) => props.round};
