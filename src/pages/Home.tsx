@@ -6,6 +6,7 @@ import { IMAGES, RESOLUTION } from "@/data/str";
 import { getImage } from "@/utils/getImage";
 import { useEffect, useState } from "react";
 import navigation from "@/data/navigation.json";
+import Head from "@/components/UI/Head";
 
 const Home = () => {
   const [imgs, setImgs] = useState<string[]>([]);
@@ -33,6 +34,7 @@ const Home = () => {
   }, []);
   return (
     <Layout>
+      <Head link="Home" />
       <Wrapper>
         {imgs.map((img: string, i: number) => {
           return <HomeMenu url={img} link={links[i]} key={"home" + i} />;
