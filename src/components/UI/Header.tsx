@@ -46,9 +46,11 @@ const HeaderCenter = styled.div`
     font-weight: 900;
     margin: 0 2rem;
   }
-  @media (max-width: ${RESOLUTION.MOBILE}px) {
-    .mobile-hidden {
-      display: none;
+  @media (max-width: ${RESOLUTION.TABLET}px) {
+    .svgClass {
+      width: 80px;
+      background-size: contain;
+      margin: 0;
     }
   }
 `;
