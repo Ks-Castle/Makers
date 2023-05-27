@@ -36,10 +36,6 @@ body{
 :root {
     --white: #fff;
     --black: #000;
-    --blue:#2662f0;
-    --gray-light: #D7D7D7;
-    --warning: #e95050;
-    --placeholder: #929eb8;
 }
 
 input, input:focus{

@@ -1,10 +1,26 @@
 {
-    "Auth": {
-        "name": "Auth",
-        "path": "/"
-    },
-    "Home": {
-        "name": "Home",
-        "path": "/Home"
-    }
+  "Auth": {
+    "name": "Auth",
+    "path": "/"
+  },
+  "Home": {
+    "name": "Home",
+    "path": "/Home"
+  },
+  "TierList": {
+    "name": "Tier List",
+    "path": "/TierList"
+  },
+  "TierGenerate": {
+    "name": "Tier Generate",
+    "path": "/TierGenerate"
+  },
+  "StatCardGenerate": {
+    "name": "Stat Card Generate",
+    "path": "/StatCardGenerate"
+  },
+  "Gallery": {
+    "name": "Gallery",
+    "path": "/Gallery"
+  }
 }

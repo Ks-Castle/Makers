@@ -4,11 +4,7 @@ import React from "react";
 import styled from "styled-components";
 import Header from "./Header";
 
-interface LayoutProps {
-  children: React.ReactNode;
-}
-
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <ContentsWrapper>
       <Header />

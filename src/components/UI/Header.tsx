@@ -1,14 +1,11 @@
 import flex from "@/assets/styles/flex";
 import { SVG } from "@/context/Index";
 import { FONT_SIZE, RESOLUTION, SHADOW, STR, UI } from "@/data/str";
-import { uppercaseReg } from "@/data/Reg";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import navigation from "@/data/navigation.json";
 
 const Header = () => {
-  const param = document.location.href.split("/");
-
   const navigate = useNavigate();
 
   const logoNavigation = () => {
@@ -18,9 +15,6 @@ const Header = () => {
   return (
     <HeaderWrap>
       <HeaderCenter>
-        <div className="mobile-hidden">
-          {uppercaseReg(param[param.length - 1])}
-        </div>
         <SVG
           iconName="Logo"
           width={`${UI._200}px`}

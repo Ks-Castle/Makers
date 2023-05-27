@@ -1,13 +1,20 @@
 import flex from "@/assets/styles/flex";
 import HomeMenu from "@/components/UI/HomeMenu";
 import Layout from "@/components/UI/Layout";
+import styled from "styled-components";
 import { IMAGES, RESOLUTION } from "@/data/str";
 import { getImage } from "@/utils/getImage";
 import { useEffect, useState } from "react";
-import styled from "styled-components";
+import navigation from "@/data/navigation.json";
 
 const Home = () => {
   const [imgs, setImgs] = useState<string[]>([]);
+  const links: string[] = [
+    navigation.TierList.path,
+    navigation.StatCardGenerate.path,
+    navigation.Gallery.path,
+    navigation.Home.path,
+  ];
   useEffect(() => {
     async function fetchImage() {
       try {
@@ -28,7 +35,7 @@ const Home = () => {
     <Layout>
       <Wrapper>
         {imgs.map((img: string, i: number) => {
-          return <HomeMenu url={img} key={"home" + i} />;
+          return <HomeMenu url={img} link={links[i]} key={"home" + i} />;
         })}
       </Wrapper>
     </Layout>

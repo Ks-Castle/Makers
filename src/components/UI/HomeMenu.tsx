@@ -1,8 +1,14 @@
 import { Button } from "@/context/Index";
 import { RESOLUTION, SHADOW, UI } from "@/data/str";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const HomeMenu = ({ url }: { url: string }) => {
+const HomeMenu = ({ url, link }: { url: string; link: string }) => {
+  const navigate = useNavigate();
+
+  const navigationHandler = () => {
+    navigate(link);
+  };
   return (
     <StyledButton
       width={`${UI._200}`}
@@ -11,6 +17,7 @@ const HomeMenu = ({ url }: { url: string }) => {
       imageURL={url}
       imageSize="cover"
       shadow={SHADOW.X_1_Y_4}
+      onClick={navigationHandler}
     />
   );
 };
