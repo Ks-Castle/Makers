@@ -22,9 +22,9 @@ const ContentsWrapper = styled.div`
 
 const Contents = styled.div`
   ${flex({})}
-  max-width: ${RESOLUTION.PC}px;
+  /* max-width: ${RESOLUTION.PC}px; */
   width: 90%;
   height: 100%;
   padding: 1rem;
-  margin: 1rem;
+  margin-top: 4rem;
 `;

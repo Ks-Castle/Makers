@@ -5,6 +5,7 @@ export enum RESOLUTION {
 }
 
 export enum UI {
+  _250 = 250,
   _200 = 200,
   _150 = 150,
   _100 = 100,

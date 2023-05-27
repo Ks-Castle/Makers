@@ -24,6 +24,7 @@ interface ButtonProps {
   imageURL?: string;
   imageSize?: string;
   shadow?: string;
+  hover?: boolean;
 }
 
 const Button = ({
@@ -45,6 +46,7 @@ const Button = ({
       color={color}
       size={size}
       disabled={disabled}
+      className="global-btn"
     >
       {children}
     </StyledButton>

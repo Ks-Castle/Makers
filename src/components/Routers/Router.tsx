@@ -12,7 +12,10 @@ const Router = () => {
     <Routes>
       <Route path={navigation.Home.path} element={<Home />} />
       <Route path={navigation.TierList.path} element={<TierList />} />
-      <Route path={navigation.TierGenerate.path} element={<TierMaking />} />
+      <Route
+        path={navigation.TierGenerate.path + "/:id"}
+        element={<TierMaking />}
+      />
       <Route path={navigation.StatCardGenerate.path} element={<StatMaking />} />
       <Route path={navigation.Gallery.path} element={<Gallery />} />
       <Route path="*" element={<Error />} />
