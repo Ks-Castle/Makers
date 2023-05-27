@@ -53,4 +53,11 @@ const HeaderCenter = styled.div`
       margin: 0;
     }
   }
+  @media (min-width: ${RESOLUTION.PC}px) {
+    .svgClass {
+      width: 150px;
+      background-size: contain;
+      margin: 0;
+    }
+  }
 `;

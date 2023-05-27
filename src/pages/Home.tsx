@@ -7,15 +7,16 @@ import { getImage } from "@/utils/getImage";
 import { useEffect, useState } from "react";
 import navigation from "@/data/navigation.json";
 import Head from "@/components/UI/Head";
+const links: string[] = [
+  navigation.TierList.path,
+  navigation.StatCardGenerate.path,
+  navigation.Gallery.path,
+  navigation.Home.path,
+];
 
 const Home = () => {
   const [imgs, setImgs] = useState<string[]>([]);
-  const links: string[] = [
-    navigation.TierList.path,
-    navigation.StatCardGenerate.path,
-    navigation.Gallery.path,
-    navigation.Home.path,
-  ];
+
   useEffect(() => {
     async function fetchImage() {
       try {
