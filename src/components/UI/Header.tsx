@@ -4,7 +4,6 @@ import { FONT_SIZE, RESOLUTION, SHADOW, STR, UI } from "@/data/str";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import navigation from "@/data/navigation.json";
-import { useState } from "react";
 
 interface HeaderProps {
   darkMode: boolean;
@@ -12,7 +11,6 @@ interface HeaderProps {
 }
 
 const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
-  // darkMode와 toggleDarkMode prop 추가
   const navigate = useNavigate();
 
   const logoNavigation = () => {

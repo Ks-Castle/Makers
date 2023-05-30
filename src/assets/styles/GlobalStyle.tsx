@@ -45,8 +45,8 @@ body {
     --black: #000;
     --background: var(--white);
     --text-color: var(--black);
-    --background-dark: #000; /* 추가: 다크 모드 배경 색상 */
-    --text-color-light: #fff; /* 추가: 다크 모드 텍스트 색상 */
+    --background-dark: #000; 
+    --text-color-light: #fff; 
 }
 
 .dark-mode {
