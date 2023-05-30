@@ -4,8 +4,15 @@ import { FONT_SIZE, RESOLUTION, SHADOW, STR, UI } from "@/data/str";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import navigation from "@/data/navigation.json";
+import { useState } from "react";
 
-const Header = () => {
+interface HeaderProps {
+  darkMode: boolean;
+  toggleDarkMode: () => void;
+}
+
+const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
+  // darkMode와 toggleDarkMode prop 추가
   const navigate = useNavigate();
 
   const logoNavigation = () => {
@@ -22,6 +29,9 @@ const Header = () => {
           onClick={logoNavigation}
           contain
         />
+        <button onClick={toggleDarkMode}>
+          {darkMode ? "라이트 모드로 전환" : "다크 모드로 전환"}
+        </button>
         <div>Login</div>
       </HeaderCenter>
     </HeaderWrap>
@@ -29,7 +39,6 @@ const Header = () => {
 };
 
 export default Header;
-
 const HeaderWrap = styled.header`
   ${flex({})}
   position: fixed;

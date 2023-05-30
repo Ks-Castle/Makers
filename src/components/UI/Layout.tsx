@@ -7,7 +7,7 @@ import Header from "./Header";
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <ContentsWrapper>
-      <Header />
+      {/* <Header /> */}
       <Contents>{children}</Contents>
     </ContentsWrapper>
   );

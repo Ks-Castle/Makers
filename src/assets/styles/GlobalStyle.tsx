@@ -2,7 +2,11 @@ import { createGlobalStyle } from "styled-components";
 import { reset } from "styled-reset";
 import "../fonts/font.css";
 
-const GlobalStyle = createGlobalStyle`
+interface GlobalStyleProps {
+  darkMode?: boolean;
+}
+
+const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
 ${reset}
 * {
     margin: 0;
@@ -30,12 +34,24 @@ html{
   font-size: 10px;
   font-family: 'Roboto';
 }
-body{
+
+body {
+  background-color: var(--background);
+  color: var(--text-color);
 }
 
 :root {
     --white: #fff;
     --black: #000;
+    --background: var(--white);
+    --text-color: var(--black);
+    --background-dark: #000; /* 추가: 다크 모드 배경 색상 */
+    --text-color-light: #fff; /* 추가: 다크 모드 텍스트 색상 */
+}
+
+.dark-mode {
+    --background: var(--background-dark);
+    --text-color: var(--text-color-light);
 }
 
 input, input:focus{
@@ -46,7 +62,7 @@ input, input:focus{
 
 a {
   text-decoration: none;
-  color: var(--black);
+  color: var(--text-color);
 }
 
 button {
@@ -63,5 +79,14 @@ button {
     }
 }
 
+${({ darkMode }) =>
+  darkMode &&
+  `
+  body {
+    background-color: var(--background-dark);
+    color: var(--text-color-light);
+  }
+`}
 `;
+
 export default GlobalStyle;
