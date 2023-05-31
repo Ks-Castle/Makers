@@ -54,17 +54,17 @@ const Wrapper = styled.div`
     position: absolute;
     font-size: 2.2rem;
     -webkit-text-stroke-width: 10px;
-    -webkit-text-stroke-color: var(--black);
-    -webkit-text-fill-color: var(--white);
+    -webkit-text-stroke-color: var(--dark-100);
+    -webkit-text-fill-color: var(--dark-000);
     font-family: Impact, Charcoal, sans-serif;
   }
   .title {
     position: absolute;
-    color: var(--white);
+    color: var(--dark-000);
   }
   .desc {
     font-size: 1.5rem;
-    color: var(--black);
+    color: var(--dark-100);
     width: 100%;
     text-align: center;
     margin-top: 2rem;

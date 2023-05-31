@@ -76,7 +76,7 @@ const StyledInput = styled.input<InputProps>`
     opacity: 70%;
     font-size: 1.4rem;
     color: ${(props) =>
-      props.readOnly ? `var(--black)` : `var(--placeholder)`};
+      props.readOnly ? `var(--dark-100)` : `var(--dark-060)`};
   }
 `;
 

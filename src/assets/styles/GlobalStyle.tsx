@@ -35,23 +35,18 @@ html{
   font-family: 'Roboto';
 }
 
-body {
-  background-color: var(--background);
-  color: var(--text-color);
-}
-
 :root {
-    --white: #fff;
-    --black: #000;
-    --background: var(--white);
-    --text-color: var(--black);
-    --background-dark: #000; 
-    --text-color-light: #fff; 
-}
+  --dark-000: #fff;
+  --dark-010: #F2F2F2;
+  --dark-020: #CCC;
+  --dark-030: #B3B3B3;
+  --dark-040: #999;
 
-.dark-mode {
-    --background: var(--background-dark);
-    --text-color: var(--text-color-light);
+  --dark-060: #666;
+  --dark-070: #333;
+  --dark-080: #1A1A1A;
+  --dark-090: #0D0D0D;
+  --dark-100: #000;
 }
 
 input, input:focus{
@@ -59,10 +54,9 @@ input, input:focus{
   outline: none;
 }
 
-
 a {
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--dark-100);
 }
 
 button {
@@ -80,11 +74,17 @@ button {
 }
 
 ${({ darkMode }) =>
-  darkMode &&
-  `
+  darkMode
+    ? `
   body {
-    background-color: var(--background-dark);
-    color: var(--text-color-light);
+    background-color: var(--dark-070);
+    color: var(--dark-000);
+  }
+`
+    : `
+  body {
+    background-color: var(--dark-000);
+    color: var(--dark-090);
   }
 `}
 `;

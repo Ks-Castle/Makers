@@ -31,7 +31,7 @@ const Button = ({
   height = "100",
   bg = "#5e5e5e",
   round = "10px",
-  color = "var(--white)",
+  color = "var(--dark-000)",
   disabled = false,
   size = "1.6",
   ...props

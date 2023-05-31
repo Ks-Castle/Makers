@@ -42,7 +42,7 @@ const HeaderWrap = styled.header`
   position: fixed;
   top: 0;
   z-index: 10;
-  background-color: var(--white);
+  background-color: var(--dark-000);
   width: 100%;
   height: ${STR.LAYOUT_HEADER_HEIGHT};
   box-shadow: ${SHADOW.BOTTOM_4};
