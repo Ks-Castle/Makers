@@ -23,9 +23,17 @@ const TierMaking = () => {
   const data = tierListArray.find((item) => item.title === param);
 
   const [tierDataBox, setTierDataBox] = useState<BoxList>(data?.imgs || []);
+  const [tier1Boxes, setTier1Boxes] = useState<BoxList>([]);
   const [tier2Boxes, setTier2Boxes] = useState<BoxList>([]);
   const [tier3Boxes, setTier3Boxes] = useState<BoxList>([]);
   const [tier4Boxes, setTier4Boxes] = useState<BoxList>([]);
+
+  const tierContainers = [
+    { id: "tierContainers1", boxes: tier1Boxes },
+    { id: "tierContainers2", boxes: tier2Boxes },
+    { id: "tierContainers3", boxes: tier3Boxes },
+    { id: "tierContainers4", boxes: tier4Boxes },
+  ];
 
   const handleDragEnd = (result: DropResult) => {
     const { source, destination } = result;
@@ -37,160 +45,86 @@ const TierMaking = () => {
     const sourceIndex = source.index;
     const destinationIndex = destination.index;
 
-    let sourceBoxes: BoxList = [];
-    let setSourceBoxes:
-      | React.Dispatch<React.SetStateAction<BoxList>>
-      | undefined;
+    const containers = [
+      { id: "tierContainers", boxes: tierDataBox, setBoxes: setTierDataBox },
+      { id: "tierContainers1", boxes: tier1Boxes, setBoxes: setTier1Boxes },
+      { id: "tierContainers2", boxes: tier2Boxes, setBoxes: setTier2Boxes },
+      { id: "tierContainers3", boxes: tier3Boxes, setBoxes: setTier3Boxes },
+      { id: "tierContainers4", boxes: tier4Boxes, setBoxes: setTier4Boxes },
+    ];
 
-    switch (sourceId) {
-      case "tierContainers":
-        sourceBoxes = tierDataBox;
-        setSourceBoxes = setTierDataBox;
-        break;
-      case "tierContainers2":
-        sourceBoxes = tier2Boxes;
-        setSourceBoxes = setTier2Boxes;
-        break;
-      case "tierContainers3":
-        sourceBoxes = tier3Boxes;
-        setSourceBoxes = setTier3Boxes;
-        break;
-      case "tierContainers4":
-        sourceBoxes = tier4Boxes;
-        setSourceBoxes = setTier4Boxes;
-        break;
-      default:
-        break;
-    }
+    const sourceContainer = containers.find(
+      (container) => container.id === sourceId
+    );
+    const destinationContainer = containers.find(
+      (container) => container.id === destinationId
+    );
 
-    let destinationBoxes: BoxList = sourceBoxes;
-    let setDestinationBoxes:
-      | React.Dispatch<React.SetStateAction<BoxList>>
-      | undefined;
+    if (sourceContainer && destinationContainer) {
+      const sourceBoxes = sourceContainer.boxes;
+      const setSourceBoxes = sourceContainer.setBoxes;
+      const destinationBoxes = destinationContainer.boxes;
+      const setDestinationBoxes = destinationContainer.setBoxes;
 
-    if (sourceId !== destinationId || sourceIndex !== destinationIndex) {
-      switch (destinationId) {
-        case "tierContainers":
-          destinationBoxes = tierDataBox;
-          setDestinationBoxes = setTierDataBox;
-          break;
-        case "tierContainers2":
-          destinationBoxes = tier2Boxes;
-          setDestinationBoxes = setTier2Boxes;
-          break;
-        case "tierContainers3":
-          destinationBoxes = tier3Boxes;
-          setDestinationBoxes = setTier3Boxes;
-          break;
-        case "tierContainers4":
-          destinationBoxes = tier4Boxes;
-          setDestinationBoxes = setTier4Boxes;
-          break;
-        default:
-          break;
+      if (sourceId === destinationId && sourceIndex === destinationIndex) {
+        // Same container, same index, no change
+        return;
       }
 
       const sourceClone = Array.from(sourceBoxes);
       const [removed] = sourceClone.splice(sourceIndex, 1);
 
       if (sourceId === destinationId) {
+        // Same container, different index
         sourceClone.splice(destinationIndex, 0, removed);
       } else {
+        // Different container
         const destClone = Array.from(destinationBoxes);
         destClone.splice(destinationIndex, 0, removed);
-        setDestinationBoxes && setDestinationBoxes(destClone);
+        setDestinationBoxes(destClone);
       }
 
-      if (setSourceBoxes) {
-        setSourceBoxes(sourceClone);
-      }
+      setSourceBoxes(sourceClone);
     }
   };
+
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <Layout>
         <Head link="Tier Maker" />
         <Wrapper>
-          <Droppable droppableId="tierContainers2" direction="horizontal">
-            {(provided) => (
-              <TierContainer
-                ref={provided.innerRef}
-                {...provided.droppableProps}
-              >
-                {tier2Boxes.map((url, index) => (
-                  <Draggable
-                    key={`${url}-${index}`}
-                    draggableId={`${url}-${index}`}
-                    index={index}
-                  >
-                    {(provided) => (
-                      <Box
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        url={url}
-                      />
-                    )}
-                  </Draggable>
-                ))}
-                {provided.placeholder}
-              </TierContainer>
-            )}
-          </Droppable>
-
-          <Droppable droppableId="tierContainers3" direction="horizontal">
-            {(provided) => (
-              <TierContainer
-                ref={provided.innerRef}
-                {...provided.droppableProps}
-              >
-                {tier3Boxes.map((url, index) => (
-                  <Draggable
-                    key={`${url}-${index}`}
-                    draggableId={`${url}-${index}`}
-                    index={index}
-                  >
-                    {(provided) => (
-                      <Box
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        url={url}
-                      />
-                    )}
-                  </Draggable>
-                ))}
-                {provided.placeholder}
-              </TierContainer>
-            )}
-          </Droppable>
-
-          <Droppable droppableId="tierContainers4" direction="horizontal">
-            {(provided) => (
-              <TierContainer
-                ref={provided.innerRef}
-                {...provided.droppableProps}
-              >
-                {tier4Boxes.map((url, index) => (
-                  <Draggable
-                    key={`${url}-${index}`}
-                    draggableId={`${url}-${index}`}
-                    index={index}
-                  >
-                    {(provided) => (
-                      <Box
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        url={url}
-                      />
-                    )}
-                  </Draggable>
-                ))}
-                {provided.placeholder}
-              </TierContainer>
-            )}
-          </Droppable>
+          {tierContainers.map((container) => (
+            <Droppable
+              key={container.id}
+              droppableId={container.id}
+              direction="horizontal"
+            >
+              {(provided) => (
+                <TierContainer
+                  ref={provided.innerRef}
+                  {...provided.droppableProps}
+                >
+                  {container.boxes.map((url, index) => (
+                    <Draggable
+                      key={`${url}-${index}`}
+                      draggableId={`${url}-${index}`}
+                      index={index}
+                    >
+                      {(provided) => (
+                        <Box
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                          url={url}
+                        />
+                      )}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
+                </TierContainer>
+              )}
+            </Droppable>
+          ))}
 
           <Droppable droppableId="tierContainers" direction="horizontal">
             {(provided) => (
