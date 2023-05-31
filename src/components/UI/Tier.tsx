@@ -75,6 +75,14 @@ const Wrapper = styled.div<{ theme: string }>`
     text-align: center;
     margin-top: 2rem;
   }
+  @media (max-width: ${RESOLUTION.TABLET}px) {
+    .title-container {
+      font-size: 1.5rem;
+    }
+    .title-bg {
+      font-size: 1.8rem;
+    }
+  }
 `;
 
 const StyledButton = styled(Button)`
