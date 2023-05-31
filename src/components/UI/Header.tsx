@@ -18,19 +18,31 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
   };
 
   return (
-    <HeaderWrap>
+    <HeaderWrap className="headerBG">
       <HeaderCenter>
-        <SVG
-          iconName="Logo"
-          width={`${UI._200}px`}
-          pointer
-          onClick={logoNavigation}
-          contain
-        />
-        <button onClick={toggleDarkMode}>
-          {darkMode ? "라이트 모드로 전환" : "다크 모드로 전환"}
-        </button>
-        <div>Login</div>
+        <div onClick={logoNavigation} className="logo">
+          Makers
+        </div>
+        <div className="header-functions">
+          {darkMode ? (
+            <SVG
+              iconName="Light"
+              onClick={toggleDarkMode}
+              width="20px"
+              height="20px"
+              pointer
+            />
+          ) : (
+            <SVG
+              iconName="Dark"
+              onClick={toggleDarkMode}
+              width="20px"
+              height="20px"
+              pointer
+            />
+          )}
+          <div>Login</div>
+        </div>
       </HeaderCenter>
     </HeaderWrap>
   );
@@ -42,7 +54,6 @@ const HeaderWrap = styled.header`
   position: fixed;
   top: 0;
   z-index: 10;
-  background-color: var(--dark-000);
   width: 100%;
   height: ${STR.LAYOUT_HEADER_HEIGHT};
   box-shadow: ${SHADOW.BOTTOM_4};
@@ -52,23 +63,9 @@ const HeaderCenter = styled.div`
   ${flex({ justify: "space-between" })}
   max-width: ${RESOLUTION.PC}px;
   width: 90%;
-  div {
-    font-size: ${FONT_SIZE[16]};
-    font-weight: 900;
-    margin: 0 2rem;
-  }
-  @media (max-width: ${RESOLUTION.TABLET}px) {
-    .svgClass {
-      width: 80px;
-      background-size: contain;
-      margin: 0;
-    }
-  }
-  @media (min-width: ${RESOLUTION.PC}px) {
-    .svgClass {
-      width: 150px;
-      background-size: contain;
-      margin: 0;
-    }
+  font-size: ${FONT_SIZE[16]};
+  font-weight: 900;
+  .header-functions {
+    ${flex({ gap: "2rem" })}
   }
 `;

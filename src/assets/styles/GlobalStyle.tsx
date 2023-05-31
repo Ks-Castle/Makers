@@ -73,19 +73,25 @@ button {
     }
 }
 
+.logo{
+  cursor: pointer;
+}
+
 ${({ darkMode }) =>
   darkMode
     ? `
   body {
-    background-color: var(--dark-070);
+    background-color: var(--dark-100);
     color: var(--dark-000);
   }
+
 `
     : `
   body {
     background-color: var(--dark-000);
     color: var(--dark-090);
   }
+
 `}
 `;
 
