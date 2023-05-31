@@ -176,6 +176,13 @@ const Wrapper = styled.div`
     max-width: ${RESOLUTION.PC}px;
     width: 90%;
   }
+  @media (max-width: ${RESOLUTION.TABLET}px) {
+    .containers {
+      ${flex({ direction: "column" })}
+      max-width: ${RESOLUTION.PC}px;
+      width: 90%;
+    }
+  }
 `;
 
 const ContainerTitle = styled.div<{ color: string }>`
@@ -185,6 +192,10 @@ const ContainerTitle = styled.div<{ color: string }>`
   height: 100%;
   border: 3px solid black;
   background-color: ${(props) => props.color};
+  @media (max-width: ${RESOLUTION.TABLET}px) {
+    width: 100%;
+    height: 30px;
+  }
 `;
 
 const TierContainer = styled.div`
@@ -196,6 +207,9 @@ const TierContainer = styled.div`
   background-color: var(--dark-010);
   border: solid black;
   border-width: 3px 3px 3px 0;
+  @media (max-width: ${RESOLUTION.TABLET}px) {
+    border-width: 3px 3px 3px 3px;
+  }
 `;
 
 const ImageBoxContainer = styled.div`

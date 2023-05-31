@@ -53,7 +53,7 @@ const HeaderWrap = styled.header<{ theme: string }>`
   ${flex({})}
   position: fixed;
   top: 0;
-  z-index: 10;
+  z-index: 100;
   width: 100%;
   height: ${STR.LAYOUT_HEADER_HEIGHT};
   box-shadow: ${SHADOW.DARK_BOTTOM_4};
