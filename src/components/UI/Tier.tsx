@@ -18,7 +18,7 @@ const Tier = ({ data }: { data: TierListDTO }) => {
         height={`${UI._300}`}
         onClick={navigationHandler}
         image
-        shadow={SHADOW.LIGHT_X_1_Y_4}
+        shadow={theme === "true" ? SHADOW.LIGHT_X_1_Y_4 : SHADOW.DARK_X_1_Y_4}
         imageSize="cover"
         imageURL={data.titleImg}
       />
@@ -41,7 +41,8 @@ const Wrapper = styled.div<{ theme: string }>`
   position: relative;
   margin-top: 4rem;
   background-color: var(--dark-000);
-  box-shadow: ${SHADOW.LIGHT_X_1_Y_4};
+  box-shadow: ${(props) =>
+    props.theme === "true" ? SHADOW.LIGHT_X_1_Y_4 : SHADOW.DARK_X_1_Y_4};
   border: ${(props) => props.theme === "true" && `1px solid var(--dark-000)`};
 
   .title-container {
@@ -51,7 +52,8 @@ const Wrapper = styled.div<{ theme: string }>`
     font-size: 2rem;
     font-weight: 900;
     width: 100%;
-    text-shadow: ${SHADOW.LIGHT_X_1_Y_4};
+    text-shadow: ${(props) =>
+      props.theme === "true" ? SHADOW.LIGHT_X_1_Y_4 : SHADOW.DARK_X_1_Y_4};
     z-index: 5;
   }
   .title-bg {

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const HomeMenu = ({ url, link }: { url: string; link: string }) => {
+  const theme = localStorage.getItem("theme");
   const navigate = useNavigate();
 
   const navigationHandler = () => {
@@ -16,7 +17,7 @@ const HomeMenu = ({ url, link }: { url: string; link: string }) => {
       image
       imageURL={url}
       imageSize="cover"
-      shadow={SHADOW.LIGHT_X_1_Y_4}
+      shadow={theme === "true" ? SHADOW.LIGHT_X_1_Y_4 : SHADOW.DARK_X_1_Y_4}
       onClick={navigationHandler}
     />
   );

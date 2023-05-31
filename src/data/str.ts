@@ -17,11 +17,11 @@ export const STR = {
 };
 
 export const SHADOW = {
-  LIGHT_BOTTOM_4: "0px 0px 4px rgba(0, 0, 0, 0.25)",
-  LIGHT_X_1_Y_4: "0px 1px 4px rgba(0, 0, 0, 0.25);",
+  DARK_BOTTOM_4: "0px 0px 4px rgba(0, 0, 0, 0.25)",
+  DARK_X_1_Y_4: "0px 1px 4px rgba(0, 0, 0, 0.25);",
 
-  DARK_BOTTOM_4: "0px 0px 4px rgba(1, 1, 1, 0.25)",
-  DARK_X_1_Y_4: "0px 1px 4px rgba(1, 1, 1, 0.25);",
+  LIGHT_BOTTOM_10: "0px 0px 10px rgba(255, 255, 255, 0.25)",
+  LIGHT_X_1_Y_4: "1px 3px 22px -1px rgba(255, 255, 255, 0.5);",
 };
 
 export const FONT_SIZE = {

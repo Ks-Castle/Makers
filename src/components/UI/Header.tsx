@@ -11,14 +11,14 @@ interface HeaderProps {
 }
 
 const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
+  const theme = localStorage.getItem("theme");
   const navigate = useNavigate();
-
   const logoNavigation = () => {
     navigate(navigation.Home.path);
   };
 
   return (
-    <HeaderWrap className="headerBG">
+    <HeaderWrap className="headerBG" theme={theme}>
       <HeaderCenter>
         <div onClick={logoNavigation} className="logo">
           Makers
@@ -49,14 +49,16 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
 };
 
 export default Header;
-const HeaderWrap = styled.header`
+const HeaderWrap = styled.header<{ theme: string }>`
   ${flex({})}
   position: fixed;
   top: 0;
   z-index: 10;
   width: 100%;
   height: ${STR.LAYOUT_HEADER_HEIGHT};
-  box-shadow: ${SHADOW.LIGHT_BOTTOM_4};
+  box-shadow: ${SHADOW.DARK_BOTTOM_4};
+  box-shadow: ${(props) =>
+    props.theme === "true" ? SHADOW.LIGHT_BOTTOM_10 : SHADOW.DARK_BOTTOM_4};
 `;
 
 const HeaderCenter = styled.div`
