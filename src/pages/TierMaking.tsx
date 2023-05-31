@@ -2,7 +2,7 @@ import flex from "@/assets/styles/flex";
 import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
 import { tierListArrayState } from "@/data/recoil";
-import { RESOLUTION } from "@/data/str";
+import { FONT_SIZE, RESOLUTION } from "@/data/str";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import {
@@ -34,6 +34,9 @@ const TierMaking = () => {
     { id: "tierContainers3", boxes: tier3Boxes },
     { id: "tierContainers4", boxes: tier4Boxes },
   ];
+
+  const color = ["#F96B6B", "#FFEE93", "#96FFB3", "#90A2FF"];
+  const text = ["S", "A", "B", "C"];
 
   const handleDragEnd = (result: DropResult) => {
     const { source, destination } = result;
@@ -93,37 +96,40 @@ const TierMaking = () => {
       <Layout>
         <Head link="Tier Maker" />
         <Wrapper>
-          {tierContainers.map((container) => (
-            <Droppable
-              key={container.id}
-              droppableId={container.id}
-              direction="horizontal"
-            >
-              {(provided) => (
-                <TierContainer
-                  ref={provided.innerRef}
-                  {...provided.droppableProps}
-                >
-                  {container.boxes.map((url, index) => (
-                    <Draggable
-                      key={`${url}-${index}`}
-                      draggableId={`${url}-${index}`}
-                      index={index}
-                    >
-                      {(provided) => (
-                        <Box
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                          url={url}
-                        />
-                      )}
-                    </Draggable>
-                  ))}
-                  {provided.placeholder}
-                </TierContainer>
-              )}
-            </Droppable>
+          {tierContainers.map((container, i) => (
+            <div key={i} className="containers">
+              <ContainerTitle color={color[i]}>{text[i]}</ContainerTitle>
+              <Droppable
+                key={container.id}
+                droppableId={container.id}
+                direction="horizontal"
+              >
+                {(provided) => (
+                  <TierContainer
+                    ref={provided.innerRef}
+                    {...provided.droppableProps}
+                  >
+                    {container.boxes.map((url, index) => (
+                      <Draggable
+                        key={`${url}-${index}`}
+                        draggableId={`${url}-${index}`}
+                        index={index}
+                      >
+                        {(provided) => (
+                          <Box
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            url={url}
+                          />
+                        )}
+                      </Draggable>
+                    ))}
+                    {provided.placeholder}
+                  </TierContainer>
+                )}
+              </Droppable>
+            </div>
           ))}
 
           <Droppable droppableId="tierContainers" direction="horizontal">
@@ -165,16 +171,31 @@ const Wrapper = styled.div`
   overflow: scroll;
   width: 100%;
   height: 100%;
+  .containers {
+    ${flex({})}
+    max-width: ${RESOLUTION.PC}px;
+    width: 90%;
+  }
+`;
+
+const ContainerTitle = styled.div<{ color: string }>`
+  ${flex({})}
+  font-size: ${FONT_SIZE[20]};
+  width: 100px;
+  height: 100%;
+  border: 3px solid black;
+  background-color: ${(props) => props.color};
 `;
 
 const TierContainer = styled.div`
   ${flex({ justify: "flex-start" })}
-  max-width: ${RESOLUTION.PC}px;
   flex-wrap: wrap;
-  width: 90%;
+  width: 100%;
   min-height: 100px;
-  border: 1px solid black;
   padding: 1rem;
+  background-color: var(--dark-010);
+  border: solid black;
+  border-width: 3px 3px 3px 0;
 `;
 
 const ImageBoxContainer = styled.div`
@@ -184,8 +205,10 @@ const ImageBoxContainer = styled.div`
   width: 90%;
   min-height: 100px;
   max-height: 200px;
-  border: 1px solid black;
+  border: 3px solid black;
   overflow: scroll;
+  padding: 1rem;
+  background-color: var(--dark-010);
 `;
 
 const Box = styled.div<{ url: string }>`
