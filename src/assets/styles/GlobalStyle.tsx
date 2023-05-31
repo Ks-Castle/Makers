@@ -9,15 +9,15 @@ interface GlobalStyleProps {
 const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
 ${reset}
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 /* Chrome, Safari, Opera */
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -28,11 +28,6 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
-}
-
-html{
-  font-size: 10px;
-  font-family: 'Roboto';
 }
 
 :root {
@@ -49,7 +44,17 @@ html{
   --dark-100: #000;
 }
 
-input, input:focus{
+
+html {
+  font-size: 10px;
+  font-family: 'Roboto';
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+input, input:focus {
   border: none;
   outline: none;
 }
@@ -61,19 +66,19 @@ a {
 
 button {
   border: none;
-    &:hover {
-      opacity: 70%;
-    }
-    &:active{
-      opacity: 40%;
-    }
-    &:disabled{
-      opacity: 50%;
-      cursor: default;
-    }
+  &:hover {
+    opacity: 70%;
+  }
+  &:active {
+    opacity: 40%;
+  }
+  &:disabled {
+    opacity: 50%;
+    cursor: default;
+  }
 }
 
-.logo{
+.logo {
   cursor: pointer;
 }
 
@@ -84,15 +89,14 @@ ${({ darkMode }) =>
     background-color: var(--dark-100);
     color: var(--dark-000);
   }
-
-`
+  `
     : `
   body {
     background-color: var(--dark-000);
     color: var(--dark-090);
   }
-
 `}
+
 `;
 
 export default GlobalStyle;
