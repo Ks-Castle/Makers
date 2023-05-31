@@ -4,19 +4,21 @@ import Layout from "@/components/UI/Layout";
 import Tier from "@/components/UI/Tier";
 import { TierListDTO } from "@/data/DTO";
 import { db } from "@/data/firebase";
+import { tierListArrayState } from "@/data/recoil";
 import { RESOLUTION } from "@/data/str";
 import { collection, getDocs } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
 
 const TierList = () => {
-  const [data, setData] = useState<TierListDTO[]>([]);
+  const [data, setData] = useRecoilState(tierListArrayState);
 
   useEffect(() => {
     const dbCollection = collection(db, `tierLists`);
     const getData = async () => {
       const data = await getDocs(dbCollection);
-      return setData(data.docs.map((doc) => doc.data() as TierListDTO));
+      setData(data.docs.map((doc) => doc.data() as TierListDTO));
     };
     getData();
   }, []);
