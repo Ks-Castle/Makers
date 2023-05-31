@@ -5,6 +5,7 @@ export enum RESOLUTION {
 }
 
 export enum UI {
+  _300 = 300,
   _250 = 250,
   _200 = 200,
   _150 = 150,
@@ -16,8 +17,11 @@ export const STR = {
 };
 
 export const SHADOW = {
-  BOTTOM_4: "0px 0px 4px rgba(0, 0, 0, 0.25)",
-  X_1_Y_4: "0px 1px 4px rgba(0, 0, 0, 0.25);",
+  LIGHT_BOTTOM_4: "0px 0px 4px rgba(0, 0, 0, 0.25)",
+  LIGHT_X_1_Y_4: "0px 1px 4px rgba(0, 0, 0, 0.25);",
+
+  DARK_BOTTOM_4: "0px 0px 4px rgba(1, 1, 1, 0.25)",
+  DARK_X_1_Y_4: "0px 1px 4px rgba(1, 1, 1, 0.25);",
 };
 
 export const FONT_SIZE = {

@@ -16,7 +16,7 @@ const HomeMenu = ({ url, link }: { url: string; link: string }) => {
       image
       imageURL={url}
       imageSize="cover"
-      shadow={SHADOW.X_1_Y_4}
+      shadow={SHADOW.LIGHT_X_1_Y_4}
       onClick={navigationHandler}
     />
   );

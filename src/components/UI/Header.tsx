@@ -56,7 +56,7 @@ const HeaderWrap = styled.header`
   z-index: 10;
   width: 100%;
   height: ${STR.LAYOUT_HEADER_HEIGHT};
-  box-shadow: ${SHADOW.BOTTOM_4};
+  box-shadow: ${SHADOW.LIGHT_BOTTOM_4};
 `;
 
 const HeaderCenter = styled.div`

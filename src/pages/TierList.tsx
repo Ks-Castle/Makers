@@ -44,7 +44,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   @media (max-width: ${RESOLUTION.PC}px) {
-    grid-template-columns: repeat(3, 160px);
+    grid-template-columns: repeat(2, 200px);
   }
   @media (max-width: ${RESOLUTION.TABLET}px) {
     grid-template-columns: repeat(2, 150px);

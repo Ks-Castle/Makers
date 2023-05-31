@@ -6,18 +6,19 @@ import flex from "@/assets/styles/flex";
 import { TierListDTO } from "@/data/DTO";
 
 const Tier = ({ data }: { data: TierListDTO }) => {
+  const theme = localStorage.getItem("theme");
   const navigate = useNavigate();
   const navigationHandler = () => {
     navigate(`/TierGenerate/${data.title}`);
   };
   return (
-    <Wrapper>
+    <Wrapper theme={theme}>
       <StyledButton
         width={`${UI._200}`}
-        height={`${UI._250}`}
+        height={`${UI._300}`}
         onClick={navigationHandler}
         image
-        shadow={SHADOW.X_1_Y_4}
+        shadow={SHADOW.LIGHT_X_1_Y_4}
         imageSize="cover"
         imageURL={data.titleImg}
       />
@@ -34,12 +35,15 @@ const Tier = ({ data }: { data: TierListDTO }) => {
 
 export default Tier;
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ theme: string }>`
   ${flex({ direction: "column" })}
-  box-shadow: ${SHADOW.X_1_Y_4};
   border-radius: 10px;
   position: relative;
   margin-top: 4rem;
+  background-color: var(--dark-000);
+  box-shadow: ${SHADOW.LIGHT_X_1_Y_4};
+  border: ${(props) => props.theme === "true" && `1px solid var(--dark-000)`};
+
   .title-container {
     ${flex({ direction: "column" })}
     position: relative;
@@ -47,7 +51,7 @@ const Wrapper = styled.div`
     font-size: 2rem;
     font-weight: 900;
     width: 100%;
-    text-shadow: ${SHADOW.X_1_Y_4};
+    text-shadow: ${SHADOW.LIGHT_X_1_Y_4};
     z-index: 5;
   }
   .title-bg {
@@ -73,9 +77,6 @@ const Wrapper = styled.div`
 
 const StyledButton = styled(Button)`
   z-index: 5;
-  @media (max-width: ${RESOLUTION.PC}px) {
-    height: ${UI._200}px;
-  }
   @media (max-width: ${RESOLUTION.TABLET}px) {
     height: ${UI._200}px;
   }
