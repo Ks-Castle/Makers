@@ -179,8 +179,6 @@ const Wrapper = styled.div`
   @media (max-width: ${RESOLUTION.TABLET}px) {
     .containers {
       ${flex({ direction: "column" })}
-      max-width: ${RESOLUTION.PC}px;
-      width: 90%;
     }
   }
 `;
