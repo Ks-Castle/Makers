@@ -36,7 +36,7 @@ const TierMaking = () => {
   ];
 
   const color = ["#F96B6B", "#FFEE93", "#96FFB3", "#90A2FF"];
-  const text = ["S", "A", "B", "C"];
+  const [text, setText] = useState<string[]>(["S", "A", "B", "C"]);
 
   const handleDragEnd = (result: DropResult) => {
     const { source, destination } = result;
@@ -91,6 +91,12 @@ const TierMaking = () => {
     }
   };
 
+  const handleChange = (index: number, value: string) => {
+    const newText = [...text];
+    newText[index] = value.substring(0, 10);
+    setText(newText);
+  };
+
   return (
     <Layout>
       <Head link="Tier Maker" />
@@ -98,7 +104,13 @@ const TierMaking = () => {
         <DragDropContext onDragEnd={handleDragEnd}>
           {tierContainers.map((container, i) => (
             <div key={i} className="containers">
-              <ContainerTitle color={color[i]}>{text[i]}</ContainerTitle>
+              <ContainerTitle color={color[i]}>
+                <input
+                  type="text"
+                  value={text[i]}
+                  onChange={(e) => handleChange(i, e.target.value)}
+                />
+              </ContainerTitle>
               <Droppable
                 key={container.id}
                 droppableId={container.id}
@@ -185,10 +197,13 @@ const Wrapper = styled.div`
 const ContainerTitle = styled.div<{ color: string }>`
   ${flex({})}
   font-size: ${FONT_SIZE[20]};
-  width: 100px;
   height: 100%;
   border: 3px solid black;
   background-color: ${(props) => props.color};
+  input {
+    text-align: center;
+    background-color: transparent;
+  }
   @media (max-width: ${RESOLUTION.TABLET}px) {
     width: 100%;
     height: 30px;
