@@ -92,10 +92,10 @@ const TierMaking = () => {
   };
 
   return (
-    <DragDropContext onDragEnd={handleDragEnd}>
-      <Layout>
-        <Head link="Tier Maker" />
-        <Wrapper>
+    <Layout>
+      <Head link="Tier Maker" />
+      <Wrapper>
+        <DragDropContext onDragEnd={handleDragEnd}>
           {tierContainers.map((container, i) => (
             <div key={i} className="containers">
               <ContainerTitle color={color[i]}>{text[i]}</ContainerTitle>
@@ -131,7 +131,6 @@ const TierMaking = () => {
               </Droppable>
             </div>
           ))}
-
           <Droppable droppableId="tierContainers" direction="horizontal">
             {(provided) => (
               <ImageBoxContainer
@@ -158,27 +157,27 @@ const TierMaking = () => {
               </ImageBoxContainer>
             )}
           </Droppable>
-        </Wrapper>
-      </Layout>
-    </DragDropContext>
+        </DragDropContext>
+      </Wrapper>
+    </Layout>
   );
 };
 
 export default TierMaking;
 
 const Wrapper = styled.div`
-  ${flex({ direction: "column", gap: "1rem" })}
-  overflow: scroll;
-  width: 100%;
+  max-width: ${RESOLUTION.PC}px;
+  width: 90%;
   height: 100%;
+  overflow: scroll;
   .containers {
     ${flex({})}
-    max-width: ${RESOLUTION.PC}px;
-    width: 90%;
+    height: 100px;
   }
   @media (max-width: ${RESOLUTION.TABLET}px) {
     .containers {
       ${flex({ direction: "column" })}
+      height: auto;
     }
   }
 `;
@@ -213,10 +212,7 @@ const TierContainer = styled.div`
 const ImageBoxContainer = styled.div`
   ${flex({})}
   flex-wrap: wrap;
-  max-width: ${RESOLUTION.PC}px;
-  width: 90%;
-  min-height: 100px;
-  max-height: 200px;
+  width: 100%;
   border: 3px solid black;
   overflow: scroll;
   padding: 1rem;
