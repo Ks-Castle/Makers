@@ -35,8 +35,13 @@ const TierMaking = () => {
     { id: "tierContainers4", boxes: tier4Boxes },
   ];
 
-  const color = ["#F96B6B", "#FFEE93", "#96FFB3", "#90A2FF"];
   const [text, setText] = useState<string[]>(["S", "A", "B", "C"]);
+  const [color, setColor] = useState<string[]>([
+    "#F96B6B",
+    "#FFEE93",
+    "#96FFB3",
+    "#90A2FF",
+  ]);
 
   const handleDragEnd = (result: DropResult) => {
     const { source, destination } = result;
@@ -91,10 +96,15 @@ const TierMaking = () => {
     }
   };
 
-  const handleChange = (index: number, value: string) => {
+  const handleChangeText = (index: number, value: string) => {
     const newText = [...text];
     newText[index] = value.substring(0, 10);
     setText(newText);
+  };
+  const handleChangeColor = (index: number, value: string) => {
+    const newColor = [...color];
+    newColor[index] = value;
+    setColor(newColor);
   };
 
   return (
@@ -108,7 +118,13 @@ const TierMaking = () => {
                 <input
                   type="text"
                   value={text[i]}
-                  onChange={(e) => handleChange(i, e.target.value)}
+                  onChange={(e) => handleChangeText(i, e.target.value)}
+                />
+                <input
+                  type="color"
+                  value={color[i]}
+                  onChange={(e) => handleChangeColor(i, e.target.value)}
+                  className="input-color"
                 />
               </ContainerTitle>
               <Droppable
@@ -195,14 +211,27 @@ const Wrapper = styled.div`
 `;
 
 const ContainerTitle = styled.div<{ color: string }>`
-  ${flex({})}
+  ${flex({ direction: "column" })}
   font-size: ${FONT_SIZE[20]};
   height: 100%;
   border: 3px solid black;
   background-color: ${(props) => props.color};
+  position: relative;
   input {
     text-align: center;
     background-color: transparent;
+  }
+  .input-color {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2em;
+    height: 2em;
+  }
+  input[type="color"]::-webkit-color-swatch {
+    border-radius: 100%;
+    box-shadow: 1px 1px 3px 0px grey;
+    cursor: pointer;
   }
   @media (max-width: ${RESOLUTION.TABLET}px) {
     width: 100%;
