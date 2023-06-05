@@ -206,6 +206,7 @@ const TierContainer = styled.div`
   border-width: 3px 3px 3px 0;
   @media (max-width: ${RESOLUTION.TABLET}px) {
     border-width: 3px 3px 3px 3px;
+    min-height: 50px;
   }
 `;
 
@@ -226,7 +227,8 @@ const Box = styled.div<{ url: string }>`
   background-position: center;
   background-size: cover;
   @media (max-width: ${RESOLUTION.TABLET}px) {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
+    margin: 0.1rem;
   }
 `;
