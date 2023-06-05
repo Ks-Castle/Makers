@@ -146,11 +146,29 @@ const TierMaking = () => {
       return;
     }
 
+    const lastContainerIndex = tierContainers.length - 1;
+    const lastContainer = tierContainers[lastContainerIndex];
+    const removedBoxes = lastContainer.boxes;
+
+    setTierDataBox((prevData) => {
+      return [...removedBoxes, ...prevData];
+    });
+
     setTierContainers((prevContainers) => {
-      const updatedContainers = [...prevContainers];
-      updatedContainers.pop();
+      const updatedContainers = prevContainers.slice(0, lastContainerIndex);
       return updatedContainers;
     });
+
+    // 컨테이너를 삭제할 때 해당 컨테이너 내의 박스 초기화
+    if (lastContainer.id === "tierContainers1") {
+      setTier1Boxes([]);
+    } else if (lastContainer.id === "tierContainers2") {
+      setTier2Boxes([]);
+    } else if (lastContainer.id === "tierContainers3") {
+      setTier3Boxes([]);
+    } else if (lastContainer.id === "tierContainers4") {
+      setTier4Boxes([]);
+    }
   };
 
   return (
