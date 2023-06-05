@@ -12,6 +12,7 @@ import {
   DropResult,
 } from "react-beautiful-dnd";
 import { useState } from "react";
+import SVG from "@/context/SVG";
 
 type BoxList = string[];
 
@@ -28,19 +29,22 @@ const TierMaking = () => {
   const [tier3Boxes, setTier3Boxes] = useState<BoxList>([]);
   const [tier4Boxes, setTier4Boxes] = useState<BoxList>([]);
 
-  const tierContainers = [
+  const [tierContainers, setTierContainers] = useState<
+    { id: string; boxes: BoxList }[]
+  >([
     { id: "tierContainers1", boxes: tier1Boxes },
     { id: "tierContainers2", boxes: tier2Boxes },
     { id: "tierContainers3", boxes: tier3Boxes },
     { id: "tierContainers4", boxes: tier4Boxes },
-  ];
+  ]);
 
-  const [text, setText] = useState<string[]>(["S", "A", "B", "C"]);
+  const [text, setText] = useState<string[]>(["S", "A", "B", "C", "D"]);
   const [color, setColor] = useState<string[]>([
     "#F96B6B",
     "#FFEE93",
     "#96FFB3",
     "#90A2FF",
+    "#8A2BE2",
   ]);
 
   const handleDragEnd = (result: DropResult) => {
@@ -107,6 +111,21 @@ const TierMaking = () => {
     setColor(newColor);
   };
 
+  const handleAddContainer = () => {
+    if (tierContainers.length >= 5) {
+      // 최대 5개의 container만 허용
+      return;
+    }
+
+    const newContainerId = `tierContainers${tierContainers.length + 1}`;
+    const newContainerBoxes: BoxList = [];
+
+    setTierContainers((prevContainers) => [
+      ...prevContainers,
+      { id: newContainerId, boxes: newContainerBoxes },
+    ]);
+  };
+
   return (
     <Layout>
       <Head link="Tier Maker" />
@@ -159,6 +178,9 @@ const TierMaking = () => {
               </Droppable>
             </div>
           ))}
+          <AddContainer onClick={handleAddContainer}>
+            <SVG iconName="Plus" contain />
+          </AddContainer>
           <Droppable droppableId="tierContainers" direction="horizontal">
             {(provided) => (
               <ImageBoxContainer
@@ -262,6 +284,19 @@ const ImageBoxContainer = styled.div`
   overflow: scroll;
   padding: 1rem;
   background-color: var(--dark-010);
+`;
+
+const AddContainer = styled.button`
+  ${flex({})}
+  width: 100%;
+  border: 3px solid black;
+  padding: 1rem;
+  background-color: var(--dark-010);
+  cursor: pointer;
+  height: 70px;
+  @media (max-width: ${RESOLUTION.TABLET}px) {
+    height: 40px;
+  }
 `;
 
 const Box = styled.div<{ url: string }>`
