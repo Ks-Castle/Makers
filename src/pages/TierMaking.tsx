@@ -85,18 +85,34 @@ const TierMaking = () => {
 
       const sourceClone = Array.from(sourceBoxes);
       const [removed] = sourceClone.splice(sourceIndex, 1);
+      const destClone = Array.from(destinationBoxes);
 
       if (sourceId === destinationId) {
         // Same container, different index
         sourceClone.splice(destinationIndex, 0, removed);
+        setSourceBoxes(sourceClone);
       } else {
         // Different container
-        const destClone = Array.from(destinationBoxes);
         destClone.splice(destinationIndex, 0, removed);
+        setDestinationBoxes(destClone);
+        setSourceBoxes(sourceClone);
         setDestinationBoxes(destClone);
       }
 
-      setSourceBoxes(sourceClone);
+      // Update tierContainers state
+      setTierContainers((prevContainers) => {
+        const updatedContainers = prevContainers.map((container) => {
+          if (container.id === sourceId) {
+            return { ...container, boxes: sourceClone };
+          } else if (container.id === destinationId) {
+            return { ...container, boxes: destClone };
+          } else {
+            return container;
+          }
+        });
+
+        return updatedContainers;
+      });
     }
   };
 
@@ -148,7 +164,7 @@ const TierMaking = () => {
             width="25px"
             height="25px"
             pointer
-            onClick={() => handleRemoveContainer()}
+            onClick={handleRemoveContainer}
           />
           <SVG
             iconName="Plus"
