@@ -28,6 +28,7 @@ const TierMaking = () => {
   const [tier2Boxes, setTier2Boxes] = useState<BoxList>([]);
   const [tier3Boxes, setTier3Boxes] = useState<BoxList>([]);
   const [tier4Boxes, setTier4Boxes] = useState<BoxList>([]);
+  const [tier5Boxes, setTier5Boxes] = useState<BoxList>([]);
 
   const [tierContainers, setTierContainers] = useState<
     { id: string; boxes: BoxList }[]
@@ -36,6 +37,7 @@ const TierMaking = () => {
     { id: "tierContainers2", boxes: tier2Boxes },
     { id: "tierContainers3", boxes: tier3Boxes },
     { id: "tierContainers4", boxes: tier4Boxes },
+    { id: "tierContainers5", boxes: tier5Boxes },
   ]);
 
   const [text, setText] = useState<string[]>(["S", "A", "B", "C", "D"]);
@@ -63,6 +65,7 @@ const TierMaking = () => {
       { id: "tierContainers2", boxes: tier2Boxes, setBoxes: setTier2Boxes },
       { id: "tierContainers3", boxes: tier3Boxes, setBoxes: setTier3Boxes },
       { id: "tierContainers4", boxes: tier4Boxes, setBoxes: setTier4Boxes },
+      { id: "tierContainers5", boxes: tier4Boxes, setBoxes: setTier5Boxes },
     ];
 
     const sourceContainer = containers.find(
@@ -176,22 +179,26 @@ const TierMaking = () => {
       <Head link="Tier Maker" />
       <Wrapper>
         <AddMinusContainer>
-          <SVG
-            iconName="Delete"
-            contain
-            width="25px"
-            height="25px"
-            pointer
-            onClick={handleRemoveContainer}
-          />
-          <SVG
-            iconName="Plus"
-            contain
-            width="25px"
-            height="25px"
-            pointer
-            onClick={handleAddContainer}
-          />
+          {tierContainers.length > 2 && (
+            <SVG
+              iconName="Delete"
+              contain
+              width="25px"
+              height="25px"
+              pointer
+              onClick={handleRemoveContainer}
+            />
+          )}
+          {tierContainers.length < 5 && (
+            <SVG
+              iconName="Plus"
+              contain
+              width="25px"
+              height="25px"
+              pointer
+              onClick={handleAddContainer}
+            />
+          )}
         </AddMinusContainer>
         <DragDropContext onDragEnd={handleDragEnd}>
           {tierContainers.map((container, i) => (
