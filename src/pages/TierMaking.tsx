@@ -113,7 +113,6 @@ const TierMaking = () => {
 
   const handleAddContainer = () => {
     if (tierContainers.length >= 5) {
-      // 최대 5개의 container만 허용
       return;
     }
 
@@ -126,10 +125,40 @@ const TierMaking = () => {
     ]);
   };
 
+  const handleRemoveContainer = () => {
+    if (tierContainers.length <= 2) {
+      return;
+    }
+
+    setTierContainers((prevContainers) => {
+      const updatedContainers = [...prevContainers];
+      updatedContainers.pop();
+      return updatedContainers;
+    });
+  };
+
   return (
     <Layout>
       <Head link="Tier Maker" />
       <Wrapper>
+        <AddMinusContainer>
+          <SVG
+            iconName="Delete"
+            contain
+            width="25px"
+            height="25px"
+            pointer
+            onClick={() => handleRemoveContainer()}
+          />
+          <SVG
+            iconName="Plus"
+            contain
+            width="25px"
+            height="25px"
+            pointer
+            onClick={handleAddContainer}
+          />
+        </AddMinusContainer>
         <DragDropContext onDragEnd={handleDragEnd}>
           {tierContainers.map((container, i) => (
             <div key={i} className="containers">
@@ -178,9 +207,6 @@ const TierMaking = () => {
               </Droppable>
             </div>
           ))}
-          <AddContainer onClick={handleAddContainer}>
-            <SVG iconName="Plus" contain />
-          </AddContainer>
           <Droppable droppableId="tierContainers" direction="horizontal">
             {(provided) => (
               <ImageBoxContainer
@@ -232,6 +258,11 @@ const Wrapper = styled.div`
   }
 `;
 
+const AddMinusContainer = styled.div`
+  ${flex({ gap: "1rem", justify: "flex-end" })}
+  padding-right: 3px;
+`;
+
 const ContainerTitle = styled.div<{ color: string }>`
   ${flex({ direction: "column" })}
   font-size: ${FONT_SIZE[20]};
@@ -247,8 +278,8 @@ const ContainerTitle = styled.div<{ color: string }>`
     position: absolute;
     top: 0;
     right: 0;
-    width: 2em;
-    height: 2em;
+    width: 25px;
+    height: 25px;
   }
   input[type="color"]::-webkit-color-swatch {
     border-radius: 100%;
@@ -284,19 +315,6 @@ const ImageBoxContainer = styled.div`
   overflow: scroll;
   padding: 1rem;
   background-color: var(--dark-010);
-`;
-
-const AddContainer = styled.button`
-  ${flex({})}
-  width: 100%;
-  border: 3px solid black;
-  padding: 1rem;
-  background-color: var(--dark-010);
-  cursor: pointer;
-  height: 70px;
-  @media (max-width: ${RESOLUTION.TABLET}px) {
-    height: 40px;
-  }
 `;
 
 const Box = styled.div<{ url: string }>`
