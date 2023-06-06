@@ -11,8 +11,10 @@ import {
   Draggable,
   DropResult,
 } from "react-beautiful-dnd";
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import SVG from "@/context/SVG";
+import { toPng } from "html-to-image";
+import format from "date-fns/format";
 
 type BoxList = string[];
 
@@ -22,6 +24,10 @@ const TierMaking = () => {
     document.location.href.split("/").pop() || ""
   );
   const data = tierListArray.find((item) => item.title === param);
+
+  const ref = useRef<HTMLDivElement>(null);
+  const getFileName = (fileType: string) =>
+    `${format(new Date(), `"'Makers-${param}-'HH-mm-ss"`)}.${fileType}`;
 
   const [tierDataBox, setTierDataBox] = useState<BoxList>(data?.imgs || []);
   const [tier1Boxes, setTier1Boxes] = useState<BoxList>([]);
@@ -174,11 +180,35 @@ const TierMaking = () => {
     }
   };
 
+  const downloadPng = useCallback(() => {
+    if (ref.current === null) {
+      return;
+    }
+    toPng(ref.current, { cacheBust: true })
+      .then((dataUrl) => {
+        const link = document.createElement("a");
+        link.download = `${getFileName("png")}`;
+        link.href = dataUrl;
+        link.click();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [ref]);
+
   return (
     <Layout>
       <Head link="Tier Maker" />
       <Wrapper>
         <AddMinusContainer>
+          <SVG
+            iconName="PNG"
+            contain
+            width="40px"
+            height="40px"
+            pointer
+            onClick={downloadPng}
+          />
           {tierContainers.length > 2 && (
             <SVG
               iconName="Delete"
@@ -201,53 +231,55 @@ const TierMaking = () => {
           )}
         </AddMinusContainer>
         <DragDropContext onDragEnd={handleDragEnd}>
-          {tierContainers.map((container, i) => (
-            <div key={i} className="containers">
-              <ContainerTitle color={color[i]}>
-                <input
-                  type="text"
-                  value={text[i]}
-                  onChange={(e) => handleChangeText(i, e.target.value)}
-                />
-                <input
-                  type="color"
-                  value={color[i]}
-                  onChange={(e) => handleChangeColor(i, e.target.value)}
-                  className="input-color"
-                />
-              </ContainerTitle>
-              <Droppable
-                key={container.id}
-                droppableId={container.id}
-                direction="horizontal"
-              >
-                {(provided) => (
-                  <TierContainer
-                    ref={provided.innerRef}
-                    {...provided.droppableProps}
-                  >
-                    {container.boxes.map((url, index) => (
-                      <Draggable
-                        key={`${url}-${index}`}
-                        draggableId={`${url}-${index}`}
-                        index={index}
-                      >
-                        {(provided) => (
-                          <Box
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                            url={url}
-                          />
-                        )}
-                      </Draggable>
-                    ))}
-                    {provided.placeholder}
-                  </TierContainer>
-                )}
-              </Droppable>
-            </div>
-          ))}
+          <div ref={ref}>
+            {tierContainers.map((container, i) => (
+              <div key={i} className="containers">
+                <ContainerTitle color={color[i]}>
+                  <input
+                    type="text"
+                    value={text[i]}
+                    onChange={(e) => handleChangeText(i, e.target.value)}
+                  />
+                  <input
+                    type="color"
+                    value={color[i]}
+                    onChange={(e) => handleChangeColor(i, e.target.value)}
+                    className="input-color"
+                  />
+                </ContainerTitle>
+                <Droppable
+                  key={container.id}
+                  droppableId={container.id}
+                  direction="horizontal"
+                >
+                  {(provided) => (
+                    <TierContainer
+                      ref={provided.innerRef}
+                      {...provided.droppableProps}
+                    >
+                      {container.boxes.map((url, index) => (
+                        <Draggable
+                          key={`${url}-${index}`}
+                          draggableId={`${url}-${index}`}
+                          index={index}
+                        >
+                          {(provided) => (
+                            <Box
+                              ref={provided.innerRef}
+                              {...provided.draggableProps}
+                              {...provided.dragHandleProps}
+                              url={url}
+                            />
+                          )}
+                        </Draggable>
+                      ))}
+                      {provided.placeholder}
+                    </TierContainer>
+                  )}
+                </Droppable>
+              </div>
+            ))}
+          </div>
           <Droppable droppableId="tierContainers" direction="horizontal">
             {(provided) => (
               <ImageBoxContainer
