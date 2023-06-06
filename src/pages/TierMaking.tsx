@@ -65,7 +65,7 @@ const TierMaking = () => {
       { id: "tierContainers2", boxes: tier2Boxes, setBoxes: setTier2Boxes },
       { id: "tierContainers3", boxes: tier3Boxes, setBoxes: setTier3Boxes },
       { id: "tierContainers4", boxes: tier4Boxes, setBoxes: setTier4Boxes },
-      { id: "tierContainers5", boxes: tier4Boxes, setBoxes: setTier5Boxes },
+      { id: "tierContainers5", boxes: tier5Boxes, setBoxes: setTier5Boxes },
     ];
 
     const sourceContainer = containers.find(
