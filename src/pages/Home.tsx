@@ -37,7 +37,7 @@ const Home = () => {
     <Layout>
       <Head
         link="Home"
-        desc="This is the official homepage of Makers. Please choose the desired category and enjoy exploring the Makers website."
+        desc="Welcome to Makers. Feel Free to Generate Your Own Tier Table or Stat Cards."
       />
       <Wrapper>
         {imgs.map((img: string, i: number) => {
