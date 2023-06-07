@@ -21,6 +21,7 @@ const Tier = ({ data }: { data: TierListDTO }) => {
         shadow={theme === "true" ? SHADOW.LIGHT_X_1_Y_4 : SHADOW.DARK_X_1_Y_4}
         imageSize="cover"
         imageURL={data.titleImg}
+        label="tier_button"
       />
       <div className="title-container">
         <p className="title-bg">{data.title}</p>

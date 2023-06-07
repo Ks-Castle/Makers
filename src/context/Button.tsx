@@ -24,6 +24,7 @@ interface ButtonProps {
   imageURL?: string;
   imageSize?: string;
   shadow?: string;
+  label?: string;
 }
 
 const Button = ({
@@ -33,6 +34,7 @@ const Button = ({
   round = "10px",
   color = "var(--dark-000)",
   disabled = false,
+  label,
   size = "1.6",
   ...props
 }: ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
@@ -45,6 +47,7 @@ const Button = ({
       color={color}
       size={size}
       disabled={disabled}
+      aria-label={label}
     >
       {children}
     </StyledButton>

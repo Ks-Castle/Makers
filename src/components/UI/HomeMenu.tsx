@@ -19,6 +19,7 @@ const HomeMenu = ({ url, link }: { url: string; link: string }) => {
       imageSize="cover"
       shadow={theme === "true" ? SHADOW.LIGHT_X_1_Y_4 : SHADOW.DARK_X_1_Y_4}
       onClick={navigationHandler}
+      label="home_button"
     />
   );
 };
