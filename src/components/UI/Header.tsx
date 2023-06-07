@@ -12,18 +12,34 @@ interface HeaderProps {
 
 const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
   const theme = localStorage.getItem("theme");
+  const param = document.location.href.split("/");
   const navigate = useNavigate();
   const logoNavigation = () => {
     navigate(navigation.Home.path);
   };
 
+  const backNavigation = () => {
+    navigate(-1);
+  };
+
   return (
     <HeaderWrap className="headerBG" theme={theme}>
       <HeaderCenter>
+        {param[param.length - 1] !== navigation.Home.name && (
+          <div className="header-left">
+            <SVG
+              iconName="back"
+              width="40px"
+              height="30px"
+              pointer
+              onClick={backNavigation}
+            />
+          </div>
+        )}
         <div onClick={logoNavigation} className="logo">
           Makers
         </div>
-        <div className="header-functions">
+        <div className="header-right">
           {darkMode ? (
             <SVG
               iconName="Light"
@@ -67,7 +83,11 @@ const HeaderCenter = styled.div`
   width: 90%;
   font-size: ${FONT_SIZE[16]};
   font-weight: 900;
-  .header-functions {
+  .header-right {
     ${flex({ gap: "2rem" })}
+  }
+  .header-left {
+    ${flex({ gap: "0.5rem" })}
+    margin-left: 1.5rem;
   }
 `;
