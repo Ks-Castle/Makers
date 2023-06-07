@@ -177,6 +177,8 @@ const TierMaking = () => {
       setTier3Boxes([]);
     } else if (lastContainer.id === "tierContainers4") {
       setTier4Boxes([]);
+    } else if (lastContainer.id === "tierContainers5") {
+      setTier5Boxes([]);
     }
   };
 
