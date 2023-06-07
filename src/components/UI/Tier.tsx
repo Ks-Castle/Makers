@@ -41,8 +41,6 @@ const Wrapper = styled.div<{ theme: string }>`
   border-radius: 10px;
   position: relative;
   background-color: var(--dark-000);
-  box-shadow: ${(props) =>
-    props.theme === "true" ? SHADOW.LIGHT_X_1_Y_4 : SHADOW.DARK_X_1_Y_4};
   border: ${(props) => props.theme === "true" && `1px solid var(--dark-000)`};
 
   .title-container {

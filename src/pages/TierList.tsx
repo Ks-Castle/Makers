@@ -22,7 +22,6 @@ const TierList = () => {
     };
     getData();
   }, []);
-
   return (
     <Layout>
       <Head
