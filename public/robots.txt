@@ -1,2 +1,3 @@
 User-agent: *
 Allow : /
+Sitemap: https://makers-plum.vercel.app/Home/sitemap.xml
