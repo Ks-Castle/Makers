@@ -25,7 +25,10 @@ const TierList = () => {
 
   return (
     <Layout>
-      <Head link="Tier Lists" />
+      <Head
+        link="Tier Lists"
+        desc="This is a list regarding the tier table that can be created in Makers. More content will be added in the future, so we kindly ask for your continued interest."
+      />
       <Wrapper>
         {data?.map((v: TierListDTO, i: number) => {
           return <Tier data={v} key={i} />;

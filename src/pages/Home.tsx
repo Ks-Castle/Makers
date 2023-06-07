@@ -35,7 +35,10 @@ const Home = () => {
   }, []);
   return (
     <Layout>
-      <Head link="Home" />
+      <Head
+        link="Home"
+        desc="This is the official homepage of Makers. Please choose the desired category and enjoy exploring the Makers website."
+      />
       <Wrapper>
         {imgs.map((img: string, i: number) => {
           return <HomeMenu url={img} link={links[i]} key={"home" + i} />;

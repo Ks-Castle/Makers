@@ -198,7 +198,10 @@ const TierMaking = () => {
 
   return (
     <Layout>
-      <Head link="Tier Maker" />
+      <Head
+        link="Tier Maker"
+        desc="Please create the desired tier table for Makers and download it as a PNG file to share and discuss with people."
+      />
       <Wrapper>
         <AddMinusContainer>
           <SVG
