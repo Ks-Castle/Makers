@@ -20,10 +20,11 @@ type BoxList = string[];
 
 const TierMaking = () => {
   const tierListArray = useRecoilValue(tierListArrayState);
+  console.log(tierListArray);
   const param = decodeURIComponent(
     document.location.href.split("/").pop() || ""
   );
-  const data = tierListArray.find((item) => item.title === param);
+  const data = tierListArray.find((item) => item.id === param);
 
   const ref = useRef<HTMLDivElement>(null);
   const getFileName = (fileType: string) =>
