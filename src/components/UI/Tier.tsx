@@ -11,7 +11,6 @@ const Tier = ({ data }: { data: TierListDTO }) => {
   const navigationHandler = () => {
     navigate(`/TierGenerate/${data.id}`);
   };
-  console.log(data);
   return (
     <Wrapper theme={theme}>
       <StyledButton

@@ -20,7 +20,6 @@ type BoxList = string[];
 
 const TierMaking = () => {
   const tierListArray = useRecoilValue(tierListArrayState);
-  console.log(tierListArray);
   const param = decodeURIComponent(
     document.location.href.split("/").pop() || ""
   );
