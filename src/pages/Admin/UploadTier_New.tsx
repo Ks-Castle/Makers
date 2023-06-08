@@ -16,7 +16,7 @@ const UploadTier_New = () => {
   const [id, setId] = useState<string>("");
   const [downloadCount, setDownloadCount] = useState<number>(0);
   const [enterCount, setEnterCount] = useState<number>(0);
-  const [file1, setFile1] = useState<File | null>(null);
+  const [file1, setFile1] = useState<File[] | null>(null);
   const [file2, setFile2] = useState<File | null>(null);
 
   const handleInputChange = (
@@ -27,9 +27,10 @@ const UploadTier_New = () => {
   };
 
   const handleFile1Change = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const fileList = event.target.files;
-    if (fileList && fileList.length > 0) {
-      setFile1(fileList[0]);
+    const files = event.target.files;
+    if (files) {
+      const selectedFiles = Array.from(files);
+      setFile1(selectedFiles);
     }
   };
 
@@ -110,6 +111,7 @@ const UploadTier_New = () => {
           Upload Images
         </label>
         <input
+          multiple
           type="file"
           id="fileUpload"
           style={{ display: "none" }}
@@ -150,13 +152,13 @@ const Box = styled.div`
   .file-uploader {
     ${flex({ justify: "flex-start" })};
     font-size: 1.6rem;
-    border: 1px solid gray;
+    border: 1px solid var(--dark-100);
     max-width: 250px;
     width: 100%;
     height: 50px;
-    background-color: #fff;
-    color: black;
-    border-radius: 10px;
+    background-color: var(--dark-000);
+    color: var(--dark-100);
+    border-radius: 1rem;
     padding-left: 1rem;
     font-size: ${FONT_SIZE[12]};
   }
