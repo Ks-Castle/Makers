@@ -28,7 +28,7 @@ const Tier = ({ data }: { data: TierListDTO }) => {
         <p className="title">{data.title}</p>
       </div>
       <div className="title-container">
-        <span className="desc">{data.gameTitle} Tier List</span>
+        <span className="desc">{data.gameTitle} Tier</span>
       </div>
     </Wrapper>
   );

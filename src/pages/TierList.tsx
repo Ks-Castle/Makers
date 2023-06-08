@@ -15,11 +15,19 @@ const TierList = () => {
   const [data, setData] = useRecoilState(tierListArrayState);
 
   useEffect(() => {
-    const dbCollection = collection(db, `tierLists`);
+    const dbCollection = collection(db, "tierLists");
+
     const getData = async () => {
-      const data = await getDocs(dbCollection);
-      setData(data.docs.map((doc) => doc.data() as TierListDTO));
+      const querySnapshot = await getDocs(dbCollection);
+      const fetchedData = querySnapshot.docs.map(
+        (doc) => doc.data() as TierListDTO
+      );
+      const sortedData = fetchedData.sort((a, b) =>
+        a.title.localeCompare(b.title)
+      );
+      setData(sortedData);
     };
+
     getData();
   }, []);
   return (
