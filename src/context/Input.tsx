@@ -20,6 +20,7 @@ interface InputProps {
   defaultValue?: string;
   center?: boolean | undefined;
   readOnly?: boolean;
+  borderFocus?: boolean;
 }
 
 const Input = ({ focus, defaultValue, readOnly, ...props }: InputProps) => {
@@ -77,6 +78,9 @@ const StyledInput = styled.input<InputProps>`
     font-size: 1.4rem;
     color: ${(props) =>
       props.readOnly ? `var(--dark-100)` : `var(--dark-060)`};
+  }
+  &:focus {
+    border: ${(props) => props.borderFocus && "1px solid black"};
   }
 `;
 

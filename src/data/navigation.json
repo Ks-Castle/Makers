@@ -22,5 +22,10 @@
   "Gallery": {
     "name": "Gallery",
     "path": "/Gallery"
+  },
+  "UploadTier_New": {
+    "name": "UploadTier New",
+    "path": "/UploadTier_New"
   }
+  
 }

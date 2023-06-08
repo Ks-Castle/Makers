@@ -6,6 +6,7 @@ import TierList from "@/pages/TierList";
 import TierMaking from "@/pages/TierMaking";
 import StatMaking from "@/pages/StatMaking";
 import Gallery from "@/pages/Gallery";
+import UploadTier_New from "@/pages/Admin/UploadTier_New";
 
 const Router = () => {
   return (
@@ -18,6 +19,12 @@ const Router = () => {
       />
       <Route path={navigation.StatCardGenerate.path} element={<StatMaking />} />
       <Route path={navigation.Gallery.path} element={<Gallery />} />
+
+      <Route
+        path={navigation.UploadTier_New.path}
+        element={<UploadTier_New />}
+      />
+
       <Route path="*" element={<Error />} />
     </Routes>
   );
