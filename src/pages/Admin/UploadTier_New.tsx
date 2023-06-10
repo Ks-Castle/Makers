@@ -35,22 +35,37 @@ const UploadTier_New = () => {
   };
 
   const handleFile2Change = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const fileList = event.target.files;
-    if (fileList && fileList.length > 0) {
-      setFile2(fileList[0]);
+    const files = event.target.files;
+    if (files && files.length > 0) {
+      const file = files[0];
+      setFile2(file);
     }
   };
 
-  const onClickHandler = () => {
-    console.log("게임 데이터 및 파일 전송:", {
-      gameName,
-      gameTitle,
-      id,
-      downloadCount,
-      enterCount,
-      file1,
-      file2,
-    });
+  const onClickHandler = async () => {
+    if (file1 && file2) {
+      for (let i = 0; i < file1.length; i++) {
+        const fileArr = file1[i];
+        const storageRef = ref(storage, `tierImg/${gameName}/${file1[i].name}`);
+        try {
+          await uploadBytes(storageRef, fileArr);
+          const fileUrl = await getDownloadURL(storageRef);
+          console.log(fileUrl);
+        } catch (error) {
+          console.error("파일1 업로드 오류:", error);
+        }
+      }
+      const storageRef = ref(storage, `tierImg/${gameName}/${file2.name}`);
+      try {
+        await uploadBytes(storageRef, file2);
+        const fileUrl = await getDownloadURL(storageRef);
+        console.log(fileUrl);
+      } catch (error) {
+        console.error("파일2 업로드 오류:", error);
+      }
+    } else {
+      console.log("file missing");
+    }
   };
 
   return (
@@ -113,16 +128,18 @@ const UploadTier_New = () => {
         <input
           multiple
           type="file"
+          accept="image/apng, image/avif, image/gif, image/jpeg, image/png, image/svg+xml, image/webp"
           id="fileUpload"
           style={{ display: "none" }}
           onChange={handleFile1Change}
         />
-        <label htmlFor="fileUpload" className="file-uploader">
+        <label htmlFor="fileUpload2" className="file-uploader">
           Uploade Title Image
         </label>
         <input
           type="file"
-          id="fileUpload"
+          accept="image/apng, image/avif, image/gif, image/jpeg, image/png, image/svg+xml, image/webp"
+          id="fileUpload2"
           style={{ display: "none" }}
           onChange={handleFile2Change}
         />
