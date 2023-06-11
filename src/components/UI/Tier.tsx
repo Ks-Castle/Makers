@@ -41,7 +41,11 @@ const Wrapper = styled.div<{ theme: string }>`
   border-radius: 10px;
   position: relative;
   background-color: var(--dark-000);
-  border: ${(props) => props.theme === "true" && `1px solid var(--dark-000)`};
+  border: ${(props) =>
+    props.theme === "true"
+      ? `1px solid var(--dark-000)`
+      : `1px solid var(--dark-010)`};
+  box-shadow: ${SHADOW.DARK_X_1_Y_4};
 
   .title-container {
     ${flex({ direction: "column" })}
