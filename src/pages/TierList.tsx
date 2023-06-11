@@ -2,6 +2,7 @@ import flex from "@/assets/styles/flex";
 import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
 import Tier from "@/components/UI/Tier";
+import { Input } from "@/context/Index";
 import Pagination from "@/context/Pagination";
 import { TierListDTO } from "@/data/DTO";
 import { db } from "@/data/firebase";
@@ -17,6 +18,30 @@ const TierList = () => {
   const [limit, setLimit] = useState(8);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
+  const [search, setSearch] = useState<TierListDTO[]>([]);
+
+  const onSearchHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value;
+    const searchKeywords = inputValue.trim().split(" ");
+    const searchResults: TierListDTO[] = [];
+    data.forEach((item) => {
+      let isMatched = true;
+      searchKeywords.forEach((keyword) => {
+        if (
+          !(
+            item.title.toLowerCase().includes(keyword.toLowerCase()) ||
+            item.gameTitle.toLowerCase().includes(keyword.toLowerCase())
+          )
+        ) {
+          isMatched = false;
+        }
+      });
+      if (isMatched) {
+        searchResults.push(item);
+      }
+    });
+    setSearch(searchResults);
+  };
 
   useEffect(() => {
     const dbCollection = collection(db, "tierLists");
@@ -31,9 +56,13 @@ const TierList = () => {
       );
       setData(sortedData);
     };
-
     getData();
+    setSearch(data);
   }, []);
+
+  useEffect(() => {
+    setPage(1);
+  }, [search]);
   return (
     <Layout>
       <Head
@@ -41,8 +70,20 @@ const TierList = () => {
         desc="This is a list regarding the tier table that can be created in Makers. More content will be added in the future, so we kindly ask for your continued interest."
       />
       <Wrapper>
+        <Search>
+          <Input
+            onChange={(e) => onSearchHandler(e)}
+            border="1px solid black"
+            borderType="all"
+            width="300px"
+            height="30"
+            padding="1"
+            paddingType="left"
+            placeholder="Search"
+          />
+        </Search>
         <GridWrapper>
-          {data
+          {search
             ?.slice(offset, offset + limit)
             ?.map((v: TierListDTO, i: number) => {
               return <Tier data={v} key={i} />;
@@ -51,7 +92,7 @@ const TierList = () => {
         <Footer>
           {data && (
             <Pagination
-              total={data.length}
+              total={search.length}
               limit={limit}
               page={page}
               setPage={setPage}
@@ -93,4 +134,16 @@ const GridWrapper = styled.div`
 
 const Footer = styled.div`
   margin-top: 2rem;
+`;
+
+const Search = styled.div`
+  ${flex({ direction: "column" })}
+  margin-bottom: 2rem;
+  width: 100%;
+  input {
+    border-radius: 1px;
+  }
+  input:focus {
+    border: 1px solid black;
+  }
 `;

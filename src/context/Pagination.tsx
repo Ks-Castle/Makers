@@ -10,6 +10,7 @@ interface PropsType {
 }
 
 const Pagination = ({ total, limit, page, setPage }: PropsType) => {
+  const theme = localStorage.getItem("theme");
   const numPages = Math.ceil(total / limit);
 
   const onPrevPageHandler = () => {
@@ -29,19 +30,31 @@ const Pagination = ({ total, limit, page, setPage }: PropsType) => {
 
   return (
     <StPagination>
-      <StButton onClick={onFirstPageHandler} disabled={page === 1}>
+      <StButton
+        onClick={onFirstPageHandler}
+        disabled={page === 1}
+        theme={theme}
+      >
         &lt;&lt;
       </StButton>
-      <StButton onClick={onPrevPageHandler} disabled={page === 1}>
+      <StButton onClick={onPrevPageHandler} disabled={page === 1} theme={theme}>
         &lt;
       </StButton>
       <p style={{ margin: "2rem", fontWeight: "700" }}>
         {page}/{numPages}
       </p>
-      <StButton onClick={onNextPageHandler} disabled={page === numPages}>
+      <StButton
+        onClick={onNextPageHandler}
+        disabled={page === numPages}
+        theme={theme}
+      >
         &gt;
       </StButton>
-      <StButton onClick={onLastPageHandler} disabled={page === numPages}>
+      <StButton
+        onClick={onLastPageHandler}
+        disabled={page === numPages}
+        theme={theme}
+      >
         &gt;&gt;
       </StButton>
     </StPagination>
@@ -54,11 +67,12 @@ const StPagination = styled.div`
   ${flex({})}
 `;
 
-const StButton = styled.button`
+const StButton = styled.button<{ theme: string }>`
   width: 30px;
   height: 30px;
   margin: 5px;
   background-color: black;
+  box-shadow: ${(props) => (props.theme === "true" ? "black" : "white")};
   color: #fff;
   text-decoration: none;
   font-size: 1.5rem;
