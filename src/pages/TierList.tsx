@@ -55,9 +55,9 @@ const TierList = () => {
         a.title.localeCompare(b.title)
       );
       setData(sortedData);
+      setSearch(sortedData);
     };
     getData();
-    setSearch(data);
   }, []);
 
   useEffect(() => {
