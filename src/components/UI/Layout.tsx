@@ -9,11 +9,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     <ContentsWrapper>
       <div className="ads-row">
         <GoogleAdvertise {...infeedPropsOne} />
-        <GoogleAdvertise {...infeedPropsOne} />
-        <GoogleAdvertise {...infeedPropsOne} />
-        <GoogleAdvertise {...infeedPropsOne} />
-        <GoogleAdvertise {...infeedPropsOne} />
-        <GoogleAdvertise {...infeedPropsOne} />
       </div>
       <Contents>{children}</Contents>
     </ContentsWrapper>
@@ -28,6 +23,7 @@ const ContentsWrapper = styled.div`
   margin-top: 60px;
   .ads-row {
     ${flex({})}
+    width: 100%;
   }
 `;
 
