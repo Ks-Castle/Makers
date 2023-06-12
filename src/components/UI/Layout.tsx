@@ -24,7 +24,7 @@ const ContentsWrapper = styled.div`
   margin-top: 60px;
   .ads-row {
     ${flex({})}
-    width: 100%;
+    min-width: 250px;
   }
 `;
 
