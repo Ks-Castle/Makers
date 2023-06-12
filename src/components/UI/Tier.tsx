@@ -28,7 +28,10 @@ const Tier = ({ data }: { data: TierListDTO }) => {
         <p className="title">{data.title}</p>
       </div>
       <div className="title-container">
-        <span className="desc">{data.gameTitle} Tier</span>
+        <div className="title-container-desc">
+          <p className="desc">{data.gameTitle}</p>
+          <p className="desc"> Tier</p>
+        </div>
       </div>
     </Wrapper>
   );
@@ -37,12 +40,15 @@ const Tier = ({ data }: { data: TierListDTO }) => {
 export default Tier;
 
 const Wrapper = styled.div<{ theme: string }>`
-  ${flex({ direction: "column" })}
+  ${flex({ direction: "column", align: "flex-start", justify: "flex-start" })}
   border-radius: 10px;
   position: relative;
   background-color: var(--dark-000);
-  border: ${(props) => props.theme === "true" && `1px solid var(--dark-000)`};
-
+  border: ${(props) =>
+    props.theme === "true"
+      ? `1px solid var(--dark-000)`
+      : `1px solid var(--dark-010)`};
+  box-shadow: ${SHADOW.DARK_X_1_Y_4};
   .title-container {
     ${flex({ direction: "column" })}
     position: relative;
@@ -53,6 +59,9 @@ const Wrapper = styled.div<{ theme: string }>`
     text-shadow: ${(props) =>
       props.theme === "true" ? SHADOW.LIGHT_X_1_Y_4 : SHADOW.DARK_X_1_Y_4};
     z-index: 5;
+  }
+  .title-container-desc {
+    margin-top: 2rem;
   }
   .title-bg {
     position: absolute;
@@ -71,7 +80,6 @@ const Wrapper = styled.div<{ theme: string }>`
     color: var(--dark-100);
     width: 100%;
     text-align: center;
-    margin-top: 2rem;
   }
   @media (max-width: ${RESOLUTION.TABLET}px) {
     .title-container {
