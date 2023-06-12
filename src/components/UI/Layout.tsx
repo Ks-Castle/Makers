@@ -19,7 +19,8 @@ export default Layout;
 
 const ContentsWrapper = styled.div`
   ${flex({ direction: "column" })}
-  height:calc(100vh - 60px);
+  width: 100%;
+  height: calc(100vh - 60px);
   margin-top: 60px;
   .ads-row {
     ${flex({})}
