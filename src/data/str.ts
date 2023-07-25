@@ -38,4 +38,5 @@ export const IMAGES = {
   HOME_STAT: "home/Stat.png",
   HOME_GALLERY: "home/Gallery.png",
   HOME_UNDER: "home/Under.png",
+  HOME_MAPLE: "home/MapleCrystal.png",
 };

@@ -15,9 +15,9 @@
     "name": "Tier Generate",
     "path": "/TierGenerate"
   },
-  "StatCardGenerate": {
-    "name": "Stat Card Generate",
-    "path": "/StatCardGenerate"
+  "MapleCrystalCalculator": {
+    "name": "Maplestory Boss Crystal Calculator",
+    "path": "/MapleCrystalCalculator"
   },
   "Gallery": {
     "name": "Gallery",

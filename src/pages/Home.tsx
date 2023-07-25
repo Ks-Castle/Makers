@@ -9,8 +9,8 @@ import navigation from "@/data/navigation.json";
 import Head from "@/components/UI/Head";
 const links: string[] = [
   navigation.TierList.path,
-  navigation.StatCardGenerate.path,
-  navigation.Gallery.path,
+  navigation.MapleCrystalCalculator.path,
+  navigation.Home.path,
   navigation.Home.path,
 ];
 
@@ -22,8 +22,8 @@ const Home = () => {
       try {
         const promisedImages = await Promise.all([
           getImage({ path: IMAGES.HOME_TIER }),
-          getImage({ path: IMAGES.HOME_STAT }),
-          getImage({ path: IMAGES.HOME_GALLERY }),
+          getImage({ path: IMAGES.HOME_MAPLE }),
+          getImage({ path: IMAGES.HOME_UNDER }),
           getImage({ path: IMAGES.HOME_UNDER }),
         ]);
         setImgs(promisedImages);

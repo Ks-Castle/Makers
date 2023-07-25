@@ -4,7 +4,7 @@ import Error from "@/pages/Status/Error";
 import Home from "@/pages/Home";
 import TierList from "@/pages/TierList";
 import TierMaking from "@/pages/TierMaking";
-import StatMaking from "@/pages/StatMaking";
+import Crystal from "@/pages/Crystal";
 import Gallery from "@/pages/Gallery";
 import UploadTier_New from "@/pages/Admin/UploadTier_New";
 
@@ -17,7 +17,10 @@ const Router = () => {
         path={navigation.TierGenerate.path + "/:id"}
         element={<TierMaking />}
       />
-      <Route path={navigation.StatCardGenerate.path} element={<StatMaking />} />
+      <Route
+        path={navigation.MapleCrystalCalculator.path}
+        element={<Crystal />}
+      />
       <Route path={navigation.Gallery.path} element={<Gallery />} />
 
       <Route
