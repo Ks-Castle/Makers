@@ -21,9 +21,16 @@ interface InputProps {
   center?: boolean | undefined;
   readOnly?: boolean;
   borderFocus?: boolean;
+  maxlength?: number;
 }
 
-const Input = ({ focus, defaultValue, readOnly, ...props }: InputProps) => {
+const Input = ({
+  focus,
+  defaultValue,
+  readOnly,
+  maxlength,
+  ...props
+}: InputProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -34,8 +41,9 @@ const Input = ({ focus, defaultValue, readOnly, ...props }: InputProps) => {
     <StyledInput
       {...props}
       ref={inputRef}
-      value={defaultValue}
+      defaultValue={defaultValue}
       readOnly={readOnly}
+      maxLength={maxlength}
     />
   );
 };
@@ -44,7 +52,7 @@ const StyledInput = styled.input<InputProps>`
   width: 100%;
   max-width: ${(props) => props.width};
   height: ${(props) => props.height}px;
-  font-size: ${FONT_SIZE[12]};
+  font-size: ${FONT_SIZE[16]};
   border-radius: 10px;
   text-align: ${(props) => props.center && "center"};
 
