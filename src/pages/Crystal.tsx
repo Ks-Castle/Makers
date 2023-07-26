@@ -81,8 +81,8 @@ const weeklyBosses: Boss[] = [
 const Crystal = () => {
   const [numCharacters, setNumCharacters] = useState<number>(1);
   const [numCrystals, setNumCrystals] = useState<number>(180);
-  const [selectedBoss, setSelectedBoss] = useState<{ [key: string]: string }>(
-    {}
+  const [selectedBoss, setSelectedBoss] = useState<{ [key: string]: string }[]>(
+    []
   );
 
   const dayhalfLength = Math.ceil(dailyBosses.length / 2);
@@ -108,21 +108,17 @@ const Crystal = () => {
     setNumCrystals(valueToSet);
   };
 
-  const handleBossChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const name = e.target.name;
-    const difficulty = e.target.value;
-
-    if (selectedBoss[name] === difficulty) {
-      setSelectedBoss((prevSelectedBoss) => ({
-        ...prevSelectedBoss,
-        [name]: "",
-      }));
-    } else {
-      setSelectedBoss((prevSelectedBoss) => ({
-        ...prevSelectedBoss,
-        [name]: difficulty,
-      }));
-    }
+  const handleBossChange = (
+    index: number,
+    name: string,
+    difficulty: string
+  ): void => {
+    setSelectedBoss((prevSelectedBoss) => {
+      const updatedBoss = { ...prevSelectedBoss[index], [name]: difficulty };
+      const newSelectedBoss = [...prevSelectedBoss];
+      newSelectedBoss[index] = updatedBoss;
+      return newSelectedBoss;
+    });
   };
 
   const renderSelectSection = (): JSX.Element[] => {
@@ -136,16 +132,18 @@ const Crystal = () => {
               <div className="select-daily-boss-section">
                 {firstHalf.map((boss, index) => (
                   <div className="select-input-section" key={index}>
-                    <label
-                      htmlFor={`${boss.difficulty}-${boss.name}`}
-                    >{`${boss.difficulty}-${boss.name}`}</label>
+                    <label htmlFor={`${boss.difficulty}-${boss.name}-${i}`}>
+                      {`${boss.difficulty}-${boss.name}`}
+                    </label>
                     <input
                       type="checkbox"
-                      id={`${boss.difficulty}-${boss.name}`}
-                      name={boss.name}
+                      id={`${boss.difficulty}-${boss.name}-${i}`}
+                      name={`${boss.name}-${i}`}
                       value={boss.difficulty}
-                      checked={selectedBoss[boss.name] === boss.difficulty}
-                      onChange={handleBossChange}
+                      checked={selectedBoss[i]?.[boss.name] === boss.difficulty}
+                      onChange={() =>
+                        handleBossChange(i, boss.name, boss.difficulty)
+                      }
                     />
                   </div>
                 ))}
@@ -153,16 +151,18 @@ const Crystal = () => {
               <div className="select-daily-boss-section">
                 {secondHalf.map((boss, index) => (
                   <div className="select-input-section" key={index}>
-                    <label
-                      htmlFor={`${boss.difficulty}-${boss.name}`}
-                    >{`${boss.difficulty}-${boss.name}`}</label>
+                    <label htmlFor={`${boss.difficulty}-${boss.name}-${i}`}>
+                      {`${boss.difficulty}-${boss.name}`}
+                    </label>
                     <input
                       type="checkbox"
-                      id={`${boss.difficulty}-${boss.name}`}
-                      name={boss.name}
+                      id={`${boss.difficulty}-${boss.name}-${i}`}
+                      name={`${boss.name}-${i}`}
                       value={boss.difficulty}
-                      checked={selectedBoss[boss.name] === boss.difficulty}
-                      onChange={handleBossChange}
+                      checked={selectedBoss[i]?.[boss.name] === boss.difficulty}
+                      onChange={() =>
+                        handleBossChange(i, boss.name, boss.difficulty)
+                      }
                     />
                   </div>
                 ))}
@@ -175,16 +175,18 @@ const Crystal = () => {
               <div className="select-weekly-boss-section">
                 {thirdHalf.map((boss, index) => (
                   <div className="select-input-section" key={index}>
-                    <label
-                      htmlFor={`${boss.difficulty}-${boss.name}`}
-                    >{`${boss.difficulty}-${boss.name}`}</label>
+                    <label htmlFor={`${boss.difficulty}-${boss.name}-${i}`}>
+                      {`${boss.difficulty}-${boss.name}`}
+                    </label>
                     <input
                       type="checkbox"
-                      id={`${boss.difficulty}-${boss.name}`}
-                      name={boss.name}
+                      id={`${boss.difficulty}-${boss.name}-${i}`}
+                      name={`${boss.name}-${i}`}
                       value={boss.difficulty}
-                      checked={selectedBoss[boss.name] === boss.difficulty}
-                      onChange={handleBossChange}
+                      checked={selectedBoss[i]?.[boss.name] === boss.difficulty}
+                      onChange={() =>
+                        handleBossChange(i, boss.name, boss.difficulty)
+                      }
                     />
                   </div>
                 ))}
@@ -192,16 +194,18 @@ const Crystal = () => {
               <div className="select-weekly-boss-section">
                 {fourthHalf.map((boss, index) => (
                   <div className="select-input-section" key={index}>
-                    <label
-                      htmlFor={`${boss.difficulty}-${boss.name}`}
-                    >{`${boss.difficulty}-${boss.name}`}</label>
+                    <label htmlFor={`${boss.difficulty}-${boss.name}-${i}`}>
+                      {`${boss.difficulty}-${boss.name}`}
+                    </label>
                     <input
                       type="checkbox"
-                      id={`${boss.difficulty}-${boss.name}`}
-                      name={boss.name}
+                      id={`${boss.difficulty}-${boss.name}-${i}`}
+                      name={`${boss.name}-${i}`}
                       value={boss.difficulty}
-                      checked={selectedBoss[boss.name] === boss.difficulty}
-                      onChange={handleBossChange}
+                      checked={selectedBoss[i]?.[boss.name] === boss.difficulty}
+                      onChange={() =>
+                        handleBossChange(i, boss.name, boss.difficulty)
+                      }
                     />
                   </div>
                 ))}
