@@ -85,13 +85,13 @@ button {
 ${({ darkMode }) =>
   darkMode
     ? `
-  body {
+  body, .headerBG {
     background-color: var(--dark-100);
     color: var(--dark-000);
   }
   `
     : `
-  body {
+  body, .headerBG {
     background-color: var(--dark-000);
     color: var(--dark-090);
   }

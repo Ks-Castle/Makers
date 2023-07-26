@@ -1,27 +1,37 @@
 import flex from "@/assets/styles/flex.js";
 import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
-import { Input } from "@/context/Index.js";
+import { Button, Input } from "@/context/Index.js";
 import { FONT_SIZE } from "@/data/str.js";
+import { useState } from "react";
 import styled from "styled-components";
 
 const Crystal = () => {
+  const [numCharacters, setNumCharacters] = useState<number>(1);
+  const [numCrystals, setNumCrystals] = useState<number>(180);
+
   const onCharacterInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const maxValue = 9;
     const enteredValue = parseInt(e.target.value, 10);
-
-    if (isNaN(enteredValue) || enteredValue > maxValue) {
-      e.target.value = String(maxValue);
-    }
+    const valueToSet =
+      isNaN(enteredValue) || enteredValue > maxValue ? maxValue : enteredValue;
+    setNumCharacters(valueToSet);
   };
 
   const onCrstalInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const maxValue = 9;
+    const maxValue = 180;
     const enteredValue = parseInt(e.target.value, 10);
+    const valueToSet =
+      isNaN(enteredValue) || enteredValue > maxValue ? maxValue : enteredValue;
+    setNumCrystals(valueToSet);
+  };
 
-    if (isNaN(enteredValue) || enteredValue > maxValue) {
-      e.target.value = String(maxValue);
+  const renderSelectSection = (): JSX.Element[] => {
+    const selectSections: JSX.Element[] = [];
+    for (let i = 0; i < numCharacters; i++) {
+      selectSections.push(<div key={i} className="select-section"></div>);
     }
+    return selectSections;
   };
 
   return (
@@ -31,6 +41,11 @@ const Crystal = () => {
         desc="For making your maple life easier."
       />
       <Wrapper>
+        <ButtonArea>
+          <Button width="100" height="30px" padding="1" paddingType="all">
+            SUBMIT
+          </Button>
+        </ButtonArea>
         <InputArea>
           <div className="input-container">
             <p> How many Characters? (maximum 9)</p>
@@ -53,10 +68,11 @@ const Crystal = () => {
               type="number"
               maxlength={3}
               onChange={onCrstalInput}
-              defaultValue="1"
+              defaultValue="180"
             />
           </div>
         </InputArea>
+        <SelectArea>{renderSelectSection()}</SelectArea>
       </Wrapper>
     </Layout>
   );
@@ -65,22 +81,44 @@ const Crystal = () => {
 export default Crystal;
 
 const Wrapper = styled.div`
-  ${flex({ direction: "column" })}
+  ${flex({ direction: "column", justify: "flex-start", gap: "1rem" })}
   width: 100%;
   height: 100%;
 `;
 
 const InputArea = styled.div`
-  ${flex({ direction: "column", justify: "flex-start", gap: "1rem" })}
+  ${flex({
+    direction: "column",
+    justify: "flex-start",
+    gap: "1rem",
+  })}
   width: 50%;
-  height: 100%;
   font-size: ${FONT_SIZE[20]};
-  margin-top: 2rem;
+
   .input-container {
     ${flex({ gap: "1rem" })}
     width: 100%;
     p {
       width: 350px;
     }
+  }
+`;
+
+const ButtonArea = styled.div`
+  ${flex({ justify: "flex-end" })}
+  width: 50%;
+`;
+
+const SelectArea = styled.div`
+  ${flex({
+    direction: "column",
+    justify: "flex-start",
+    gap: "1rem",
+  })}
+  width: 100%;
+  .select-section {
+    width: 100%;
+    height: 300px;
+    background-color: #eee;
   }
 `;
