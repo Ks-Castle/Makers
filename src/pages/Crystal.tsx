@@ -2,7 +2,7 @@ import flex from "@/assets/styles/flex.js";
 import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
 import { Button, Input } from "@/context/Index.js";
-import { FONT_SIZE } from "@/data/str.js";
+import { FONT_SIZE, RESOLUTION } from "@/data/str.js";
 import { useState } from "react";
 import styled from "styled-components";
 
@@ -82,8 +82,10 @@ export default Crystal;
 
 const Wrapper = styled.div`
   ${flex({ direction: "column", justify: "flex-start", gap: "1rem" })}
-  width: 100%;
+  max-width: ${RESOLUTION.PC}px;
+  width: 90%;
   height: 100%;
+  overflow: scroll;
 `;
 
 const InputArea = styled.div`
@@ -92,9 +94,8 @@ const InputArea = styled.div`
     justify: "flex-start",
     gap: "1rem",
   })}
-  width: 50%;
+  width: 100%;
   font-size: ${FONT_SIZE[20]};
-
   .input-container {
     ${flex({ gap: "1rem" })}
     width: 100%;
@@ -102,11 +103,17 @@ const InputArea = styled.div`
       width: 350px;
     }
   }
+  @media (max-width: ${RESOLUTION.TABLET}px) {
+    font-size: ${FONT_SIZE[16]};
+  }
+  @media (max-width: ${RESOLUTION.MOBILE}px) {
+    font-size: ${FONT_SIZE[12]};
+  }
 `;
 
 const ButtonArea = styled.div`
   ${flex({ justify: "flex-end" })}
-  width: 50%;
+  width: 100%;
 `;
 
 const SelectArea = styled.div`
