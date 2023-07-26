@@ -86,7 +86,7 @@ const Crystal = () => {
   );
 
   const dayhalfLength = Math.ceil(dailyBosses.length / 2);
-  const weekhalfLength = Math.ceil(weeklyBosses.length / 2);
+  const weekhalfLength = Math.ceil(weeklyBosses.length / 2 + 1);
   const firstHalf = dailyBosses.slice(0, dayhalfLength);
   const secondHalf = dailyBosses.slice(dayhalfLength);
   const thirdHalf = weeklyBosses.slice(0, weekhalfLength);
@@ -362,6 +362,32 @@ const SelectArea = styled.div`
     input {
       width: 30px;
       height: 30px;
+    }
+  }
+  @media (max-width: ${RESOLUTION.PC}px) {
+    .select-row {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: 1rem;
+    }
+    .select-input-section {
+      label {
+        width: 150px;
+      }
+      input {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+  @media (max-width: ${RESOLUTION.TABLET}px) {
+    .select-input-section {
+      font-size: ${FONT_SIZE[12]};
+      width: 100%;
+      label {
+        width: 40px;
+      }
     }
   }
 `;
