@@ -2,12 +2,14 @@ import flex from "@/assets/styles/flex.js";
 import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
 import { Button, Input, SVG } from "@/context/Index.js";
+import Modal from "@/context/Modal.js";
 import { Boss, dailyBosses, weeklyBosses } from "@/data/bossDatas.js";
 import { FONT_SIZE, RESOLUTION } from "@/data/str.js";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Crystal = () => {
+  const [toggleModal, setToggleModal] = useState(false);
   const [numCharacters, setNumCharacters] = useState<number>(1);
   const [numCrystals, setNumCrystals] = useState<number>(180);
   const [selectedBoss, setSelectedBoss] = useState<{ [key: string]: string }[]>(
@@ -21,16 +23,30 @@ const Crystal = () => {
   const thirdHalf = weeklyBosses.slice(0, weekhalfLength);
   const fourthHalf = weeklyBosses.slice(weekhalfLength);
 
+  const toggleModalHandler = () => {
+    setToggleModal(!toggleModal);
+  };
+
   const onCharacterInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const maxValue = 9;
+
+    if (e.target.value.length > e.target.maxLength)
+      e.target.value = String(maxValue);
+    if (Number(e.target.value) > maxValue) e.target.value = String(maxValue);
     const enteredValue = parseInt(e.target.value, 10);
+
     const valueToSet =
       isNaN(enteredValue) || enteredValue > maxValue ? maxValue : enteredValue;
+
     setNumCharacters(valueToSet);
   };
 
   const onCrstalInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const maxValue = 180;
+
+    if (e.target.value.length > e.target.maxLength)
+      e.target.value = String(maxValue);
+    if (Number(e.target.value) > maxValue) e.target.value = String(maxValue);
     const enteredValue = parseInt(e.target.value, 10);
     const valueToSet =
       isNaN(enteredValue) || enteredValue > maxValue ? maxValue : enteredValue;
@@ -135,6 +151,7 @@ const Crystal = () => {
 
   return (
     <Layout>
+      {toggleModal && <Modal />}
       <Head
         link="Maplestory Boss Crystal Calculator"
         desc="For making your maple life easier."
@@ -145,7 +162,13 @@ const Crystal = () => {
           <div className="introduce-text">
             *Check the maximum difficulty level of bosses can defeat
           </div>
-          <Button width="100" height="30px" padding="1" paddingType="all">
+          <Button
+            width="100"
+            height="30px"
+            padding="1"
+            paddingType="all"
+            onClick={toggleModalHandler}
+          >
             CALCULATE
           </Button>
         </ButtonArea>
