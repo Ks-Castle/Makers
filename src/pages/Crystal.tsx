@@ -216,6 +216,20 @@ const Wrapper = styled.div`
   width: 90%;
   height: 100%;
   overflow: scroll;
+  ::-webkit-scrollbar {
+    display: block !important;
+    width: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    height: 20%;
+    background-color: var(--blue);
+    border-radius: 10px;
+  }
+  @media (max-width: ${RESOLUTION.TABLET}px) {
+    ::-webkit-scrollbar {
+      display: none !important;
+    }
+  }
 `;
 
 const InputArea = styled.div`

@@ -42,6 +42,7 @@ input[type=number] {
   --dark-080: #1A1A1A;
   --dark-090: #0D0D0D;
   --dark-100: #000;
+  --blue:#4072e9;
 }
 
 
