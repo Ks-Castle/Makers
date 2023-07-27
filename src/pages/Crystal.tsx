@@ -141,7 +141,7 @@ const Crystal = () => {
       />
       <Wrapper>
         <ButtonArea>
-          <div></div>
+          <div style={{ width: "100px" }}></div>
           <div className="introduce-text">
             *Check the maximum difficulty level of bosses can defeat
           </div>
