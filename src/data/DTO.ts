@@ -1,3 +1,5 @@
+export type Setter<T> = React.Dispatch<React.SetStateAction<T>>;
+
 export interface TierListDTO {
   id: string;
   CreatedAt: any;

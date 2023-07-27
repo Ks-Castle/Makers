@@ -8,6 +8,15 @@ import { FONT_SIZE, RESOLUTION } from "@/data/str.js";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
+interface MaxCombination {
+  daily: string[];
+  weekly: string[];
+  totalPrice: number;
+}
+type SelectedBosses = {
+  [characterIndex: number]: { [bossName: string]: string };
+};
+
 const Crystal = () => {
   const [toggleModal, setToggleModal] = useState(false);
   const [numCharacters, setNumCharacters] = useState<number>(1);
@@ -151,7 +160,7 @@ const Crystal = () => {
 
   return (
     <Layout>
-      {toggleModal && <Modal />}
+      {toggleModal && <Modal setToggle={setToggleModal} />}
       <Head
         link="Maplestory Boss Crystal Calculator"
         desc="For making your maple life easier."
