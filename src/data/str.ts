@@ -12,6 +12,13 @@ export enum UI {
   _100 = 100,
 }
 
+export enum Z_INDEX {
+  LOWEST = 1,
+  TIER = 5,
+  HEADER = 10,
+  MODAL = 100,
+}
+
 export const STR = {
   LAYOUT_HEADER_HEIGHT: "60px",
 };

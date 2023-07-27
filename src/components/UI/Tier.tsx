@@ -1,5 +1,5 @@
 import { Button } from "@/context/Index";
-import { RESOLUTION, SHADOW, UI } from "@/data/str";
+import { RESOLUTION, SHADOW, UI, Z_INDEX } from "@/data/str";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import flex from "@/assets/styles/flex";
@@ -58,7 +58,7 @@ const Wrapper = styled.div<{ theme: string }>`
     width: 100%;
     text-shadow: ${(props) =>
       props.theme === "true" ? SHADOW.LIGHT_X_1_Y_4 : SHADOW.DARK_X_1_Y_4};
-    z-index: 5;
+    z-index: ${Z_INDEX.TIER};
   }
   .title-container-desc {
     margin-top: 2rem;
@@ -92,7 +92,7 @@ const Wrapper = styled.div<{ theme: string }>`
 `;
 
 const StyledButton = styled(Button)`
-  z-index: 5;
+  z-index: ${Z_INDEX.TIER};
   @media (max-width: ${RESOLUTION.TABLET}px) {
     height: ${UI._200}px;
   }

@@ -1,6 +1,6 @@
 import flex from "@/assets/styles/flex";
 import { SVG } from "@/context/Index";
-import { FONT_SIZE, RESOLUTION, SHADOW, STR, UI } from "@/data/str";
+import { FONT_SIZE, RESOLUTION, SHADOW, STR, UI, Z_INDEX } from "@/data/str";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import navigation from "@/data/navigation.json";
@@ -69,7 +69,7 @@ const HeaderWrap = styled.header<{ theme: string }>`
   ${flex({})}
   position: fixed;
   top: 0;
-  z-index: 100;
+  z-index: ${Z_INDEX.HEADER};
   width: 100%;
   height: ${STR.LAYOUT_HEADER_HEIGHT};
   box-shadow: ${SHADOW.DARK_BOTTOM_4};
