@@ -17,7 +17,6 @@ const Crystal = () => {
   const [toggleModal, setToggleModal] = useState(false);
   const [numCharacters, setNumCharacters] = useState<number>(1);
   const [numCrystals, setNumCrystals] = useState<number>(180);
-
   const [finalData, setFinalData] = useState<FinalType[]>([]);
 
   const dayhalfLength = Math.ceil(dailyBosses.length / 2);
@@ -176,7 +175,13 @@ const Crystal = () => {
       selectSections.push(
         <div key={i} className="select-section">
           <div className="select-column">
-            <div className="select-title">Daily</div>
+            <div className="select-title">
+              <span>Daily</span>
+              <div className="select-all-box">
+                <input type="checkbox" id="all" />
+                <label htmlFor="all">All</label>
+              </div>
+            </div>
             <div className="select-row">
               <div className="select-daily-boss-section">
                 {renderCheckboxSection(firstHalf, i)}
@@ -187,7 +192,23 @@ const Crystal = () => {
             </div>
           </div>
           <div className="select-column">
-            <div className="select-title">Weekly</div>
+            <div className="select-title">
+              <span>Weekly</span>
+              <div className="select-weekly-input-boxes">
+                <div className="select-all-box">
+                  <input type="checkbox" id="Noob" />
+                  <label htmlFor="Noob">Noob</label>
+                </div>
+                <div className="select-all-box">
+                  <input type="checkbox" id="Pro" />
+                  <label htmlFor="Pro">Pro</label>
+                </div>
+                <div className="select-all-box">
+                  <input type="checkbox" id="Hacker" />
+                  <label htmlFor="Hacker">Hacker</label>
+                </div>
+              </div>
+            </div>
             <div className="select-row">
               <div className="select-weekly-boss-section">
                 {renderCheckboxSection(thirdHalf, i)}
@@ -280,6 +301,7 @@ const Wrapper = styled.div`
     border-radius: 10px;
   }
   @media (max-width: ${RESOLUTION.TABLET}px) {
+    width: 95%;
     ::-webkit-scrollbar {
       display: none !important;
     }
@@ -366,8 +388,24 @@ const SelectArea = styled.div`
   }
 
   .select-title {
+    ${flex({
+      gap: "1rem",
+    })}
+    width: 50%;
     font-size: ${FONT_SIZE[20]};
     font-weight: 900;
+  }
+  .select-weekly-input-boxes {
+    ${flex({
+      gap: "1rem",
+    })}
+  }
+  .select-all-box {
+    ${flex({
+      gap: "1rem",
+    })}
+    font-size: ${FONT_SIZE[16]};
+    font-weight: 500;
   }
 
   .select-input-section {
@@ -403,6 +441,17 @@ const SelectArea = styled.div`
         width: 150px;
       }
     }
+    .select-weekly-input-boxes {
+      flex-direction: column;
+    }
+    .select-all-box {
+      label {
+        width: 50px;
+      }
+    }
+    .select-title {
+      height: 50px;
+    }
   }
   @media (max-width: ${RESOLUTION.TABLET}px) {
     .select-input-section {
@@ -420,6 +469,14 @@ const SelectArea = styled.div`
         width: 50px;
         height: 50px;
       }
+    }
+    .select-title {
+      flex-direction: column;
+      gap: 0.5rem;
+      justify-content: flex-start;
+    }
+    .select-title {
+      height: 80px;
     }
   }
 `;
