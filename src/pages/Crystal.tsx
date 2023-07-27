@@ -3,7 +3,12 @@ import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
 import { Button, Input, SVG } from "@/context/Index.js";
 import Modal from "@/context/Modal.js";
-import { Boss, dailyBosses, weeklyBosses } from "@/data/bossDatas.js";
+import {
+  Boss,
+  dailyBosses,
+  dailyBossesToCheck,
+  weeklyBosses,
+} from "@/data/bossDatas.js";
 import { FONT_SIZE, RESOLUTION } from "@/data/str.js";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -17,7 +22,18 @@ const Crystal = () => {
   const [toggleModal, setToggleModal] = useState(false);
   const [numCharacters, setNumCharacters] = useState<number>(1);
   const [numCrystals, setNumCrystals] = useState<number>(180);
-  const [finalData, setFinalData] = useState<FinalType[]>([]);
+
+  const initialFinalData: FinalType[] = Array.from(
+    { length: numCharacters },
+    () => ({ daily: [], weekly: [] })
+  );
+
+  const [finalData, setFinalData] = useState<FinalType[]>(initialFinalData);
+
+  const [checkAllDaily, setCheckAllDaily] = useState(false);
+  const [checkNoob, setCheckNoob] = useState(false);
+  const [checkPro, setCheckPro] = useState(false);
+  const [checkHacker, setCheckHacker] = useState(false);
 
   const dayhalfLength = Math.ceil(dailyBosses.length / 2);
   const weekhalfLength = Math.ceil(weeklyBosses.length / 2 + 1);
@@ -178,8 +194,15 @@ const Crystal = () => {
             <div className="select-title">
               <span>Daily</span>
               <div className="select-all-box">
-                <input type="checkbox" id="all" />
-                <label htmlFor="all">All</label>
+                <input
+                  type="checkbox"
+                  id={`all-${i}`}
+                  onChange={() => handleCheckAllDaily(i)}
+                  checked={
+                    finalData[i]?.daily?.length === dailyBossesToCheck.length
+                  }
+                />
+                <label htmlFor={`all-${i}`}>All</label>
               </div>
             </div>
             <div className="select-row">
@@ -222,6 +245,22 @@ const Crystal = () => {
       );
     }
     return selectSections;
+  };
+
+  const handleCheckAllDaily = (characterIndex: number) => {
+    setFinalData((prevData) => {
+      const updatedFinalData = [...prevData];
+      const allDailyBossesChecked =
+        prevData[characterIndex]?.daily?.length === dailyBossesToCheck.length;
+
+      if (allDailyBossesChecked) {
+        updatedFinalData[characterIndex].daily = [];
+      } else {
+        updatedFinalData[characterIndex].daily = dailyBossesToCheck;
+      }
+
+      return updatedFinalData;
+    });
   };
 
   return (

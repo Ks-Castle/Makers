@@ -31,6 +31,23 @@ export const dailyBosses: Boss[] = [
   { name: "Ranmaru", difficulty: "HD", price: 13322500, img: "Ranmaru" },
 ];
 
+export const dailyBossesToCheck: Boss[] = [
+  { name: "Zakum", difficulty: "NM", price: 3062500, img: "Zakum" },
+  { name: "Hilla", difficulty: "NM", price: 4000000, img: "Hilla" },
+  { name: "Von Bon", difficulty: "NM", price: 4840000, img: "Von_Bon" },
+  { name: "Pierre", difficulty: "NM", price: 4840000, img: "Pierre" },
+  { name: "Crimson Q", difficulty: "NM", price: 4840000, img: "Crimson_Queen" },
+  { name: "Vellum", difficulty: "NM", price: 4840000, img: "Vellum" },
+  { name: "OMNI-CLN", difficulty: "NM", price: 6250000, img: "OMNI-CLN" },
+  { name: "Horntail", difficulty: "CHS", price: 6760000, img: "Horntail" },
+  { name: "Pink Bean", difficulty: "NM", price: 7022500, img: "Pink_Bean" },
+  { name: "Von Leon", difficulty: "HD", price: 12250000, img: "Von_Leon" },
+  { name: "Arkarium", difficulty: "NM", price: 12600000, img: "Arkarium" },
+  { name: "Magnus", difficulty: "NM", price: 12960000, img: "Magnus" },
+  { name: "Papulatus", difficulty: "NM", price: 13322500, img: "Papulatus" },
+  { name: "Ranmaru", difficulty: "HD", price: 13322500, img: "Ranmaru" },
+];
+
 export const weeklyBosses: Boss[] = [
   { name: "Cygnus-", difficulty: "EZ", price: 45562500, img: "Cygnus" },
   { name: "Cygnus-", difficulty: "NM", price: 72250000, img: "Cygnus" },
