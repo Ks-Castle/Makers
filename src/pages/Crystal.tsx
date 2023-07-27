@@ -141,6 +141,10 @@ const Crystal = () => {
       />
       <Wrapper>
         <ButtonArea>
+          <div></div>
+          <div className="introduce-text">
+            *Check the maximum difficulty level of bosses can defeat
+          </div>
           <Button width="100" height="30px" padding="1" paddingType="all">
             CALCULATE
           </Button>
@@ -211,8 +215,20 @@ const InputArea = styled.div`
 `;
 
 const ButtonArea = styled.div`
-  ${flex({ justify: "flex-end" })}
+  ${flex({ justify: "space-between" })}
   width: 100%;
+  .introduce-text {
+    font-size: ${FONT_SIZE[16]};
+  }
+  @media (max-width: ${RESOLUTION.TABLET}px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    .introduce-text {
+      font-size: ${FONT_SIZE[12]};
+    }
+  }
 `;
 
 const SelectArea = styled.div`
