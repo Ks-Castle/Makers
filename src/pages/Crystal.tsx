@@ -17,14 +17,8 @@ const Crystal = () => {
   const [toggleModal, setToggleModal] = useState(false);
   const [numCharacters, setNumCharacters] = useState<number>(1);
   const [numCrystals, setNumCrystals] = useState<number>(180);
-  const [selectedBoss, setSelectedBoss] = useState<{ [key: string]: string }[]>(
-    []
-  );
 
-  const [finalData, setFinalData] = useState<FinalType>({
-    daily: [],
-    weekly: [],
-  });
+  const [finalData, setFinalData] = useState<FinalType[]>([]);
 
   const dayhalfLength = Math.ceil(dailyBosses.length / 2);
   const weekhalfLength = Math.ceil(weeklyBosses.length / 2 + 1);
@@ -70,17 +64,47 @@ const Crystal = () => {
     price: number,
     img: string
   ): void => {
-    setSelectedBoss((prevSelectedBoss) => {
-      const currentBoss = prevSelectedBoss[index]?.[name];
-      const updatedBoss = { ...prevSelectedBoss[index], [name]: difficulty };
-
-      if (currentBoss === difficulty) {
-        delete updatedBoss[name];
+    setFinalData((prevFinalData) => {
+      const newFinalData = [...prevFinalData];
+      while (newFinalData.length <= index) {
+        newFinalData.push({ daily: [], weekly: [] });
       }
 
-      const newSelectedBoss = [...prevSelectedBoss];
-      newSelectedBoss[index] = updatedBoss;
-      return newSelectedBoss;
+      const bossToAdd: Boss = { name, difficulty, price, img };
+      const isAlreadyChecked = name.includes("-")
+        ? newFinalData[index]?.weekly.some(
+            (boss) => boss.name === name && boss.difficulty === difficulty
+          )
+        : newFinalData[index]?.daily.some(
+            (boss) => boss.name === name && boss.difficulty === difficulty
+          );
+
+      if (isAlreadyChecked) {
+        // If the boss is already checked, uncheck it by removing it from the list.
+        if (name.includes("-")) {
+          newFinalData[index].weekly = newFinalData[index].weekly.filter(
+            (boss) => boss.name !== name || boss.difficulty !== difficulty
+          );
+        } else {
+          newFinalData[index].daily = newFinalData[index].daily.filter(
+            (boss) => boss.name !== name || boss.difficulty !== difficulty
+          );
+        }
+      } else {
+        // If the boss is not checked, add it to the list.
+        if (name.includes("-")) {
+          newFinalData[index].weekly = [
+            ...newFinalData[index].weekly.filter((boss) => boss.name !== name),
+            bossToAdd,
+          ];
+        } else {
+          newFinalData[index].daily = [
+            ...newFinalData[index].daily.filter((boss) => boss.name !== name),
+            bossToAdd,
+          ];
+        }
+      }
+      return newFinalData;
     });
   };
 
@@ -96,22 +120,50 @@ const Crystal = () => {
               <SVG iconName={boss.img} />
               <p>{`${boss.difficulty}-${boss.name}`}</p>
             </label>
-            <input
-              type="checkbox"
-              id={`${boss.difficulty}-${boss.name}-${index}`}
-              name={`${boss.name}-${index}`}
-              value={boss.difficulty}
-              checked={selectedBoss[index]?.[boss.name] === boss.difficulty}
-              onChange={() =>
-                handleBossChange(
-                  index,
-                  boss.name,
-                  boss.difficulty,
-                  boss.price,
-                  boss.img
-                )
-              }
-            />
+
+            {boss.name.includes("-") ? (
+              <input
+                type="checkbox"
+                id={`weekly-${boss.difficulty}-${boss.name}-${index}`}
+                name={`weekly-${boss.name}-${index}`}
+                value={boss.difficulty}
+                checked={finalData[index]?.weekly.some(
+                  (bossData) =>
+                    bossData.name === boss.name &&
+                    bossData.difficulty === boss.difficulty
+                )}
+                onChange={() =>
+                  handleBossChange(
+                    index,
+                    boss.name,
+                    boss.difficulty,
+                    boss.price,
+                    boss.img
+                  )
+                }
+              />
+            ) : (
+              <input
+                type="checkbox"
+                id={`${boss.difficulty}-${boss.name}-${index}`}
+                name={`${boss.name}-${index}`}
+                value={boss.difficulty}
+                checked={finalData[index]?.daily.some(
+                  (bossData) =>
+                    bossData.name === boss.name &&
+                    bossData.difficulty === boss.difficulty
+                )}
+                onChange={() =>
+                  handleBossChange(
+                    index,
+                    boss.name,
+                    boss.difficulty,
+                    boss.price,
+                    boss.img
+                  )
+                }
+              />
+            )}
           </div>
         ))}
       </div>
@@ -150,22 +202,6 @@ const Crystal = () => {
     }
     return selectSections;
   };
-
-  useEffect(() => {
-    setSelectedBoss((prevSelectedBoss) => {
-      const updatedBossArray = [...prevSelectedBoss];
-
-      while (updatedBossArray.length < numCharacters) {
-        updatedBossArray.push({});
-      }
-
-      while (updatedBossArray.length > numCharacters) {
-        updatedBossArray.pop();
-      }
-
-      return updatedBossArray;
-    });
-  }, [numCharacters]);
 
   return (
     <Layout>
