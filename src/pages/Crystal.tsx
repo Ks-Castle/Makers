@@ -7,6 +7,9 @@ import {
   Boss,
   dailyBosses,
   dailyBossesToCheck,
+  hackerWeeklyBosses,
+  noobWeeklyBosses,
+  proWeeklyBosses,
   weeklyBosses,
 } from "@/data/bossDatas.js";
 import { FONT_SIZE, RESOLUTION } from "@/data/str.js";
@@ -30,11 +33,6 @@ const Crystal = () => {
 
   const [finalData, setFinalData] = useState<FinalType[]>(initialFinalData);
   console.log(finalData);
-
-  const [checkAllDaily, setCheckAllDaily] = useState(false);
-  const [checkNoob, setCheckNoob] = useState(false);
-  const [checkPro, setCheckPro] = useState(false);
-  const [checkHacker, setCheckHacker] = useState(false);
 
   const dayhalfLength = Math.ceil(dailyBosses.length / 2);
   const weekhalfLength = Math.ceil(weeklyBosses.length / 2 + 1);
@@ -220,16 +218,37 @@ const Crystal = () => {
               <span>Weekly</span>
               <div className="select-weekly-input-boxes">
                 <div className="select-all-box">
-                  <input type="checkbox" id="Noob" />
-                  <label htmlFor="Noob">Noob</label>
+                  <input
+                    type="checkbox"
+                    id={`noob-${i}`}
+                    onChange={() => handleCheckAllWeekly(i, noobWeeklyBosses)}
+                    checked={
+                      finalData[i]?.weekly?.length === noobWeeklyBosses.length
+                    }
+                  />
+                  <label htmlFor={`noob-${i}`}>Noob</label>
                 </div>
                 <div className="select-all-box">
-                  <input type="checkbox" id="Pro" />
-                  <label htmlFor="Pro">Pro</label>
+                  <input
+                    type="checkbox"
+                    id={`pro-${i}`}
+                    onChange={() => handleCheckAllWeekly(i, proWeeklyBosses)}
+                    checked={
+                      finalData[i]?.weekly?.length === proWeeklyBosses.length
+                    }
+                  />
+                  <label htmlFor={`pro-${i}`}>Pro</label>
                 </div>
                 <div className="select-all-box">
-                  <input type="checkbox" id="Hacker" />
-                  <label htmlFor="Hacker">Hacker</label>
+                  <input
+                    type="checkbox"
+                    id={`hacker-${i}`}
+                    onChange={() => handleCheckAllWeekly(i, hackerWeeklyBosses)}
+                    checked={
+                      finalData[i]?.weekly?.length === hackerWeeklyBosses.length
+                    }
+                  />
+                  <label htmlFor={`hacker-${i}`}>Hacker</label>
                 </div>
               </div>
             </div>
@@ -258,6 +277,25 @@ const Crystal = () => {
         updatedFinalData[characterIndex].daily = [];
       } else {
         updatedFinalData[characterIndex].daily = dailyBossesToCheck;
+      }
+
+      return updatedFinalData;
+    });
+  };
+
+  const handleCheckAllWeekly = (
+    characterIndex: number,
+    weeklyBossesArray: Boss[]
+  ) => {
+    setFinalData((prevData) => {
+      const updatedFinalData = [...prevData];
+      const allWeeklyBossesChecked =
+        prevData[characterIndex]?.weekly?.length === weeklyBossesArray.length;
+
+      if (allWeeklyBossesChecked) {
+        updatedFinalData[characterIndex].weekly = [];
+      } else {
+        updatedFinalData[characterIndex].weekly = weeklyBossesArray;
       }
 
       return updatedFinalData;
