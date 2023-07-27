@@ -160,6 +160,8 @@ const Crystal = () => {
               maxlength={1}
               onChange={onCharacterInput}
               defaultValue="1"
+              border="1px solid var(--dark-020)"
+              borderType="all"
             />
           </div>
           <div className="input-container">
@@ -172,6 +174,8 @@ const Crystal = () => {
               maxlength={3}
               onChange={onCrstalInput}
               defaultValue="180"
+              border="1px solid var(--dark-020)"
+              borderType="all"
             />
           </div>
         </InputArea>
@@ -206,6 +210,7 @@ const InputArea = styled.div`
       width: 350px;
     }
   }
+
   @media (max-width: ${RESOLUTION.TABLET}px) {
     font-size: ${FONT_SIZE[16]};
   }
