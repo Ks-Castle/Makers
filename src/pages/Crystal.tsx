@@ -8,14 +8,10 @@ import { FONT_SIZE, RESOLUTION } from "@/data/str.js";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
-interface MaxCombination {
-  daily: string[];
-  weekly: string[];
-  totalPrice: number;
+interface FinalType {
+  daily: Boss[];
+  weekly: Boss[];
 }
-type SelectedBosses = {
-  [characterIndex: number]: { [bossName: string]: string };
-};
 
 const Crystal = () => {
   const [toggleModal, setToggleModal] = useState(false);
@@ -24,6 +20,11 @@ const Crystal = () => {
   const [selectedBoss, setSelectedBoss] = useState<{ [key: string]: string }[]>(
     []
   );
+
+  const [finalData, setFinalData] = useState<FinalType>({
+    daily: [],
+    weekly: [],
+  });
 
   const dayhalfLength = Math.ceil(dailyBosses.length / 2);
   const weekhalfLength = Math.ceil(weeklyBosses.length / 2 + 1);
@@ -65,7 +66,9 @@ const Crystal = () => {
   const handleBossChange = (
     index: number,
     name: string,
-    difficulty: string
+    difficulty: string,
+    price: number,
+    img: string
   ): void => {
     setSelectedBoss((prevSelectedBoss) => {
       const currentBoss = prevSelectedBoss[index]?.[name];
@@ -100,7 +103,13 @@ const Crystal = () => {
               value={boss.difficulty}
               checked={selectedBoss[index]?.[boss.name] === boss.difficulty}
               onChange={() =>
-                handleBossChange(index, boss.name, boss.difficulty)
+                handleBossChange(
+                  index,
+                  boss.name,
+                  boss.difficulty,
+                  boss.price,
+                  boss.img
+                )
               }
             />
           </div>
