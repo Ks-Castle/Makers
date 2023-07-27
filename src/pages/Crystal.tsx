@@ -2,9 +2,9 @@ import flex from "@/assets/styles/flex.js";
 import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
 import { Button, Input } from "@/context/Index.js";
-import { dailyBosses, weeklyBosses } from "@/data/bossDatas.js";
+import { Boss, dailyBosses, weeklyBosses } from "@/data/bossDatas.js";
 import { FONT_SIZE, RESOLUTION } from "@/data/str.js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Crystal = () => {
@@ -56,6 +56,33 @@ const Crystal = () => {
     });
   };
 
+  const renderCheckboxSection = (
+    bossArray: Boss[],
+    index: number
+  ): JSX.Element => {
+    return (
+      <div>
+        {bossArray.map((boss, bossIndex) => (
+          <div className="select-input-section" key={bossIndex}>
+            <label htmlFor={`${boss.difficulty}-${boss.name}-${index}`}>
+              {`${boss.difficulty}-${boss.name}`}
+            </label>
+            <input
+              type="checkbox"
+              id={`${boss.difficulty}-${boss.name}-${index}`}
+              name={`${boss.name}-${index}`}
+              value={boss.difficulty}
+              checked={selectedBoss[index]?.[boss.name] === boss.difficulty}
+              onChange={() =>
+                handleBossChange(index, boss.name, boss.difficulty)
+              }
+            />
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   const renderSelectSection = (): JSX.Element[] => {
     const selectSections: JSX.Element[] = [];
     for (let i = 0; i < numCharacters; i++) {
@@ -65,42 +92,10 @@ const Crystal = () => {
             <div className="select-title">Daily</div>
             <div className="select-row">
               <div className="select-daily-boss-section">
-                {firstHalf.map((boss, index) => (
-                  <div className="select-input-section" key={index}>
-                    <label htmlFor={`${boss.difficulty}-${boss.name}-${i}`}>
-                      {`${boss.difficulty}-${boss.name}`}
-                    </label>
-                    <input
-                      type="checkbox"
-                      id={`${boss.difficulty}-${boss.name}-${i}`}
-                      name={`${boss.name}-${i}`}
-                      value={boss.difficulty}
-                      checked={selectedBoss[i]?.[boss.name] === boss.difficulty}
-                      onChange={() =>
-                        handleBossChange(i, boss.name, boss.difficulty)
-                      }
-                    />
-                  </div>
-                ))}
+                {renderCheckboxSection(firstHalf, i)}
               </div>
               <div className="select-daily-boss-section">
-                {secondHalf.map((boss, index) => (
-                  <div className="select-input-section" key={index}>
-                    <label htmlFor={`${boss.difficulty}-${boss.name}-${i}`}>
-                      {`${boss.difficulty}-${boss.name}`}
-                    </label>
-                    <input
-                      type="checkbox"
-                      id={`${boss.difficulty}-${boss.name}-${i}`}
-                      name={`${boss.name}-${i}`}
-                      value={boss.difficulty}
-                      checked={selectedBoss[i]?.[boss.name] === boss.difficulty}
-                      onChange={() =>
-                        handleBossChange(i, boss.name, boss.difficulty)
-                      }
-                    />
-                  </div>
-                ))}
+                {renderCheckboxSection(secondHalf, i)}
               </div>
             </div>
           </div>
@@ -108,42 +103,10 @@ const Crystal = () => {
             <div className="select-title">Weekly</div>
             <div className="select-row">
               <div className="select-weekly-boss-section">
-                {thirdHalf.map((boss, index) => (
-                  <div className="select-input-section" key={index}>
-                    <label htmlFor={`${boss.difficulty}-${boss.name}-${i}`}>
-                      {`${boss.difficulty}-${boss.name}`}
-                    </label>
-                    <input
-                      type="checkbox"
-                      id={`${boss.difficulty}-${boss.name}-${i}`}
-                      name={`${boss.name}-${i}`}
-                      value={boss.difficulty}
-                      checked={selectedBoss[i]?.[boss.name] === boss.difficulty}
-                      onChange={() =>
-                        handleBossChange(i, boss.name, boss.difficulty)
-                      }
-                    />
-                  </div>
-                ))}
+                {renderCheckboxSection(thirdHalf, i)}
               </div>
               <div className="select-weekly-boss-section">
-                {fourthHalf.map((boss, index) => (
-                  <div className="select-input-section" key={index}>
-                    <label htmlFor={`${boss.difficulty}-${boss.name}-${i}`}>
-                      {`${boss.difficulty}-${boss.name}`}
-                    </label>
-                    <input
-                      type="checkbox"
-                      id={`${boss.difficulty}-${boss.name}-${i}`}
-                      name={`${boss.name}-${i}`}
-                      value={boss.difficulty}
-                      checked={selectedBoss[i]?.[boss.name] === boss.difficulty}
-                      onChange={() =>
-                        handleBossChange(i, boss.name, boss.difficulty)
-                      }
-                    />
-                  </div>
-                ))}
+                {renderCheckboxSection(fourthHalf, i)}
               </div>
             </div>
           </div>
@@ -152,6 +115,23 @@ const Crystal = () => {
     }
     return selectSections;
   };
+
+  console.log(selectedBoss);
+  useEffect(() => {
+    setSelectedBoss((prevSelectedBoss) => {
+      const updatedBossArray = [...prevSelectedBoss];
+
+      while (updatedBossArray.length < numCharacters) {
+        updatedBossArray.push({});
+      }
+
+      while (updatedBossArray.length > numCharacters) {
+        updatedBossArray.pop();
+      }
+
+      return updatedBossArray;
+    });
+  }, [numCharacters]);
 
   return (
     <Layout>
@@ -257,12 +237,6 @@ const SelectArea = styled.div`
 
   .select-daily-boss-section,
   .select-weekly-boss-section {
-    ${flex({
-      direction: "column",
-      justify: "flex-start",
-      gap: "1rem",
-    })}
-    width: 50%; /* Set the width to 50% to create two columns */
   }
 
   .select-column {
@@ -291,6 +265,7 @@ const SelectArea = styled.div`
     })}
     width: 100%;
     font-size: ${FONT_SIZE[16]};
+    margin-bottom: 0.5rem;
     label {
       width: 120px;
     }
@@ -304,7 +279,7 @@ const SelectArea = styled.div`
       flex-direction: column;
       align-items: center;
       width: 100%;
-      gap: 1rem;
+      gap: 0rem;
     }
     .select-input-section {
       label {
@@ -321,7 +296,7 @@ const SelectArea = styled.div`
       font-size: ${FONT_SIZE[12]};
       width: 100%;
       label {
-        width: 40px;
+        width: 50px;
       }
     }
   }

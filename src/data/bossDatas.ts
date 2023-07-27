@@ -1,4 +1,4 @@
-interface Boss {
+export interface Boss {
   name: string;
   difficulty: string;
   price: number;
