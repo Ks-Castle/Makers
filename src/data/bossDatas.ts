@@ -5,6 +5,18 @@ export interface Boss {
   img: string;
 }
 
+export interface BossCalculateResult {
+  index: number;
+  data: CalResult[];
+}
+
+export interface CalResult {
+  name: string;
+  difficulty: string;
+  price: number;
+  count: number;
+}
+
 export const dailyBosses: Boss[] = [
   { name: "Zakum", difficulty: "EZ", price: 1000000, img: "Zakum" },
   { name: "Zakum", difficulty: "NM", price: 3062500, img: "Zakum" },

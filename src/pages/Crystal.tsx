@@ -5,6 +5,7 @@ import { Button, Input, SVG } from "@/context/Index.js";
 import Modal from "@/context/Modal.js";
 import {
   Boss,
+  BossCalculateResult,
   dailyBosses,
   dailyBossesToCheck,
   hackerWeeklyBosses,
@@ -13,7 +14,7 @@ import {
   weeklyBosses,
 } from "@/data/bossDatas.js";
 import { FONT_SIZE, RESOLUTION } from "@/data/str.js";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 interface FinalType {
@@ -32,7 +33,6 @@ const Crystal = () => {
   }));
 
   const [finalData, setFinalData] = useState<FinalType[]>(initialFinalData);
-  console.log(finalData);
 
   const dayhalfLength = Math.ceil(dailyBosses.length / 2);
   const weekhalfLength = Math.ceil(weeklyBosses.length / 2 + 1);
@@ -302,6 +302,44 @@ const Crystal = () => {
     });
   };
 
+  const calculateCrystalsRemaining = () => {
+    let remainingCrystals = numCrystals;
+    const bossResults: BossCalculateResult[] = [];
+
+    finalData.forEach((v, i) => {
+      remainingCrystals -= v.weekly.length;
+      if (v.daily.length > 0 || v.weekly.length > 0) {
+        v.daily.sort((a, b) => b.price - a.price);
+        let bossIndex = 0;
+        while (remainingCrystals > 0 && bossIndex < v.daily.length) {
+          const boss = v.daily[bossIndex];
+          console.log(boss);
+          remainingCrystals -= 7;
+
+          if (remainingCrystals > 0) {
+            bossIndex++;
+            bossResults[i]?.data?.push({
+              name: boss.name,
+              difficulty: boss.difficulty,
+              price: boss.price,
+              count: 7,
+            });
+          } else {
+            bossResults[i]?.data?.push({
+              name: boss.name,
+              difficulty: boss.difficulty,
+              price: boss.price,
+              count: remainingCrystals * -1,
+            });
+            break;
+          }
+        }
+      }
+    });
+
+    console.log("남은 크리스탈 개수:", remainingCrystals);
+    console.log("선택된 보스들:", bossResults);
+  };
   return (
     <Layout>
       {toggleModal && <Modal setToggle={setToggleModal} />}
@@ -320,7 +358,7 @@ const Crystal = () => {
             height="30px"
             padding="1"
             paddingType="all"
-            onClick={toggleModalHandler}
+            onClick={calculateCrystalsRemaining}
           >
             CALCULATE
           </Button>
