@@ -23,12 +23,13 @@ const Crystal = () => {
   const [numCharacters, setNumCharacters] = useState<number>(1);
   const [numCrystals, setNumCrystals] = useState<number>(180);
 
-  const initialFinalData: FinalType[] = Array.from(
-    { length: numCharacters },
-    () => ({ daily: [], weekly: [] })
-  );
+  const initialFinalData: FinalType[] = Array.from({ length: 9 }, () => ({
+    daily: [],
+    weekly: [],
+  }));
 
   const [finalData, setFinalData] = useState<FinalType[]>(initialFinalData);
+  console.log(finalData);
 
   const [checkAllDaily, setCheckAllDaily] = useState(false);
   const [checkNoob, setCheckNoob] = useState(false);
