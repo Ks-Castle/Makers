@@ -1,7 +1,7 @@
 import flex from "@/assets/styles/flex.js";
 import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
-import { Button, Input } from "@/context/Index.js";
+import { Button, Input, SVG } from "@/context/Index.js";
 import { Boss, dailyBosses, weeklyBosses } from "@/data/bossDatas.js";
 import { FONT_SIZE, RESOLUTION } from "@/data/str.js";
 import { useEffect, useState } from "react";
@@ -65,7 +65,8 @@ const Crystal = () => {
         {bossArray.map((boss, bossIndex) => (
           <div className="select-input-section" key={bossIndex}>
             <label htmlFor={`${boss.difficulty}-${boss.name}-${index}`}>
-              {`${boss.difficulty}-${boss.name}`}
+              <SVG iconName={boss.img} />
+              <p>{`${boss.difficulty}-${boss.name}`}</p>
             </label>
             <input
               type="checkbox"
@@ -116,7 +117,6 @@ const Crystal = () => {
     return selectSections;
   };
 
-  console.log(selectedBoss);
   useEffect(() => {
     setSelectedBoss((prevSelectedBoss) => {
       const updatedBossArray = [...prevSelectedBoss];
@@ -260,14 +260,19 @@ const SelectArea = styled.div`
 
   .select-input-section {
     ${flex({
-      gap: "1rem",
       justify: "flex-start",
     })}
     width: 100%;
     font-size: ${FONT_SIZE[16]};
     margin-bottom: 0.5rem;
     label {
+      ${flex({
+        justify: "flex-start",
+      })}
       width: 120px;
+      .svgClass {
+        min-width: 50px;
+      }
     }
     input {
       width: 30px;
@@ -285,18 +290,23 @@ const SelectArea = styled.div`
       label {
         width: 150px;
       }
-      input {
-        width: 15px;
-        height: 15px;
-      }
     }
   }
   @media (max-width: ${RESOLUTION.TABLET}px) {
     .select-input-section {
       font-size: ${FONT_SIZE[12]};
       width: 100%;
+      align-items: flex-start;
+      justify-content: flex-start;
       label {
         width: 50px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+      input {
+        width: 50px;
+        height: 50px;
       }
     }
   }
