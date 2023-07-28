@@ -31,9 +31,7 @@ const SVG = forwardRef(
     ref: ForwardedRef<HTMLDivElement>
   ) => {
     const [svg, setSvg] = useState<string | null>(null);
-
     const svgHandler = async (str: string) => {
-      console.log(type);
       try {
         let Svg;
         switch (type) {

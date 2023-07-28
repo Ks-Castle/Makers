@@ -6,6 +6,7 @@ import Modal from "@/context/Modal.js";
 import {
   Boss,
   BossCalculateResult,
+  CalResult,
   dailyBosses,
   dailyBossesToCheck,
   hackerWeeklyBosses,
@@ -48,21 +49,12 @@ const Crystal = () => {
   const [finalRemainingCrystals, setFinalRemainingCrystals] =
     useState<number>(0);
 
-  console.log("데일리보스에 사용가능한 결정석: ", remainingCrystalsState);
-  console.log("내가 잡아야하는 보스들: ", bossResultsState);
-  console.log("내가 총 사용한 결정석: ", totalCountsState);
-  console.log("남은결정석: ", finalRemainingCrystals);
-
   const dayhalfLength = Math.ceil(dailyBosses.length / 2);
   const weekhalfLength = Math.ceil(weeklyBosses.length / 2 + 1);
   const firstHalf = dailyBosses.slice(0, dayhalfLength);
   const secondHalf = dailyBosses.slice(dayhalfLength);
   const thirdHalf = weeklyBosses.slice(0, weekhalfLength);
   const fourthHalf = weeklyBosses.slice(weekhalfLength);
-
-  const toggleModalHandler = () => {
-    setToggleModal(!toggleModal);
-  };
 
   const onCharacterInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const maxValue = 9;
@@ -407,11 +399,18 @@ const Crystal = () => {
     setBossResultsState(bossResults);
     setTotalCountsState(totalCounts);
     setFinalRemainingCrystals(remainingCrystals - totalCounts);
+    setToggleModal(!toggleModal);
   };
 
   return (
     <Layout>
-      {toggleModal && <Modal setToggle={setToggleModal} />}
+      {toggleModal && (
+        <Modal
+          setToggle={setToggleModal}
+          bossResultsState={bossResultsState}
+          finalRemainingCrystals={finalRemainingCrystals}
+        />
+      )}
       <Head
         link="Maplestory Boss Crystal Calculator"
         desc="For making your maple life easier."
@@ -652,8 +651,12 @@ const SelectArea = styled.div`
         justify-content: flex-start;
       }
       input {
-        width: 50px;
-        height: 50px;
+        width: 30px;
+        height: 30px;
+      }
+      .svgClass {
+        width: 30px;
+        height: 30px;
       }
     }
     .select-title {
