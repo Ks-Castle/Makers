@@ -150,7 +150,13 @@ const Crystal = () => {
       <div>
         {bossArray.map((boss, bossIndex) => (
           <div className="select-input-section" key={bossIndex}>
-            <label htmlFor={`${boss.difficulty}-${boss.name}-${index}`}>
+            <label
+              htmlFor={
+                boss.name.includes("-")
+                  ? `weekly-${boss.difficulty}-${boss.name}-${index}`
+                  : `daily-${boss.difficulty}-${boss.name}-${index}`
+              }
+            >
               <SVG iconName={`${boss.img}`} type="boss" />
               <p>{`${boss.difficulty}-${boss.name}`}</p>
             </label>
@@ -180,8 +186,8 @@ const Crystal = () => {
             ) : (
               <input
                 type="checkbox"
-                id={`${boss.difficulty}-${boss.name}-${index}`}
-                name={`${boss.name}-${index}`}
+                id={`daily-${boss.difficulty}-${boss.name}-${index}`}
+                name={`daily-${boss.name}-${index}`}
                 value={boss.difficulty}
                 checked={finalData[index]?.daily.some(
                   (bossData) =>
