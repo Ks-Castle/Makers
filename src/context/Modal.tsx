@@ -54,9 +54,7 @@ const Modal = ({ ...props }: PropsType) => {
     };
     calculateMinMax();
   }, [props.bossResultsState, props.finalRemainingCrystals]);
-  console.log(minMax);
-  console.log(props.bossResultsState);
-  console.log(props.finalRemainingCrystals);
+
   return (
     <Wrapper>
       <ModalContainer>
@@ -69,14 +67,14 @@ const Modal = ({ ...props }: PropsType) => {
                   .toFixed(0)
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-                (6p for Weekly)
+                (Solo Daily + 6P Weekly)
               </div>
               <div>
                 {minMax.max
                   .toFixed(0)
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-                (Solo for Weekly)
+                (Solo Daily + Solo Weekly)
               </div>
             </div>
             <div className="content-total-remainCrystal">
