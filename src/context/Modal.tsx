@@ -19,6 +19,8 @@ interface MinMaxType {
 
 const Modal = ({ ...props }: PropsType) => {
   const [minMax, setMinMax] = useState<MinMaxType>({ min: 0, max: 0 });
+  const [isWeekly, setIsWeekly] = useState(false);
+  const [isDaily, setIsDaily] = useState(false);
   const onCloseHandler = () => {
     props.setToggle((v) => !v);
   };
@@ -39,6 +41,17 @@ const Modal = ({ ...props }: PropsType) => {
     minPrice += oneCountPriceSum / 6;
     return { min: minPrice, max: maxPrice };
   };
+
+  useEffect(() => {
+    props.bossResultsState.forEach((v) => {
+      if (v.data.some((vv) => vv.count === 1)) {
+        setIsWeekly(true);
+      }
+      if (v.data.some((vv) => vv.count === 7)) {
+        setIsDaily(true);
+      }
+    });
+  }, []);
 
   useEffect(() => {
     const calculateMinMax = () => {
@@ -88,28 +101,37 @@ const Modal = ({ ...props }: PropsType) => {
               return (
                 <div className="content-recommend" key={i}>
                   <div className="modal-title">Character No.{i + 1}</div>
-                  <div className="content-recommend-boss">
-                    <div className="modal-title">Weekly Bosses</div>
-                    <div className="boss-imgs-container">
-                      {v.data.map((vv, ii) => {
-                        if (vv.count === 1) {
-                          return <SVG iconName={vv.img} type="boss" key={ii} />;
-                        }
-                      })}
+                  {isWeekly && (
+                    <div className="content-recommend-boss">
+                      <div className="modal-title">Weekly Bosses</div>
+                      <div className="boss-imgs-container">
+                        {v.data.map((vv, ii) => {
+                          if (vv.count === 1) {
+                            return (
+                              <SVG iconName={vv.img} type="boss" key={ii} />
+                            );
+                          }
+                        })}
+                      </div>
                     </div>
-                  </div>
-                  <div className="content-recommend-boss">
-                    <div className="modal-title">
-                      Daily Bosses Recommendation
+                  )}
+
+                  {isDaily && (
+                    <div className="content-recommend-boss">
+                      <div className="modal-title">
+                        Daily Bosses Recommendation
+                      </div>
+                      <div className="boss-imgs-container">
+                        {v.data.map((vv, ii) => {
+                          if (vv.count === 7) {
+                            return (
+                              <SVG iconName={vv.img} type="boss" key={ii} />
+                            );
+                          }
+                        })}
+                      </div>
                     </div>
-                    <div className="boss-imgs-container">
-                      {v.data.map((vv, ii) => {
-                        if (vv.count === 7) {
-                          return <SVG iconName={vv.img} type="boss" key={ii} />;
-                        }
-                      })}
-                    </div>
-                  </div>
+                  )}
                   <div className="content-recommend-drops">
                     <div className="modal-title">Expected Drops</div>
                     <div className="boss-imgs-container">
