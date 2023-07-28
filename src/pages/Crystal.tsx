@@ -420,7 +420,8 @@ const Crystal = () => {
         <ButtonArea>
           <div style={{ width: "100px" }}></div>
           <div className="introduce-text">
-            *Check the maximum difficulty level of bosses can defeat
+            <p>* Check the maximum difficulty level of bosses can defeat *</p>
+            <p>* This is only for GMS Reboot *</p>
           </div>
           <Button
             width="100"
