@@ -95,7 +95,8 @@ const Crystal = () => {
     name: string,
     difficulty: string,
     price: number,
-    img: string
+    img: string,
+    drops: string[]
   ): void => {
     setFinalData((prevFinalData) => {
       const newFinalData = [...prevFinalData];
@@ -103,7 +104,7 @@ const Crystal = () => {
         newFinalData.push({ daily: [], weekly: [] });
       }
 
-      const bossToAdd: Boss = { name, difficulty, price, img };
+      const bossToAdd: Boss = { name, difficulty, price, img, drops };
       const isAlreadyChecked = name.includes("-")
         ? newFinalData[index]?.weekly.some(
             (boss) => boss.name === name && boss.difficulty === difficulty
@@ -171,7 +172,8 @@ const Crystal = () => {
                     boss.name,
                     boss.difficulty,
                     boss.price,
-                    boss.img
+                    boss.img,
+                    boss.drops
                   )
                 }
               />
@@ -192,7 +194,8 @@ const Crystal = () => {
                     boss.name,
                     boss.difficulty,
                     boss.price,
-                    boss.img
+                    boss.img,
+                    boss.drops
                   )
                 }
               />
@@ -341,6 +344,7 @@ const Crystal = () => {
             price: boss.price,
             count: 7,
             img: boss.img,
+            drops: boss.drops,
           });
           bossIndex++;
         }
@@ -385,6 +389,7 @@ const Crystal = () => {
             price: boss.price,
             count: 1,
             img: boss.img,
+            drops: boss.drops,
           });
           bossIndex++;
         }
