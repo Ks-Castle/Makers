@@ -48,10 +48,10 @@ const Crystal = () => {
   const [finalRemainingCrystals, setFinalRemainingCrystals] =
     useState<number>(0);
 
-  console.log(remainingCrystalsState);
-  console.log(bossResultsState);
-  console.log(totalCountsState);
-  console.log(finalRemainingCrystals);
+  console.log("데일리보스에 사용가능한 결정석: ", remainingCrystalsState);
+  console.log("내가 잡아야하는 보스들: ", bossResultsState);
+  console.log("내가 총 사용한 결정석: ", totalCountsState);
+  console.log("남은결정석: ", finalRemainingCrystals);
 
   const dayhalfLength = Math.ceil(dailyBosses.length / 2);
   const weekhalfLength = Math.ceil(weeklyBosses.length / 2 + 1);
