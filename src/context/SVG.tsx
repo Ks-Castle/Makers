@@ -1,6 +1,8 @@
 import { useState, useEffect, forwardRef, ForwardedRef } from "react";
 import styled from "styled-components";
 
+type ImageTypes = "boss" | "drop";
+
 type IconProps = {
   iconName: string;
   width?: string;
@@ -10,6 +12,7 @@ type IconProps = {
   pointer?: boolean;
   onClick?: () => void;
   disabled?: boolean;
+  type?: ImageTypes;
 };
 
 const SVG = forwardRef(
@@ -23,14 +26,27 @@ const SVG = forwardRef(
       pointer,
       onClick,
       disabled,
+      type,
     }: IconProps,
     ref: ForwardedRef<HTMLDivElement>
   ) => {
     const [svg, setSvg] = useState<string | null>(null);
 
     const svgHandler = async (str: string) => {
+      console.log(type);
       try {
-        const Svg = await import(`../assets/images/${str}.svg`);
+        let Svg;
+        switch (type) {
+          case "boss":
+            Svg = await import(`../assets/images/bosses/${str}.svg`);
+            break;
+          case "drop":
+            Svg = await import(`../assets/images/drops/${str}.svg`);
+            break;
+          default:
+            Svg = await import(`../assets/images/${str}.svg`);
+            break;
+        }
         return Svg.default || null;
       } catch (error) {
         console.error(error);

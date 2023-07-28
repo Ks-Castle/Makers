@@ -150,7 +150,7 @@ const Crystal = () => {
         {bossArray.map((boss, bossIndex) => (
           <div className="select-input-section" key={bossIndex}>
             <label htmlFor={`${boss.difficulty}-${boss.name}-${index}`}>
-              <SVG iconName={boss.img} />
+              <SVG iconName={`${boss.img}`} type="boss" />
               <p>{`${boss.difficulty}-${boss.name}`}</p>
             </label>
 
