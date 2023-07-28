@@ -34,6 +34,25 @@ const Crystal = () => {
 
   const [finalData, setFinalData] = useState<FinalType[]>(initialFinalData);
 
+  const [remainingCrystalsState, setRemainingCrystalsState] =
+    useState<number>(numCrystals);
+  const [bossResultsState, setBossResultsState] = useState<
+    BossCalculateResult[]
+  >(
+    finalData.map(() => ({
+      index: 0,
+      data: [],
+    }))
+  );
+  const [totalCountsState, setTotalCountsState] = useState<number>(0);
+  const [finalRemainingCrystals, setFinalRemainingCrystals] =
+    useState<number>(0);
+
+  console.log(remainingCrystalsState);
+  console.log(bossResultsState);
+  console.log(totalCountsState);
+  console.log(finalRemainingCrystals);
+
   const dayhalfLength = Math.ceil(dailyBosses.length / 2);
   const weekhalfLength = Math.ceil(weeklyBosses.length / 2 + 1);
   const firstHalf = dailyBosses.slice(0, dayhalfLength);
@@ -304,42 +323,62 @@ const Crystal = () => {
 
   const calculateCrystalsRemaining = () => {
     let remainingCrystals = numCrystals;
-    const bossResults: BossCalculateResult[] = [];
+    const bossResults: BossCalculateResult[] = finalData.map(() => ({
+      index: 0,
+      data: [],
+    }));
 
     finalData.forEach((v, i) => {
       remainingCrystals -= v.weekly.length;
       if (v.daily.length > 0 || v.weekly.length > 0) {
         v.daily.sort((a, b) => b.price - a.price);
         let bossIndex = 0;
-        while (remainingCrystals > 0 && bossIndex < v.daily.length) {
+        while (bossIndex < v.daily.length) {
           const boss = v.daily[bossIndex];
-          console.log(boss);
-          remainingCrystals -= 7;
-
-          if (remainingCrystals > 0) {
-            bossIndex++;
-            bossResults[i]?.data?.push({
-              name: boss.name,
-              difficulty: boss.difficulty,
-              price: boss.price,
-              count: 7,
-            });
-          } else {
-            bossResults[i]?.data?.push({
-              name: boss.name,
-              difficulty: boss.difficulty,
-              price: boss.price,
-              count: remainingCrystals * -1,
-            });
-            break;
-          }
+          bossResults[i].data.push({
+            name: boss.name,
+            difficulty: boss.difficulty,
+            price: boss.price,
+            count: 7,
+          });
+          bossIndex++;
         }
       }
     });
 
-    console.log("남은 크리스탈 개수:", remainingCrystals);
-    console.log("선택된 보스들:", bossResults);
+    let totalCounts = 0;
+    bossResults.forEach((bossResult) => {
+      bossResult.data.forEach((bossData) => {
+        totalCounts += bossData.count;
+      });
+    });
+
+    while (remainingCrystals < totalCounts) {
+      bossResults.forEach((bossResult) => {
+        let minPriceBossIndex = 0;
+        let minPrice = bossResult.data[0]?.price || 0;
+        bossResult.data.forEach((bossData, index) => {
+          if (bossData.price && bossData.price < minPrice) {
+            minPrice = bossData.price;
+            minPriceBossIndex = index;
+          }
+        });
+        if (remainingCrystals >= totalCounts) {
+          return;
+        }
+        if (bossResult.data[minPriceBossIndex]?.count) {
+          totalCounts -= bossResult.data[minPriceBossIndex].count;
+        }
+        bossResult.data.splice(minPriceBossIndex, 1);
+      });
+    }
+
+    setRemainingCrystalsState(remainingCrystals);
+    setBossResultsState(bossResults);
+    setTotalCountsState(totalCounts);
+    setFinalRemainingCrystals(remainingCrystals - totalCounts);
   };
+
   return (
     <Layout>
       {toggleModal && <Modal setToggle={setToggleModal} />}
