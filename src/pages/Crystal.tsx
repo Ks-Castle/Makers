@@ -340,6 +340,7 @@ const Crystal = () => {
             difficulty: boss.difficulty,
             price: boss.price,
             count: 7,
+            img: boss.img,
           });
           bossIndex++;
         }
@@ -372,6 +373,24 @@ const Crystal = () => {
         bossResult.data.splice(minPriceBossIndex, 1);
       });
     }
+
+    finalData.forEach((v, i) => {
+      if (v.daily.length > 0 || v.weekly.length > 0) {
+        let bossIndex = 0;
+        while (bossIndex < v.weekly.length) {
+          const boss = v.weekly[bossIndex];
+          bossResults[i].data.push({
+            name: boss.name,
+            difficulty: boss.difficulty,
+            price: boss.price,
+            count: 1,
+            img: boss.img,
+          });
+          bossIndex++;
+        }
+      }
+      bossResults[i].data.sort((a, b) => b.price - a.price);
+    });
 
     setRemainingCrystalsState(remainingCrystals);
     setBossResultsState(bossResults);

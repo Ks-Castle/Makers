@@ -3,6 +3,7 @@ export interface Boss {
   difficulty: string;
   price: number;
   img: string;
+  // drops: string[];
 }
 
 export interface BossCalculateResult {
@@ -15,6 +16,7 @@ export interface CalResult {
   difficulty: string;
   price: number;
   count: number;
+  img: string;
 }
 
 export const dailyBosses: Boss[] = [
