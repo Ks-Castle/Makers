@@ -4,17 +4,18 @@ import Router from "@/components/Routers/Router";
 import GlobalStyle from "@/assets/styles/GlobalStyle";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "./components/UI/Header";
+import { LOCALSTORAGE } from "./data/str.js";
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
     setDarkMode((prevMode) => !prevMode);
-    localStorage.setItem("theme", String(!darkMode));
+    localStorage.setItem(LOCALSTORAGE.THEME, String(!darkMode));
   };
 
   useEffect(() => {
-    const theme = localStorage.getItem("theme");
+    const theme = localStorage.getItem(LOCALSTORAGE.THEME);
     if (theme) {
       setDarkMode(theme === "true");
     }

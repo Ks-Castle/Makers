@@ -1,4 +1,5 @@
 import flex from "@/assets/styles/flex";
+import { LOCALSTORAGE } from "@/data/str.js";
 import { memo } from "react";
 import styled from "styled-components";
 
@@ -10,7 +11,7 @@ interface PropsType {
 }
 
 const Pagination = ({ total, limit, page, setPage }: PropsType) => {
-  const theme = localStorage.getItem("theme");
+  const theme = localStorage.getItem(LOCALSTORAGE.THEME);
   const numPages = Math.ceil(total / limit);
 
   const onPrevPageHandler = () => {

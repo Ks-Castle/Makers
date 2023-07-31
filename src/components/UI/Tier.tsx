@@ -1,12 +1,12 @@
 import { Button } from "@/context/Index";
-import { RESOLUTION, SHADOW, UI, Z_INDEX } from "@/data/str";
+import { LOCALSTORAGE, RESOLUTION, SHADOW, UI, Z_INDEX } from "@/data/str";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import flex from "@/assets/styles/flex";
-import { TierListDTO } from "@/data/DTO";
+import { TierListDTO } from "@/pages/Menu/Tier/DTO/index";
 
 const Tier = ({ data }: { data: TierListDTO }) => {
-  const theme = localStorage.getItem("theme");
+  const theme = localStorage.getItem(LOCALSTORAGE.THEME);
   const navigate = useNavigate();
   const navigationHandler = () => {
     navigate(`/TierGenerate/${data.id}`);

@@ -4,7 +4,7 @@ import Layout from "@/components/UI/Layout";
 import Tier from "@/components/UI/Tier";
 import { Input } from "@/context/Index";
 import Pagination from "@/context/Pagination";
-import { TierListDTO } from "@/data/DTO";
+import { TierListDTO } from "@/pages/Menu/Tier/DTO/index";
 import { db } from "@/data/firebase";
 import { tierListArrayState } from "@/data/recoil";
 import { RESOLUTION } from "@/data/str";

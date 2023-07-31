@@ -1,4 +1,4 @@
-import { Setter } from "@/data/DTO.js";
+import { Setter } from "@/data/globalDTO.js";
 import { RESOLUTION, Z_INDEX } from "@/data/str.js";
 import styled from "styled-components";
 import { Button, SVG } from "./Index.js";

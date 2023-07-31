@@ -3,7 +3,7 @@ import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
 import Button from "@/context/Button";
 import Input from "@/context/Input";
-import { TierListDTO } from "@/data/DTO";
+import { TierListDTO } from "@/pages/Menu/Tier/DTO/index";
 import { db, storage } from "@/data/firebase";
 import { getDownloadURL, ref, uploadBytes } from "@firebase/storage";
 import { collection, setDoc, doc } from "firebase/firestore";
