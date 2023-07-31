@@ -2,9 +2,9 @@ import { Routes, Route } from "react-router-dom";
 import navigation from "@/data/navigation.json";
 import Error from "@/pages/Status/Error";
 import Home from "@/pages/Home";
-import TierList from "@/pages/Menu/Tier";
-import TierMaking from "@/pages/Menu/Tier/TierMaking";
-import Crystal from "@/pages/Menu/Crystal";
+import TierList from "@/pages/Menu/00_Tier";
+import TierMaking from "@/pages/Menu/00_Tier/TierMaking";
+import Crystal from "@/pages/Menu/01_Crystal";
 import Gallery from "@/pages/Gallery";
 import UploadTier_New from "@/pages/Admin/UploadTier_New";
 
