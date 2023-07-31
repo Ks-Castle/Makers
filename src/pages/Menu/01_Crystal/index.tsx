@@ -2,24 +2,15 @@ import { flex, font } from "@/assets/styles/index.js";
 import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
 import { Button, Input, SVG } from "@/context/Index.js";
-import Modal from "@/context/Modal.js";
-import {
-  Boss,
-  BossCalculateResult,
-  dailyBosses,
-  dailyBossesToCheck,
-  hackerWeeklyBosses,
-  noobWeeklyBosses,
-  proWeeklyBosses,
-  weeklyBosses,
-} from "@/data/bossDatas.js";
+import Modal from "@/pages/Menu/01_Crystal/Components/CrystalModal.js";
+import * as BOSSDATA from "@/data/bossDatas.js";
 import { RESOLUTION } from "@/data/str.js";
 import { useState } from "react";
 import styled from "styled-components";
 
 interface FinalType {
-  daily: Boss[];
-  weekly: Boss[];
+  daily: BOSSDATA.Boss[];
+  weekly: BOSSDATA.Boss[];
 }
 
 const Crystal = () => {
@@ -37,7 +28,7 @@ const Crystal = () => {
   const [remainingCrystalsState, setRemainingCrystalsState] =
     useState<number>(numCrystals);
   const [bossResultsState, setBossResultsState] = useState<
-    BossCalculateResult[]
+    BOSSDATA.BossCalculateResult[]
   >(
     finalData.map(() => ({
       index: 0,
@@ -48,12 +39,12 @@ const Crystal = () => {
   const [finalRemainingCrystals, setFinalRemainingCrystals] =
     useState<number>(0);
 
-  const dayhalfLength = Math.ceil(dailyBosses.length / 2);
-  const weekhalfLength = Math.ceil(weeklyBosses.length / 2 + 1);
-  const firstHalf = dailyBosses.slice(0, dayhalfLength);
-  const secondHalf = dailyBosses.slice(dayhalfLength);
-  const thirdHalf = weeklyBosses.slice(0, weekhalfLength);
-  const fourthHalf = weeklyBosses.slice(weekhalfLength);
+  const dayhalfLength = Math.ceil(BOSSDATA.dailyBosses.length / 2);
+  const weekhalfLength = Math.ceil(BOSSDATA.weeklyBosses.length / 2 + 1);
+  const firstHalf = BOSSDATA.dailyBosses.slice(0, dayhalfLength);
+  const secondHalf = BOSSDATA.dailyBosses.slice(dayhalfLength);
+  const thirdHalf = BOSSDATA.weeklyBosses.slice(0, weekhalfLength);
+  const fourthHalf = BOSSDATA.weeklyBosses.slice(weekhalfLength);
 
   const onCharacterInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const maxValue = 9;
@@ -95,7 +86,7 @@ const Crystal = () => {
         newFinalData.push({ daily: [], weekly: [] });
       }
 
-      const bossToAdd: Boss = { name, difficulty, price, img, drops };
+      const bossToAdd: BOSSDATA.Boss = { name, difficulty, price, img, drops };
       const isAlreadyChecked = name.includes("-")
         ? newFinalData[index]?.weekly.some(
             (boss) => boss.name === name && boss.difficulty === difficulty
@@ -134,7 +125,7 @@ const Crystal = () => {
   };
 
   const renderCheckboxSection = (
-    bossArray: Boss[],
+    bossArray: BOSSDATA.Boss[],
     index: number
   ): JSX.Element => {
     return (
@@ -217,7 +208,8 @@ const Crystal = () => {
                   id={`all-${i}`}
                   onChange={() => handleCheckAllDaily(i)}
                   checked={
-                    finalData[i]?.daily?.length === dailyBossesToCheck.length
+                    finalData[i]?.daily?.length ===
+                    BOSSDATA.dailyBossesToCheck.length
                   }
                 />
                 <label htmlFor={`all-${i}`}>All</label>
@@ -240,9 +232,12 @@ const Crystal = () => {
                   <input
                     type="checkbox"
                     id={`noob-${i}`}
-                    onChange={() => handleCheckAllWeekly(i, noobWeeklyBosses)}
+                    onChange={() =>
+                      handleCheckAllWeekly(i, BOSSDATA.noobWeeklyBosses)
+                    }
                     checked={
-                      finalData[i]?.weekly?.length === noobWeeklyBosses.length
+                      finalData[i]?.weekly?.length ===
+                      BOSSDATA.noobWeeklyBosses.length
                     }
                   />
                   <label htmlFor={`noob-${i}`}>Noob</label>
@@ -251,9 +246,12 @@ const Crystal = () => {
                   <input
                     type="checkbox"
                     id={`pro-${i}`}
-                    onChange={() => handleCheckAllWeekly(i, proWeeklyBosses)}
+                    onChange={() =>
+                      handleCheckAllWeekly(i, BOSSDATA.proWeeklyBosses)
+                    }
                     checked={
-                      finalData[i]?.weekly?.length === proWeeklyBosses.length
+                      finalData[i]?.weekly?.length ===
+                      BOSSDATA.proWeeklyBosses.length
                     }
                   />
                   <label htmlFor={`pro-${i}`}>Pro</label>
@@ -262,9 +260,12 @@ const Crystal = () => {
                   <input
                     type="checkbox"
                     id={`hacker-${i}`}
-                    onChange={() => handleCheckAllWeekly(i, hackerWeeklyBosses)}
+                    onChange={() =>
+                      handleCheckAllWeekly(i, BOSSDATA.hackerWeeklyBosses)
+                    }
                     checked={
-                      finalData[i]?.weekly?.length === hackerWeeklyBosses.length
+                      finalData[i]?.weekly?.length ===
+                      BOSSDATA.hackerWeeklyBosses.length
                     }
                   />
                   <label htmlFor={`hacker-${i}`}>Hacker</label>
@@ -290,12 +291,13 @@ const Crystal = () => {
     setFinalData((prevData) => {
       const updatedFinalData = [...prevData];
       const allDailyBossesChecked =
-        prevData[characterIndex]?.daily?.length === dailyBossesToCheck.length;
+        prevData[characterIndex]?.daily?.length ===
+        BOSSDATA.dailyBossesToCheck.length;
 
       if (allDailyBossesChecked) {
         updatedFinalData[characterIndex].daily = [];
       } else {
-        updatedFinalData[characterIndex].daily = dailyBossesToCheck;
+        updatedFinalData[characterIndex].daily = BOSSDATA.dailyBossesToCheck;
       }
 
       return updatedFinalData;
@@ -304,7 +306,7 @@ const Crystal = () => {
 
   const handleCheckAllWeekly = (
     characterIndex: number,
-    weeklyBossesArray: Boss[]
+    weeklyBossesArray: BOSSDATA.Boss[]
   ) => {
     setFinalData((prevData) => {
       const updatedFinalData = [...prevData];
@@ -323,7 +325,7 @@ const Crystal = () => {
 
   const calculateCrystalsRemaining = () => {
     let remainingCrystals = numCrystals;
-    const bossResults: BossCalculateResult[] = finalData.map(() => ({
+    const bossResults: BOSSDATA.BossCalculateResult[] = finalData.map(() => ({
       index: 0,
       data: [],
     }));

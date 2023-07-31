@@ -1,7 +1,7 @@
 import { Setter } from "@/data/globalDTO.js";
 import { RESOLUTION, Z_INDEX } from "@/data/str.js";
 import styled from "styled-components";
-import { Button, SVG } from "./Index.js";
+import { Button, SVG } from "../../../../context/Index.js";
 import { BossCalculateResult, CalResult } from "@/data/bossDatas.js";
 import { useEffect, useState } from "react";
 import { flex, font } from "@/assets/styles/index.js";
@@ -17,7 +17,7 @@ interface MinMaxType {
   max: number;
 }
 
-const Modal = ({ ...props }: PropsType) => {
+const CrystalModal = ({ ...props }: PropsType) => {
   const [minMax, setMinMax] = useState<MinMaxType>({ min: 0, max: 0 });
   const [isWeekly, setIsWeekly] = useState(false);
   const [isDaily, setIsDaily] = useState(false);
@@ -163,7 +163,7 @@ const Modal = ({ ...props }: PropsType) => {
   );
 };
 
-export default Modal;
+export default CrystalModal;
 
 const Wrapper = styled.div`
   ${flex({})}
