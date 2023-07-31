@@ -1,8 +1,14 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
 
-url = "https://makers-plum.vercel.app/Home"
+url = "https://maplestory.nexon.net/news"
 
 browser = webdriver.Firefox()
 browser.get(url)
 
-print(browser)
+
+news_view_more_button = browser.find_element("#newsViewMore")
+news_view_more_button.click()
+
+browser.quit()
