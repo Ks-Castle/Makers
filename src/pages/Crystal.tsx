@@ -1,4 +1,4 @@
-import flex from "@/assets/styles/flex.js";
+import { flex, font } from "@/assets/styles/index.js";
 import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
 import { Button, Input, SVG } from "@/context/Index.js";
@@ -6,7 +6,6 @@ import Modal from "@/context/Modal.js";
 import {
   Boss,
   BossCalculateResult,
-  CalResult,
   dailyBosses,
   dailyBossesToCheck,
   hackerWeeklyBosses,
@@ -14,7 +13,7 @@ import {
   proWeeklyBosses,
   weeklyBosses,
 } from "@/data/bossDatas.js";
-import { FONT_SIZE, RESOLUTION } from "@/data/str.js";
+import { RESOLUTION } from "@/data/str.js";
 import { useState } from "react";
 import styled from "styled-components";
 
@@ -500,7 +499,7 @@ const InputArea = styled.div`
     gap: "1rem",
   })}
   width: 100%;
-  font-size: ${FONT_SIZE[20]};
+  ${font({ size: 20 })}
   .input-container {
     ${flex({ gap: "1rem" })}
     width: 100%;
@@ -510,10 +509,10 @@ const InputArea = styled.div`
   }
 
   @media (max-width: ${RESOLUTION.TABLET}px) {
-    font-size: ${FONT_SIZE[16]};
+    ${font({})}
   }
   @media (max-width: ${RESOLUTION.MOBILE}px) {
-    font-size: ${FONT_SIZE[12]};
+    ${font({ size: 12 })}
   }
 `;
 
@@ -521,7 +520,7 @@ const ButtonArea = styled.div`
   ${flex({ justify: "space-between" })}
   width: 100%;
   .introduce-text {
-    font-size: ${FONT_SIZE[16]};
+    ${font({})}
   }
   @media (max-width: ${RESOLUTION.TABLET}px) {
     flex-direction: column;
@@ -529,7 +528,7 @@ const ButtonArea = styled.div`
     align-items: center;
     gap: 1rem;
     .introduce-text {
-      font-size: ${FONT_SIZE[12]};
+      ${font({ size: 12 })}
     }
   }
 `;
@@ -577,8 +576,7 @@ const SelectArea = styled.div`
       gap: "1rem",
     })}
     width: 50%;
-    font-size: ${FONT_SIZE[20]};
-    font-weight: 900;
+    ${font({ size: 20, weight: 900 })}
   }
   .select-weekly-input-boxes {
     ${flex({
@@ -589,8 +587,7 @@ const SelectArea = styled.div`
     ${flex({
       gap: "1rem",
     })}
-    font-size: ${FONT_SIZE[16]};
-    font-weight: 500;
+    ${font({})}
   }
 
   .select-input-section {
@@ -598,7 +595,7 @@ const SelectArea = styled.div`
       justify: "flex-start",
     })}
     width: 100%;
-    font-size: ${FONT_SIZE[16]};
+    ${font({})}
     margin-bottom: 0.5rem;
     label {
       ${flex({
@@ -640,7 +637,7 @@ const SelectArea = styled.div`
   }
   @media (max-width: ${RESOLUTION.TABLET}px) {
     .select-input-section {
-      font-size: ${FONT_SIZE[12]};
+      ${font({ size: 12 })}
       width: 100%;
       align-items: flex-start;
       justify-content: flex-start;

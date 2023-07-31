@@ -1,13 +1,12 @@
-import flex from "@/assets/styles/flex";
+import { flex, font } from "@/assets/styles/index.js";
 import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
 import Button from "@/context/Button";
 import Input from "@/context/Input";
 import { TierListDTO } from "@/data/DTO";
 import { db, storage } from "@/data/firebase";
-import { FONT_SIZE } from "@/data/str";
 import { getDownloadURL, ref, uploadBytes } from "@firebase/storage";
-import { collection, addDoc, setDoc, doc } from "firebase/firestore";
+import { collection, setDoc, doc } from "firebase/firestore";
 import { useState } from "react";
 import styled from "styled-components";
 import { v1 as uuid } from "uuid";
@@ -156,7 +155,7 @@ const Box = styled.div`
   }
   .file-uploader {
     ${flex({ justify: "flex-start" })};
-    font-size: 1.6rem;
+    ${font({})}
     border: 1px solid var(--dark-100);
     max-width: 250px;
     width: 100%;
@@ -165,6 +164,5 @@ const Box = styled.div`
     color: var(--dark-100);
     border-radius: 1rem;
     padding-left: 1rem;
-    font-size: ${FONT_SIZE[12]};
   }
 `;

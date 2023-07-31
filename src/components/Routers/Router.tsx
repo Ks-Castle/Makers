@@ -27,7 +27,6 @@ const Router = () => {
         path={navigation.UploadTier_New.path}
         element={<UploadTier_New />}
       />
-
       <Route path="*" element={<Error />} />
     </Routes>
   );

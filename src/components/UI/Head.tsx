@@ -1,4 +1,3 @@
-import React from "react";
 import { Helmet } from "react-helmet-async";
 
 const Head = ({ link, desc }: { link: string; desc: string }) => {

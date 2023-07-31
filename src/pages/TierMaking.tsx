@@ -1,8 +1,7 @@
-import flex from "@/assets/styles/flex";
 import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
 import { tierListArrayState } from "@/data/recoil";
-import { FONT_SIZE, RESOLUTION } from "@/data/str";
+import { RESOLUTION } from "@/data/str";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import {
@@ -15,6 +14,7 @@ import { useCallback, useRef, useState } from "react";
 import SVG from "@/context/SVG";
 import { toPng } from "html-to-image";
 import format from "date-fns/format";
+import { flex, font } from "@/assets/styles/index.js";
 
 type BoxList = string[];
 
@@ -343,7 +343,7 @@ const AddMinusContainer = styled.div`
 
 const ContainerTitle = styled.div<{ color: string }>`
   ${flex({ direction: "column" })}
-  font-size: ${FONT_SIZE[20]};
+  ${font({ size: 20 })}
   height: 100%;
   border: 3px solid black;
   background-color: ${(props) => props.color};

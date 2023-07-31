@@ -1,4 +1,4 @@
-import { FONT_SIZE } from "@/data/str";
+import { font } from "@/assets/styles/index";
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 
@@ -52,7 +52,7 @@ const StyledInput = styled.input<InputProps>`
   width: 100%;
   max-width: ${(props) => props.width};
   height: ${(props) => props.height}px;
-  font-size: ${FONT_SIZE[16]};
+  ${font({})}
   border-radius: 10px;
   text-align: ${(props) => props.center && "center"};
 

@@ -1,9 +1,9 @@
-import flex from "@/assets/styles/flex";
 import { SVG } from "@/context/Index";
-import { FONT_SIZE, RESOLUTION, SHADOW, STR, UI, Z_INDEX } from "@/data/str";
+import { LOCALSTORAGE, RESOLUTION, SHADOW, STR, Z_INDEX } from "@/data/str";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import navigation from "@/data/navigation.json";
+import { flex, font } from "@/assets/styles/index.js";
 
 interface HeaderProps {
   darkMode: boolean;
@@ -11,7 +11,7 @@ interface HeaderProps {
 }
 
 const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
-  const theme = localStorage.getItem("theme");
+  const theme = localStorage.getItem(LOCALSTORAGE.THEME);
   const param = document.location.href.split("/");
   const navigate = useNavigate();
   const logoNavigation = () => {
@@ -81,8 +81,7 @@ const HeaderCenter = styled.div`
   ${flex({ justify: "space-between" })}
   max-width: ${RESOLUTION.PC}px;
   width: 90%;
-  font-size: ${FONT_SIZE[16]};
-  font-weight: 900;
+  ${font({ weight: 900 })}
   .header-right {
     ${flex({ gap: "2rem" })}
   }

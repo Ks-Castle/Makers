@@ -1,10 +1,10 @@
 import { Button } from "@/context/Index";
-import { RESOLUTION, SHADOW, UI } from "@/data/str";
+import { LOCALSTORAGE, RESOLUTION, SHADOW, UI } from "@/data/str";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const HomeMenu = ({ url, link }: { url: string; link: string }) => {
-  const theme = localStorage.getItem("theme");
+  const theme = localStorage.getItem(LOCALSTORAGE.THEME);
   const navigate = useNavigate();
 
   const navigationHandler = () => {

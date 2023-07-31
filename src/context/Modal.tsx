@@ -1,10 +1,10 @@
-import flex from "@/assets/styles/flex.js";
 import { Setter } from "@/data/DTO.js";
-import { FONT_SIZE, RESOLUTION, Z_INDEX } from "@/data/str.js";
+import { RESOLUTION, Z_INDEX } from "@/data/str.js";
 import styled from "styled-components";
 import { Button, SVG } from "./Index.js";
 import { BossCalculateResult, CalResult } from "@/data/bossDatas.js";
 import { useEffect, useState } from "react";
+import { flex, font } from "@/assets/styles/index.js";
 
 interface PropsType {
   setToggle: Setter<boolean>;
@@ -167,6 +167,7 @@ export default Modal;
 
 const Wrapper = styled.div`
   ${flex({})}
+  ${font({})}
   position: fixed;
   top: 0;
   left: 0;
@@ -174,15 +175,13 @@ const Wrapper = styled.div`
   height: 100vh;
   z-index: ${Z_INDEX.MODAL};
   background: #00000050;
-  font-size: ${FONT_SIZE[16]};
   .modal-title {
-    font-size: ${FONT_SIZE[20]};
-    font-weight: 900;
+    ${font({ size: 20, weight: 900 })}
   }
   @media (max-width: ${RESOLUTION.TABLET}px) {
-    font-size: ${FONT_SIZE[12]};
+    ${font({ size: 12 })}
     .modal-title {
-      font-size: ${FONT_SIZE[16]};
+      ${font({ size: 16, weight: 900 })}
     }
   }
 `;
