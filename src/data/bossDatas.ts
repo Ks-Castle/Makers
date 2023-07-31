@@ -341,7 +341,7 @@ export const weeklyBosses: Boss[] = [
     difficulty: "NM",
     price: 81000000,
     img: "Princess_No",
-    drops: ["Captivating"],
+    drops: ["Captivating", "KannaRing"],
   },
   {
     name: "Magnus-",
@@ -622,7 +622,7 @@ export const noobWeeklyBosses = [
     difficulty: "NM",
     price: 81000000,
     img: "Princess_No",
-    drops: ["Captivating"],
+    drops: ["Captivating", "KannaRing"],
   },
   {
     name: "Vellum-",
@@ -688,7 +688,7 @@ export const proWeeklyBosses = [
     difficulty: "NM",
     price: 81000000,
     img: "Princess_No",
-    drops: ["Captivating"],
+    drops: ["Captivating", "KannaRing"],
   },
   {
     name: "Magnus-",
@@ -810,7 +810,7 @@ export const hackerWeeklyBosses: Boss[] = [
     difficulty: "NM",
     price: 81000000,
     img: "Princess_No",
-    drops: ["Captivating"],
+    drops: ["Captivating", "KannaRing"],
   },
   {
     name: "Magnus-",
