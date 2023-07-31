@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import navigation from "@/data/navigation.json";
 import Error from "@/pages/Status/Error";
-import Home from "@/pages/Menu/Home";
+import Home from "@/pages/Home";
 import TierList from "@/pages/Menu/Tier";
 import TierMaking from "@/pages/Menu/Tier/TierMaking";
 import Crystal from "@/pages/Menu/Crystal";

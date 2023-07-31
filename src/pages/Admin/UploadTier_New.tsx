@@ -1,15 +1,11 @@
 import { flex, font } from "@/assets/styles/index.js";
 import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
-import Button from "@/context/Button";
 import Input from "@/context/Input";
-import { TierListDTO } from "@/pages/Menu/Tier/DTO/index";
-import { db, storage } from "@/data/firebase";
-import { getDownloadURL, ref, uploadBytes } from "@firebase/storage";
-import { collection, setDoc, doc } from "firebase/firestore";
+
 import { useState } from "react";
 import styled from "styled-components";
-import { v1 as uuid } from "uuid";
+import UploadTierSendBtn from "./Components/UploadTierSendBtn.js";
 
 const UploadTier_New = () => {
   const [gameName, setGameName] = useState<string>("");
@@ -37,51 +33,6 @@ const UploadTier_New = () => {
     if (files && files.length > 0) {
       const file = files[0];
       setFile2(file);
-    }
-  };
-
-  const onClickHandler = async () => {
-    const dbCollection = collection(db, `tierLists`);
-    const currentDate = new Date();
-    currentDate.setUTCHours(currentDate.getUTCHours() - 4);
-    const data: TierListDTO = {
-      id: `${gameName}-${gameTitle}-${uuid()}`,
-      downloadCount: 0,
-      enterCount: 0,
-      gameTitle: gameTitle,
-      title: gameName,
-      imgs: [],
-      titleImg: "",
-      CreatedAt: currentDate,
-    };
-
-    if (file1 && file2) {
-      for (let i = 0; i < file1.length; i++) {
-        const fileArr = file1[i];
-        const storageRef = ref(storage, `tierImg/${gameName}/${file1[i].name}`);
-        try {
-          await uploadBytes(storageRef, fileArr);
-          const fileUrl = await getDownloadURL(storageRef);
-          data.imgs.push(fileUrl);
-        } catch (error) {
-          console.error("파일1 업로드 오류:", error);
-        }
-      }
-      const storageRef = ref(storage, `tierImg/${gameName}/${file2.name}`);
-      try {
-        await uploadBytes(storageRef, file2);
-        const fileUrl = await getDownloadURL(storageRef);
-        data.titleImg = fileUrl;
-        await setDoc(
-          doc(dbCollection, `${gameName}-${gameTitle}-${uuid()}`),
-          data
-        );
-      } catch (error) {
-        console.error("파일2 업로드 오류:", error);
-      }
-      alert("done");
-    } else {
-      console.log("file missing");
     }
   };
 
@@ -130,9 +81,12 @@ const UploadTier_New = () => {
           style={{ display: "none" }}
           onChange={handleFile2Change}
         />
-        <Button width="250" height="50" onClick={onClickHandler}>
-          보내기
-        </Button>
+        <UploadTierSendBtn
+          gameName={gameName}
+          gameTitle={gameTitle}
+          file1={file1}
+          file2={file2}
+        />
       </Box>
     </Layout>
   );

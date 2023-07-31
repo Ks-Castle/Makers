@@ -1,12 +1,13 @@
 import flex from "@/assets/styles/flex";
-import HomeMenu from "@/components/UI/HomeMenu";
+import HomeMenu from "@/pages/Home/Components/HomeMenu";
 import Layout from "@/components/UI/Layout";
 import styled from "styled-components";
+import navigation from "@/data/navigation.json";
+import Head from "@/components/UI/Head";
 import { IMAGES, RESOLUTION } from "@/data/str";
 import { getImage } from "@/utils/getImage";
 import { useEffect, useState } from "react";
-import navigation from "@/data/navigation.json";
-import Head from "@/components/UI/Head";
+
 const links: string[] = [
   navigation.TierList.path,
   navigation.MapleCrystalCalculator.path,
@@ -33,6 +34,7 @@ const Home = () => {
     }
     fetchImage();
   }, []);
+
   return (
     <Layout>
       <Head
