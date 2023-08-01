@@ -40,6 +40,9 @@ interface Field {
 }
 
 async function sendDiscordWebhook(url: string, message: string): Promise<void> {
+  const time = updateItems[0]?.time;
+  const actualDate = updateItems[0]?.actualDate;
+  const randomNumber = Math.floor(Math.random() * 7) + 1;
   const payload: DiscordWebhookPayload = {
     content: message,
     username: "Maplestory Update Manager",
@@ -51,18 +54,29 @@ async function sendDiscordWebhook(url: string, message: string): Promise<void> {
         description: updateItems[0]?.content || "",
         fields: [
           {
-            name: "Link",
+            name: "Details?",
             value: `[Click Here](${updateItems[0]?.link || ""})`,
-            inline: false,
+            inline: true,
           },
           {
-            name: "Time",
-            value: updateItems[0]?.time + ` (${updateItems[0]?.actualDate})`,
+            name: "Custom Site",
+            value: `[Makers](${"https://makers-plum.vercel.app/Home"})`,
+            inline: true,
+          },
+          {
+            name: "",
+            value:
+              time &&
+              (time.toLowerCase().includes("day") ||
+                time.toLowerCase().includes("hour") ||
+                time.toLowerCase().includes("minute"))
+                ? time + ` (${actualDate})`
+                : actualDate || "",
             inline: false,
           },
         ],
         thumbnail: {
-          url: updateItems[0]?.photo || "",
+          url: process.env[`LOGO${randomNumber}`] || "",
         },
         image: {
           url: updateItems[0]?.photo || "",
