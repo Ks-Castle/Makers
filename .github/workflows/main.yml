@@ -1,7 +1,7 @@
 name: main
 on:
   schedule:
-    - cron: '0 */4 * * *'
+    - cron: '*/5 * * * *'
   push:
     branches:
       - main
@@ -44,7 +44,7 @@ jobs:
       - name: Commit & Push changes
         uses: Andro999b/push@patch-1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.MAKERS_TOKEN }}
           branch: main
           message: >
             🎉 Updated date: ${{ env.DATE }}
