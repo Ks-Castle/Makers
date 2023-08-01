@@ -1,7 +1,7 @@
 import flex from "@/assets/styles/flex";
 import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
-import Tier from "@/components/UI/Tier";
+import Tier from "@/pages/Menu/00_Tier/components/Tier";
 import { Input } from "@/context/Index";
 import Pagination from "@/context/Pagination";
 import { db } from "@/data/firebase";
