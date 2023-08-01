@@ -44,6 +44,10 @@ jobs:
           yarn install
 
       - name: Run Node.js script
+        env:
+          WEBHOOK: ${{ secrets.WEBHOOK }}
+          MENTION: ${{ secrets.MENTION }}
+          IMAGE: ${{ secrets.IMAGE }}
         run: |
           cd discord
           yarn start
