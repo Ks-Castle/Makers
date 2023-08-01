@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import navigation from "@/data/navigation.json";
+import menu from "@/data/navigation/menu.json";
+import main from "@/data/navigation/main.json";
 import Error from "@/pages/Status/Error";
 import Home from "@/pages/Home";
 import TierList from "@/pages/Menu/00_Tier";
@@ -11,22 +12,12 @@ import UploadTier_New from "@/pages/Admin/UploadTier_New";
 const Router = () => {
   return (
     <Routes>
-      <Route path={navigation.Home.path} element={<Home />} />
-      <Route path={navigation.TierList.path} element={<TierList />} />
-      <Route
-        path={navigation.TierGenerate.path + "/:id"}
-        element={<TierMaking />}
-      />
-      <Route
-        path={navigation.MapleCrystalCalculator.path}
-        element={<Crystal />}
-      />
-      <Route path={navigation.Gallery.path} element={<Gallery />} />
-
-      <Route
-        path={navigation.UploadTier_New.path}
-        element={<UploadTier_New />}
-      />
+      <Route path={main.Home.path} element={<Home />} />
+      <Route path={menu.TierList.path} element={<TierList />} />
+      <Route path={menu.TierGenerate.path + "/:id"} element={<TierMaking />} />
+      <Route path={menu.MapleCrystalCalculator.path} element={<Crystal />} />
+      <Route path={menu.Gallery.path} element={<Gallery />} />
+      <Route path={main.UploadTier_New.path} element={<UploadTier_New />} />
       <Route path="*" element={<Error />} />
     </Routes>
   );

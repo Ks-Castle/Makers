@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import navigation from "@/data/navigation.json";
+import main from "@/data/navigation/main.json";
 
 const Error = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    navigate(navigation.Home.path);
+    navigate(main.Home.path);
   }, [navigate]);
   return <></>;
 };

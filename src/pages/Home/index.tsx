@@ -2,17 +2,18 @@ import flex from "@/assets/styles/flex";
 import HomeMenu from "@/pages/Home/Components/HomeMenu";
 import Layout from "@/components/UI/Layout";
 import styled from "styled-components";
-import navigation from "@/data/navigation.json";
+import menu from "@/data/navigation/menu.json";
+import main from "@/data/navigation/main.json";
 import Head from "@/components/UI/Head";
 import { IMAGES, RESOLUTION } from "@/data/str";
 import { getImage } from "@/utils/getImage";
 import { useEffect, useState } from "react";
 
 const links: string[] = [
-  navigation.TierList.path,
-  navigation.MapleCrystalCalculator.path,
-  navigation.Home.path,
-  navigation.Home.path,
+  menu.TierList.path,
+  menu.MapleCrystalCalculator.path,
+  main.Home.path,
+  main.Home.path,
 ];
 
 const Home = () => {

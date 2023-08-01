@@ -2,7 +2,7 @@ import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
 import { Button, Input, SVG } from "@/context/Index";
 import Modal from "@/pages/Menu/01_Crystal/Components/CrystalModal.js";
-import * as BOSSDATA from "@/data/bossDatas.js";
+import * as BOSSDATA from "@/data/mockup_maple_const/bossDatas.js";
 import { useState } from "react";
 import {
   ButtonArea,

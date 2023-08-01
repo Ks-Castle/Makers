@@ -1,0 +1,14 @@
+{
+  "Auth": {
+    "name": "Auth",
+    "path": "/"
+  },
+  "Home": {
+    "name": "Home",
+    "path": "/Home"
+  },
+  "UploadTier_New": {
+    "name": "UploadTier New",
+    "path": "/UploadTier_New"
+  }
+}

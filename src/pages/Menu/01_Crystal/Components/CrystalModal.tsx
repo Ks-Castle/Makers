@@ -2,7 +2,10 @@ import { Setter } from "@/data/globalDTO.js";
 import { RESOLUTION, Z_INDEX } from "@/data/str.js";
 import styled from "styled-components";
 import { Button, SVG } from "../../../../context/Index.js";
-import { BossCalculateResult, CalResult } from "@/data/bossDatas.js";
+import {
+  BossCalculateResult,
+  CalResult,
+} from "@/data/mockup_maple_const/bossDatas.js";
 import { useEffect, useState } from "react";
 import { flex, font } from "@/assets/styles/index.js";
 

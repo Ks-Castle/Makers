@@ -2,7 +2,7 @@ import { SVG } from "@/context/Index";
 import { LOCALSTORAGE, RESOLUTION, SHADOW, STR, Z_INDEX } from "@/data/str";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import navigation from "@/data/navigation.json";
+import main from "@/data/navigation/main.json";
 import { flex, font } from "@/assets/styles/index.js";
 
 interface HeaderProps {
@@ -15,7 +15,7 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
   const param = document.location.href.split("/");
   const navigate = useNavigate();
   const logoNavigation = () => {
-    navigate(navigation.Home.path);
+    navigate(main.Home.path);
   };
 
   const backNavigation = () => {
@@ -25,7 +25,7 @@ const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
   return (
     <HeaderWrap className="headerBG" theme={theme}>
       <HeaderCenter>
-        {param[param.length - 1] !== navigation.Home.name && (
+        {param[param.length - 1] !== main.Home.name && (
           <div className="header-left">
             <SVG
               iconName="back"

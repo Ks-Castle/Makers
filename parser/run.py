@@ -68,17 +68,23 @@ if __name__ == "__main__":
     new_event_data = get_event_info()
     new_feature_data = get_feature_info()
 
-    existing_data = read_json_file("../src/data/mockup/new_news.json")
-    old_data = read_json_file("../src/data/mockup/old_news.json")
+    existing_data = read_json_file("../src/data/mockup_maple_scrap/new_news.json")
+    old_data = read_json_file("../src/data/mockup_maple_scrap/old_news.json")
 
-    existing_event_data = read_json_file("../src/data/mockup/new_events.json")
-    old_event_data = read_json_file("../src/data/mockup/old_events.json")
+    existing_event_data = read_json_file(
+        "../src/data/mockup_maple_scrap/new_events.json"
+    )
+    old_event_data = read_json_file("../src/data/mockup_maple_scrap/old_events.json")
 
-    existing_feature_data = read_json_file("../src/data/mockup/new_features.json")
-    old_feature_data = read_json_file("../src/data/mockup/old_features.json")
+    existing_feature_data = read_json_file(
+        "../src/data/mockup_maple_scrap/new_features.json"
+    )
+    old_feature_data = read_json_file(
+        "../src/data/mockup_maple_scrap/old_features.json"
+    )
 
     if len(existing_data) == 0:
-        write_json_file("../src/data/mockup/new_news.json", new_data)
+        write_json_file("../src/data/mockup_maple_scrap/new_news.json", new_data)
     else:
         get_new_feature(
             existing_data,
@@ -89,32 +95,36 @@ if __name__ == "__main__":
             existing_data,
             new_data,
             "title",
-            "../src/data/mockup/old_news.json",
-            "../src/data/mockup/new_news.json",
+            "../src/data/mockup_maple_scrap/old_news.json",
+            "../src/data/mockup_maple_scrap/new_news.json",
             old_data,
         )
 
     if len(existing_event_data) == 0:
-        write_json_file("../src/data/mockup/new_events.json", new_event_data)
+        write_json_file(
+            "../src/data/mockup_maple_scrap/new_events.json", new_event_data
+        )
     else:
         compare_and_update(
             existing_event_data,
             new_event_data,
             "title",
-            "../src/data/mockup/old_events.json",
-            "../src/data/mockup/new_events.json",
+            "../src/data/mockup_maple_scrap/old_events.json",
+            "../src/data/mockup_maple_scrap/new_events.json",
             old_event_data,
         )
 
     if len(existing_feature_data) == 0:
-        write_json_file("../src/data/mockup/new_features.json", new_feature_data)
+        write_json_file(
+            "../src/data/mockup_maple_scrap/new_features.json", new_feature_data
+        )
     else:
         compare_and_update(
             existing_feature_data,
             new_feature_data,
             "title",
-            "../src/data/mockup/old_features.json",
-            "../src/data/mockup/new_features.json",
+            "../src/data/mockup_maple_scrap/old_features.json",
+            "../src/data/mockup_maple_scrap/new_features.json",
             old_event_data,
         )
     print("done!")
