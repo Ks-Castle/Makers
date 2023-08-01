@@ -1,5 +1,17 @@
 import axios from "axios";
 import "dotenv/config";
+import new_update from "./new_update.json" assert { type: "json" };
+
+interface UpdateItemType {
+  title: string;
+  content: string;
+  time: string;
+  actualDate: string;
+  photo: string;
+  link: string;
+}
+
+const updateItems: UpdateItemType[] = new_update;
 
 interface DiscordWebhookPayload {
   content: string;
@@ -13,6 +25,12 @@ interface Embed {
   color: number;
   description: string;
   fields: Field[];
+  thumbnail: Image;
+  image: Image;
+}
+
+interface Image {
+  url: string;
 }
 
 interface Field {
@@ -25,25 +43,30 @@ async function sendDiscordWebhook(url: string, message: string): Promise<void> {
   const payload: DiscordWebhookPayload = {
     content: message,
     username: "Maplestory Update Manager",
-    avatar_url:
-      "https://firebasestorage.googleapis.com/v0/b/maker-efebf.appspot.com/o/maplestory%2Fgm.jpg?alt=media&token=401d8e2e-080d-4bfc-93d2-1eda42605e48",
+    avatar_url: process.env["IMAGE"] || "",
     embeds: [
       {
-        title: "GitHub Push Notification",
+        title: updateItems[0]?.title || "Discord Bot Error",
         color: 16729344,
-        description: "New push event occurred!",
+        description: updateItems[0]?.content || "",
         fields: [
           {
-            name: "Repository",
-            value: "Your Repository Name",
-            inline: true,
+            name: "Link",
+            value: `[Click Here](${updateItems[0]?.link || ""})`,
+            inline: false,
           },
           {
-            name: "Branch",
-            value: "Branch Name",
-            inline: true,
+            name: "Time",
+            value: updateItems[0]?.time + ` (${updateItems[0]?.actualDate})`,
+            inline: false,
           },
         ],
+        thumbnail: {
+          url: updateItems[0]?.photo || "",
+        },
+        image: {
+          url: updateItems[0]?.photo || "",
+        },
       },
     ],
   };
@@ -58,4 +81,5 @@ async function sendDiscordWebhook(url: string, message: string): Promise<void> {
 
 const webhookUrl = process.env["WEBHOOK"];
 
-if (webhookUrl) sendDiscordWebhook(webhookUrl, "Custom notification message!");
+if (webhookUrl && updateItems.length !== 0)
+  sendDiscordWebhook(webhookUrl, process.env["MENTION"] || "");

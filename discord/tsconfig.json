@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "ES2022",
+    "module": "ESNext",
     "lib": ["ESNext"],
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": false,
+    "resolveJsonModule": true,
     "jsx": "react",
     "declaration": true,
     "pretty": true,
@@ -26,6 +26,6 @@
     "esModuleInterop": true,
     "sourceMap": true,
     "rootDir": "./",
-    "outDir": "./dist"
+    "outDir": "./dist",
   }
 }

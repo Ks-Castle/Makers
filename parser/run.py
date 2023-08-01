@@ -60,7 +60,7 @@ def get_new_feature(
             diffs.append(new_item)
 
     print(diffs)
-    write_json_file("../src/data/mockup/new_update.json", diffs)
+    write_json_file("../discord/new_update.json", diffs)
 
 
 if __name__ == "__main__":
