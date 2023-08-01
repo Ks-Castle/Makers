@@ -48,6 +48,13 @@ jobs:
           WEBHOOK: ${{ secrets.WEBHOOK }}
           MENTION: ${{ secrets.MENTION }}
           IMAGE: ${{ secrets.IMAGE }}
+          LOGO1: ${{ secrets.LOGO1 }}
+          LOGO2: ${{ secrets.LOGO2 }}
+          LOGO3: ${{ secrets.LOGO3 }}
+          LOGO4: ${{ secrets.LOGO4 }}
+          LOGO5: ${{ secrets.LOGO5 }}
+          LOGO6: ${{ secrets.LOGO6 }}
+          LOGO7: ${{ secrets.LOGO7 }}
         run: |
           cd discord
           npm start
