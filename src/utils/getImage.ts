@@ -1,4 +1,4 @@
-import { storage } from "@/data/firebase";
+import { storage } from "@/data/config/firebase";
 import { ref, getDownloadURL } from "firebase/storage";
 
 interface ImageProps {

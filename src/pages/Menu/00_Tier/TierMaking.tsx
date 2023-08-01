@@ -1,6 +1,6 @@
 import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
-import { tierListArrayState } from "@/data/recoil";
+import { tierListArrayState } from "@/data/config/recoil";
 import { RESOLUTION } from "@/data/str";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
