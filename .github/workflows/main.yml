@@ -38,6 +38,12 @@ jobs:
           cd parser
           python run.py
           
+      - name: Install Node.js dependencies
+        run: yarn install
+
+      - name: Run Node.js script
+        run: yarn start
+          
       - name: Set date in environment variable
         run: echo "DATE=$(date +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_ENV
 
