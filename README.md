@@ -1,5 +1,18 @@
 # Makers
 
+## 신규 모듈 리스트
+- 커스텀 메이플 이벤트 페이지 (작업중)
+- 메이플 심볼 계산기 (작업중)
+- 디스코드 커맨드
+  - 보스 쩔 inquiry
+  - 미라클 이벤트 달력 inquiry
+- 메이플 경험치 계산기(보류 - 노가다성이 너무 심함.)
+
+## 수정 예정
+- 결정석 계산기
+  - 메이플 새 보스 데이터 추가 
+  - 계산기 로직
+  - save preset button
 ## Memo
 
 ### Discord Bot: Maplestory Update Manager
@@ -19,8 +32,3 @@
 - TitleImg: name should match with "TitleImg", extension doesn't matter.
 
 
-# Scheduled
-- 커스텀 메이플 이벤트 페이지 (작업중)
-- 메이플 심볼 계산기 
-- 메이플 경험치 계산기(보류)
-- boss cary inquiry with discord command
