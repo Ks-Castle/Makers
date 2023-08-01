@@ -25,6 +25,7 @@ def compare_and_update(
     history_data,
 ):
     differences = []
+
     for existing_item in existing_data:
         found = any(
             new_item[field_to_compare] == existing_item[field_to_compare]
@@ -38,10 +39,28 @@ def compare_and_update(
         for item in existing_data
         if item[field_to_compare] in (d[field_to_compare] for d in differences)
     ]
-    print(differences)
     old_data += history_data
     write_json_file(old_file_path, old_data)
     write_json_file(new_file_path, new_data)
+
+
+def get_new_feature(
+    existing_data,
+    new_data,
+    field_to_compare,
+):
+    diffs = []
+
+    for new_item in new_data:
+        found = any(
+            existing_item[field_to_compare] == new_item[field_to_compare]
+            for existing_item in existing_data
+        )
+        if not found:
+            diffs.append(new_item)
+
+    print(diffs)
+    write_json_file("../src/data/mockup/new_update.json", diffs)
 
 
 if __name__ == "__main__":
@@ -61,6 +80,11 @@ if __name__ == "__main__":
     if len(existing_data) == 0:
         write_json_file("../src/data/mockup/new_news.json", new_data)
     else:
+        get_new_feature(
+            existing_data,
+            new_data,
+            "title",
+        )
         compare_and_update(
             existing_data,
             new_data,

@@ -1,4 +1,5 @@
 import axios from "axios";
+import "dotenv/config";
 
 interface DiscordWebhookPayload {
   content: string;
@@ -23,7 +24,7 @@ interface Field {
 async function sendDiscordWebhook(url: string, message: string): Promise<void> {
   const payload: DiscordWebhookPayload = {
     content: message,
-    username: "Maple Event Manager",
+    username: "Maplestory Update Manager",
     avatar_url:
       "https://firebasestorage.googleapis.com/v0/b/maker-efebf.appspot.com/o/maplestory%2Fgm.jpg?alt=media&token=401d8e2e-080d-4bfc-93d2-1eda42605e48",
     embeds: [
@@ -55,7 +56,6 @@ async function sendDiscordWebhook(url: string, message: string): Promise<void> {
   }
 }
 
-const webhookUrl =
-  "https://discord.com/api/webhooks/1135974406376661003/_c5iAgv8XDnRc49s_5trmSaowYuye0wrAIXKQuZovZk1OQT_Y9iFrJJM0W7WwHeX0kIp";
+const webhookUrl = process.env["WEBHOOK"];
 
-sendDiscordWebhook(webhookUrl, "Custom notification message!");
+if (webhookUrl) sendDiscordWebhook(webhookUrl, "Custom notification message!");
