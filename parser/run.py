@@ -10,9 +10,10 @@ def read_product_file(file_path):
 
 if __name__ == "__main__":
     newData = get_info()
-    existing_data = read_product_file("../src/data/mockup/newEvent.json")
+    existing_data = read_product_file("../src/data/mockup/new_news.json")
+    old_data = read_product_file("../src/data/mockup/old_news.json")
     if len(existing_data) == 0:
-        with open("../src/data/mockup/newEvent.json", "w") as product_file:
+        with open("../src/data/mockup/new_news.json", "w") as product_file:
             json.dump(newData, product_file, ensure_ascii=False, indent=2)
             product_file.write("\n")
     else:
@@ -27,11 +28,12 @@ if __name__ == "__main__":
                     break
             if not found:
                 differences.append(existing_item)
-        oldData = newData + differences
-        with open("../src/data/mockup/oldEvent.json", "w") as product_file:
+        print(differences)
+        oldData = differences + old_data
+        with open("../src/data/mockup/old_news.json", "w") as product_file:
                 json.dump(oldData, product_file, ensure_ascii=False, indent=2)
                 product_file.write("\n")
-        with open("../src/data/mockup/newEvent.json", "w") as product_file:
+        with open("../src/data/mockup/new_news.json", "w") as product_file:
                 json.dump(newData, product_file, ensure_ascii=False, indent=2)
                 product_file.write("\n")
     print("done!")
