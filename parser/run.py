@@ -1,39 +1,46 @@
 import json
-from api import get_info
+from mapleNews import get_all_info, get_event_info
 
-def read_product_file(file_path):
+def read_json_file(file_path):
     try:
-        with open(file_path, "r") as product_file:
-            return json.load(product_file)
+        with open(file_path, "r") as json_file:
+            return json.load(json_file)
     except FileNotFoundError:
         return []
 
+def write_json_file(file_path, data):
+    with open(file_path, "w") as json_file:
+        json.dump(data, json_file, ensure_ascii=False, indent=2)
+        json_file.write("\n")
+
+def compare_and_update(existing_data, new_data, field_to_compare, old_file_path, new_file_path, history_data):
+    differences = []
+    for existing_item in existing_data:
+        found = any(new_item[field_to_compare] == existing_item[field_to_compare] for new_item in new_data)
+        if not found:
+            differences.append(existing_item)
+
+    old_data = differences + history_data
+    write_json_file(old_file_path, old_data)
+    write_json_file(new_file_path, new_data)
+
 if __name__ == "__main__":
-    newData = get_info()
-    existing_data = read_product_file("../src/data/mockup/new_news.json")
-    old_data = read_product_file("../src/data/mockup/old_news.json")
+    new_data = get_all_info()
+    new_event_data = get_event_info()
+
+    existing_data = read_json_file("../src/data/mockup/new_news.json")
+    old_data = read_json_file("../src/data/mockup/old_news.json")
+    existing_event_data = read_json_file("../src/data/mockup/new_events.json")
+    old_event_data = read_json_file("../src/data/mockup/old_events.json")
+
     if len(existing_data) == 0:
-        with open("../src/data/mockup/new_news.json", "w") as product_file:
-            json.dump(newData, product_file, ensure_ascii=False, indent=2)
-            product_file.write("\n")
+        write_json_file("../src/data/mockup/new_news.json", new_data)
     else:
-        differences = []
-        field_to_compare = 'title'
-        for existing_item in existing_data:
-            found = False
-            for new_item in newData:
-                if new_item[field_to_compare] == existing_item[field_to_compare]:
-                    print(new_item[field_to_compare] == existing_item[field_to_compare])
-                    found = True
-                    break
-            if not found:
-                differences.append(existing_item)
-        print(differences)
-        oldData = differences + old_data
-        with open("../src/data/mockup/old_news.json", "w") as product_file:
-                json.dump(oldData, product_file, ensure_ascii=False, indent=2)
-                product_file.write("\n")
-        with open("../src/data/mockup/new_news.json", "w") as product_file:
-                json.dump(newData, product_file, ensure_ascii=False, indent=2)
-                product_file.write("\n")
+        compare_and_update(existing_data, new_data, 'title', "../src/data/mockup/old_news.json", "../src/data/mockup/new_news.json", old_data)
+
+    if len(existing_event_data) == 0:
+        write_json_file("../src/data/mockup/new_events.json", new_event_data)
+    else:
+        compare_and_update(existing_event_data, new_event_data, 'title', "../src/data/mockup/old_events.json", "../src/data/mockup/new_events.json", old_event_data)
+
     print("done!")
