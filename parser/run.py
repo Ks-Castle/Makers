@@ -1,5 +1,5 @@
 import json
-from mapleNews import get_all_info, get_event_info
+from mapleNews import get_all_info, get_event_info, get_feature_info
 
 def read_json_file(file_path):
     try:
@@ -27,11 +27,16 @@ def compare_and_update(existing_data, new_data, field_to_compare, old_file_path,
 if __name__ == "__main__":
     new_data = get_all_info()
     new_event_data = get_event_info()
+    new_feature_data = get_feature_info()
 
     existing_data = read_json_file("../src/data/mockup/new_news.json")
     old_data = read_json_file("../src/data/mockup/old_news.json")
+    
     existing_event_data = read_json_file("../src/data/mockup/new_events.json")
     old_event_data = read_json_file("../src/data/mockup/old_events.json")
+    
+    existing_feature_data = read_json_file("../src/data/mockup/new_features.json")
+    old_feature_data = read_json_file("../src/data/mockup/old_features.json")
 
     if len(existing_data) == 0:
         write_json_file("../src/data/mockup/new_news.json", new_data)
@@ -42,5 +47,9 @@ if __name__ == "__main__":
         write_json_file("../src/data/mockup/new_events.json", new_event_data)
     else:
         compare_and_update(existing_event_data, new_event_data, 'title', "../src/data/mockup/old_events.json", "../src/data/mockup/new_events.json", old_event_data)
-
+        
+    if len(existing_feature_data) == 0:
+        write_json_file("../src/data/mockup/new_features.json", new_feature_data)
+    else:
+        compare_and_update(existing_feature_data, new_feature_data, 'title', "../src/data/mockup/old_features.json", "../src/data/mockup/new_features.json", old_event_data)
     print("done!")
