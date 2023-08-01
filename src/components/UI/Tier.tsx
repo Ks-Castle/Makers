@@ -3,7 +3,7 @@ import { LOCALSTORAGE, RESOLUTION, SHADOW, UI, Z_INDEX } from "@/data/str";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import flex from "@/assets/styles/flex";
-import { TierListDTO } from "@/pages/Menu/Tier/DTO/index";
+import { TierListDTO } from "@/pages/Menu/00_Tier/DTO";
 
 const Tier = ({ data }: { data: TierListDTO }) => {
   const theme = localStorage.getItem(LOCALSTORAGE.THEME);

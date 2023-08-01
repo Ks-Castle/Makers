@@ -4,7 +4,6 @@ import Layout from "@/components/UI/Layout";
 import Tier from "@/components/UI/Tier";
 import { Input } from "@/context/Index";
 import Pagination from "@/context/Pagination";
-import { TierListDTO } from "@/pages/Menu/Tier/DTO/index";
 import { db } from "@/data/firebase";
 import { tierListArrayState } from "@/data/recoil";
 import { RESOLUTION } from "@/data/str";
@@ -12,6 +11,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
+import { TierListDTO } from "./DTO";
 
 const TierList = () => {
   const [data, setData] = useRecoilState(tierListArrayState);
