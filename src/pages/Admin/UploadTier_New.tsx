@@ -1,7 +1,7 @@
 import { flex, font } from "@/assets/styles/index.js";
 import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
-import Input from "@/context/Input";
+import { Input } from "@/context/Index";
 
 import { useState } from "react";
 import styled from "styled-components";
