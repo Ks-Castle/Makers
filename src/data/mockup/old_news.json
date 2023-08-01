@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "title": "old data test",
+    "content": "We're currently investigating the rollback that occurred during the server issues on July 20, 2023.",
+    "time": "Jul 21, 2023",
+    "actualDate": "Jul 21, 2023",
+    "photo": "https://nxcache.nexon.net/cms/2018/1154/mnesrgrw22.jpg",
+    "link": "https://maplestory.nexon.net//news/84900/updated-investigation-on-na-reboot-server-issues-july-20-2023"
+  }
+]
