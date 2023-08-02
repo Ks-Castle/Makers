@@ -1,6 +1,7 @@
 import { font } from "@/assets/styles/index";
 import { Button } from "@/context/Index";
-import { LOCALSTORAGE, SHADOW } from "@/data/str";
+import { LOCALSTORAGE, SHADOW, Z_INDEX } from "@/data/str";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -16,10 +17,10 @@ interface IPropsType {
 type BoxType = "a" | "b";
 
 const HoverBox = ({ img, title, link, width, height, type }: IPropsType) => {
+  const [isHovered, setIsHovered] = useState(false);
   const theme = localStorage.getItem(LOCALSTORAGE.THEME);
 
   const navigate = useNavigate();
-
   const navigationHandler = () => {
     navigate(link);
   };
@@ -27,8 +28,15 @@ const HoverBox = ({ img, title, link, width, height, type }: IPropsType) => {
   return (
     <>
       {type === "a" ? (
-        <Wrapper href={link} target="_blank">
-          <Title fontC={theme}>{title}</Title>
+        <Wrapper
+          href={link}
+          target="_blank"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <Title fontC={theme} isHovered={isHovered}>
+            {title}
+          </Title>
           <StyledButton
             image
             imageURL={img}
@@ -40,8 +48,13 @@ const HoverBox = ({ img, title, link, width, height, type }: IPropsType) => {
           />
         </Wrapper>
       ) : (
-        <Wrapper>
-          <Title fontC={theme}>{title}</Title>
+        <Wrapper
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <Title fontC={theme} isHovered={isHovered}>
+            {title}
+          </Title>
           <StyledButton
             image
             width={width}
@@ -67,27 +80,19 @@ const Wrapper = styled.a`
   cursor: pointer;
   width: 100%;
   height: 100%;
-  :hover {
-    p {
-      display: block;
-    }
-  }
 `;
 
-const StyledButton = styled(Button)`
-  :hover {
-    opacity: 0.2;
-  }
-`;
-
-const Title = styled.p<{ fontC: string | null }>`
+const Title = styled.p<{ fontC: string | null; isHovered: boolean }>`
   text-align: center;
   ${font({ weight: 900 })}
-  display: none;
+  opacity: ${({ isHovered }) => (isHovered ? 1 : 0)};
   position: absolute;
   width: 90%;
   top: 50%;
   transform: translate(0, -50%);
   margin: 0 1rem;
+  z-index: ${Z_INDEX.TIER};
   color: ${(props) => (props.fontC === "true" ? "#fff" : "#000")};
 `;
+
+const StyledButton = styled(Button)``;
