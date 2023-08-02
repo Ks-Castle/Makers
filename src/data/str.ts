@@ -39,9 +39,9 @@ export const SHADOW = {
 export const IMAGES = {
   HOME_TIER: "home/Tier.png",
   HOME_STAT: "home/Stat.png",
-  HOME_GALLERY: "home/Gallery.png",
   HOME_UNDER: "home/Under.png",
-  HOME_MAPLE: "home/MapleCrystal.png",
+  HOME_MAPLE_CRYSTAL: "home/MapleCrystal.png",
+  HOME_MAPLE_NEWS: "home/MapleNews.PNG",
 };
 
 export const LOCALSTORAGE = {

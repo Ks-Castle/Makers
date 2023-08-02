@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 const links: string[] = [
   menu.TierList.path,
   menu.MapleCrystalCalculator.path,
-  main.Home.path,
+  menu.MapleEvents.path,
   main.Home.path,
 ];
 
@@ -24,8 +24,8 @@ const Home = () => {
       try {
         const promisedImages = await Promise.all([
           getImage({ path: IMAGES.HOME_TIER }),
-          getImage({ path: IMAGES.HOME_MAPLE }),
-          getImage({ path: IMAGES.HOME_UNDER }),
+          getImage({ path: IMAGES.HOME_MAPLE_CRYSTAL }),
+          getImage({ path: IMAGES.HOME_MAPLE_NEWS }),
           getImage({ path: IMAGES.HOME_UNDER }),
         ]);
         setImgs(promisedImages);
