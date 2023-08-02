@@ -1,10 +1,11 @@
 import Error from "@/pages/Status/Error";
 import Home from "@/pages/Home";
-import TierList from "@/pages/Menu/00_Tier";
-import TierMaking from "@/pages/Menu/00_Tier/TierMaking";
-import Crystal from "@/pages/Menu/01_Crystal";
-import UploadTier_New from "@/pages/Admin/UploadTier_New";
-import MapleEvents from "@/pages/Menu/02_MapleEvents";
+
+import MapleEvents from "@/pages/Menu_MapleEvents";
+import TierList from "./Menu_Tier/index";
+import TierMaking from "./Menu_Tier/TierMaking";
+import Crystal from "./Menu_MapleCrystal/index";
+import UploadTier_New from "./Admin_UploadTier/UploadTier_New.js";
 
 export {
   Error,

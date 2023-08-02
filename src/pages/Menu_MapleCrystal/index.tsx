@@ -1,6 +1,6 @@
 import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
-import Modal from "@/pages/Menu/01_Crystal/Components/CrystalModal";
+import Modal from "@/pages/Menu_MapleCrystal/Components/CrystalModal";
 import { useState } from "react";
 import { Wrapper } from "./Components/styles";
 import { BossCalculateResult, FinalType } from "./DTO/index";

@@ -1,6 +1,6 @@
 import { Button } from "@/context/Index";
 import { db, storage } from "@/data/config/firebase";
-import { TierListDTO } from "@/pages/Menu/00_Tier/DTO";
+import { TierListDTO } from "@/pages/Menu_Tier/DTO/index";
 import { getDownloadURL, ref, uploadBytes } from "@firebase/storage";
 import { collection, setDoc, doc } from "firebase/firestore";
 import { v1 as uuid } from "uuid";
