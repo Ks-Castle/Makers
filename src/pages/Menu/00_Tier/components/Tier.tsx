@@ -4,12 +4,13 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import flex from "@/assets/styles/flex";
 import { TierListDTO } from "@/pages/Menu/00_Tier/DTO";
+import menu from "@/data/navigation/menu.json";
 
 const Tier = ({ data }: { data: TierListDTO }) => {
   const theme = localStorage.getItem(LOCALSTORAGE.THEME);
   const navigate = useNavigate();
   const navigationHandler = () => {
-    navigate(`/TierGenerate/${data.id}`);
+    navigate(`${menu.TierMaking}/${data.id}`);
   };
   return (
     <Wrapper theme={theme}>

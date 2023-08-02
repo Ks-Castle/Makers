@@ -3,17 +3,17 @@
       "name": "Tier List",
       "path": "/TierList"
     },
-    "TierGenerate": {
-      "name": "Tier Generate",
-      "path": "/TierGenerate"
+    "TierMaking": {
+      "name": "Tier Making",
+      "path": "/TierMaking"
     },
     "MapleCrystalCalculator": {
       "name": "Maplestory Boss Crystal Calculator",
       "path": "/MapleCrystalCalculator"
     },
-    "Gallery": {
-      "name": "Gallery",
-      "path": "/Gallery"
+    "MapleEvents": {
+      "name": "MapleEvents",
+      "path": "/MapleEvents"
     }
   }
   
