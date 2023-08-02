@@ -1,1 +1,6 @@
-export const { VITE_GIT_SERVER, VITE_LOCAL_SERVER } = import.meta.env;
+export const {
+  VITE_GIT_SERVER,
+  VITE_LOCAL_SERVER,
+  VITE_MAPLE_NEWS_ENDPOINT,
+  VITE_MAPLE_OLD_NEWS_ENDPOINT,
+} = import.meta.env;

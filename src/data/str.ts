@@ -19,6 +19,11 @@ export enum Z_INDEX {
   MODAL = 100,
 }
 
+export enum CACHE {
+  STALENORMAL = 5000,
+  CACHENORMAL = 12000,
+}
+
 export const STR = {
   LAYOUT_HEADER_HEIGHT: "60px",
 };
