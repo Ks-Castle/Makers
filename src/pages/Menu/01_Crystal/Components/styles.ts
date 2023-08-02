@@ -1,5 +1,5 @@
-import { flex, font } from "@/assets/styles/index.js";
-import { RESOLUTION } from "@/data/str.js";
+import { flex, font } from "@/assets/styles/index";
+import { RESOLUTION } from "@/data/str";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`

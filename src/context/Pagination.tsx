@@ -1,5 +1,5 @@
 import flex from "@/assets/styles/flex";
-import { LOCALSTORAGE } from "@/data/str.js";
+import { LOCALSTORAGE } from "@/data/str";
 import { memo } from "react";
 import styled from "styled-components";
 

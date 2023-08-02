@@ -4,7 +4,7 @@ import Router from "@/components/Routers/Router";
 import GlobalStyle from "@/assets/styles/GlobalStyle";
 import { Analytics } from "@vercel/analytics/react";
 import Header from "./components/UI/Header";
-import { LOCALSTORAGE } from "./data/str.js";
+import { LOCALSTORAGE } from "./data/str";
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);

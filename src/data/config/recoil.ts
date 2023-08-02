@@ -1,7 +1,7 @@
 import { TierListDTO } from "@/pages/Menu/00_Tier/DTO";
 import { atom } from "recoil";
 import { recoilPersist } from "recoil-persist";
-import { KEY } from "./keys.js";
+import { KEY } from "./keys";
 
 const { persistAtom } = recoilPersist();
 

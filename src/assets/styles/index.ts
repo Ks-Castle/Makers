@@ -1,5 +1,5 @@
-import bg from "./bg.js";
-import flex from "./flex.js";
-import font from "./font.js";
+import bg from "./bg";
+import flex from "./flex";
+import font from "./font";
 
 export { bg, flex, font };

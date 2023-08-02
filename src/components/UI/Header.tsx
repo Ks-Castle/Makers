@@ -3,7 +3,7 @@ import { LOCALSTORAGE, RESOLUTION, SHADOW, STR, Z_INDEX } from "@/data/str";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import main from "@/data/navigation/main.json";
-import { flex, font } from "@/assets/styles/index.js";
+import { flex, font } from "@/assets/styles/index";
 
 interface HeaderProps {
   darkMode: boolean;

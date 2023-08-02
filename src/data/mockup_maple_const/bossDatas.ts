@@ -1,4 +1,4 @@
-import { Boss } from "@/pages/Menu/01_Crystal/DTO/index.js";
+import { Boss } from "@/pages/Menu/01_Crystal/DTO/index";
 
 export const dailyBosses: Boss[] = [
   { name: "Zakum", difficulty: "EZ", price: 1000000, img: "Zakum", drops: [] },
