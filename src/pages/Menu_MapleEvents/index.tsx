@@ -6,15 +6,20 @@ import { RESOLUTION } from "@/data/str";
 import styled from "styled-components";
 import EventBox from "./components/EventBox";
 import { fetchingDefaultDTO } from "./DTO/index";
+import useGetMapleOldNews from "@/api/hooks_maple/useGetMapleOldNews.js";
 
 const MapleEvents = () => {
   const mapleNewsAPI = useGetMapleNews();
+  const mapleOldNewsAPI = useGetMapleOldNews();
   return (
     <Layout>
       <Head link="MapleEvents" desc="Current and Past Events of MapleStory" />
       <Wrapper>
         <GridWrapper>
           {mapleNewsAPI.data?.map((v: fetchingDefaultDTO, i: number) => {
+            return <EventBox img={v.photo} key={i} />;
+          })}
+          {mapleOldNewsAPI.data?.map((v: fetchingDefaultDTO, i: number) => {
             return <EventBox img={v.photo} key={i} />;
           })}
         </GridWrapper>
