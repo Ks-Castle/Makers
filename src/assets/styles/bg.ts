@@ -6,7 +6,6 @@ type PositionType = "center" | string;
 type RepeatType = "no-repeat" | "repeat";
 
 export default function bg({
-  url = "",
   size = "cover",
   position = "center",
   repeat = "no-repeat",
@@ -17,7 +16,6 @@ export default function bg({
   repeat?: RepeatType;
 }) {
   return css`
-    background-image: ${url};
     background-size: ${size};
     background-position: ${position};
     background-repeat: ${repeat};
