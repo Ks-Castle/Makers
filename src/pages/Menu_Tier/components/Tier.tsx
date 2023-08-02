@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import flex from "@/assets/styles/flex";
 import menu from "@/data/navigation/menu.json";
-import { TierListDTO } from "../DTO/index.js";
+import { TierListDTO } from "../DTO/index";
 
 const Tier = ({ data }: { data: TierListDTO }) => {
   const theme = localStorage.getItem(LOCALSTORAGE.THEME);

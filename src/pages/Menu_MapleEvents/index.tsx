@@ -5,8 +5,8 @@ import Layout from "@/components/UI/Layout";
 import { RESOLUTION } from "@/data/str";
 import styled from "styled-components";
 import { fetchingDefaultDTO } from "./DTO/index";
-import useGetMapleOldNews from "@/api/hooks_maple/useGetMapleOldNews.js";
-import HoverBox from "./components/HoverBox";
+import useGetMapleOldNews from "@/api/hooks_maple/useGetMapleOldNews";
+import { HoverBox } from "@/context/Index";
 
 const MapleEvents = () => {
   const mapleNewsAPI = useGetMapleNews();
@@ -39,7 +39,13 @@ const MapleEvents = () => {
             <div className="date">{date}</div>
             <GridWrapper>
               {groupedData[date].map((v: fetchingDefaultDTO, i: number) => (
-                <HoverBox img={v.photo} key={i} title={v.title} link={v.link} />
+                <HoverBox
+                  img={v.photo}
+                  key={i}
+                  title={v.title}
+                  link={v.link}
+                  type="a"
+                />
               ))}
             </GridWrapper>
           </ContentsRow>

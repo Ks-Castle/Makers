@@ -14,7 +14,7 @@ import { useCallback, useRef, useState } from "react";
 import { SVG } from "@/context/Index";
 import { toPng } from "html-to-image";
 import format from "date-fns/format";
-import { flex, font } from "@/assets/styles/index.js";
+import { flex, font } from "@/assets/styles/index";
 
 type BoxList = string[];
 

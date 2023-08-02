@@ -1,19 +1,26 @@
 import flex from "@/assets/styles/flex";
-import HomeMenu from "@/pages/Home/Components/HomeMenu";
 import Layout from "@/components/UI/Layout";
 import styled from "styled-components";
 import menu from "@/data/navigation/menu.json";
 import main from "@/data/navigation/main.json";
 import Head from "@/components/UI/Head";
-import { IMAGES, RESOLUTION } from "@/data/str";
+import { IMAGES, RESOLUTION, UI } from "@/data/str";
 import { getImage } from "@/utils/getImage";
 import { useEffect, useState } from "react";
+import { HoverBox } from "@/context/Index";
 
 const links: string[] = [
   menu.TierList.path,
   menu.MapleCrystalCalculator.path,
   menu.MapleEvents.path,
   main.Home.path,
+];
+
+const titles: string[] = [
+  menu.TierList.name,
+  menu.MapleCrystalCalculator.name,
+  menu.MapleEvents.name,
+  main.Home.name,
 ];
 
 const Home = () => {
@@ -44,7 +51,17 @@ const Home = () => {
       />
       <Wrapper>
         {imgs.map((img: string, i: number) => {
-          return <HomeMenu url={img} link={links[i]} key={"home" + i} />;
+          return (
+            <HoverBox
+              img={img}
+              link={links[i]}
+              key={"home" + i}
+              type="b"
+              width={`${UI._200}`}
+              height={`${UI._200}`}
+              title={titles[i]}
+            />
+          );
         })}
       </Wrapper>
     </Layout>
@@ -60,8 +77,14 @@ const Wrapper = styled.div`
   grid-gap: 1rem;
   @media (max-width: ${RESOLUTION.TABLET}px) {
     grid-template-columns: repeat(2, 150px);
+    .buttonContext {
+      height: 150px;
+    }
   }
   @media (max-width: ${RESOLUTION.MOBILE}px) {
     grid-template-columns: repeat(2, 100px);
+    .buttonContext {
+      height: 100px;
+    }
   }
 `;

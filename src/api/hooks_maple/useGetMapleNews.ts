@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import { mapleAPI } from "../modules/maple";
-import { KEY } from "@/data/config/keys.js";
-import { CACHE } from "@/data/str.js";
+import { KEY } from "@/data/config/keys";
+import { CACHE } from "@/data/str";
 
 const useGetMapleNews = () => {
   const fetcher = async () => {

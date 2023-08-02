@@ -48,6 +48,7 @@ const Button = ({
       size={size}
       disabled={disabled}
       aria-label={label}
+      className="buttonContext"
     >
       {children}
     </StyledButton>
