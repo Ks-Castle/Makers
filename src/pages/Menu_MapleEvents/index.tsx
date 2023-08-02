@@ -19,7 +19,7 @@ const MapleEvents = () => {
     ];
 
     const groupedAndSortedData = combinedData.reduce((result, item) => {
-      const date = item.actualDate.split("T")[0];
+      const date = item.actualDate?.split("T")[0];
       if (!result[date]) {
         result[date] = [];
       }
