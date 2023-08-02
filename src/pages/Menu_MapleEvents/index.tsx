@@ -4,9 +4,9 @@ import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
 import { RESOLUTION } from "@/data/str";
 import styled from "styled-components";
-import EventBox from "./components/EventBox";
 import { fetchingDefaultDTO } from "./DTO/index";
 import useGetMapleOldNews from "@/api/hooks_maple/useGetMapleOldNews.js";
+import HoverBox from "./components/HoverBox";
 
 const MapleEvents = () => {
   const mapleNewsAPI = useGetMapleNews();
@@ -17,10 +17,14 @@ const MapleEvents = () => {
       <Wrapper>
         <GridWrapper>
           {mapleNewsAPI.data?.map((v: fetchingDefaultDTO, i: number) => {
-            return <EventBox img={v.photo} key={i} />;
+            return (
+              <HoverBox img={v.photo} key={i} title={v.title} link={v.link} />
+            );
           })}
           {mapleOldNewsAPI.data?.map((v: fetchingDefaultDTO, i: number) => {
-            return <EventBox img={v.photo} key={i} />;
+            return (
+              <HoverBox img={v.photo} key={i} title={v.title} link={v.link} />
+            );
           })}
         </GridWrapper>
       </Wrapper>
