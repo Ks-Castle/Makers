@@ -1,24 +1,4 @@
-export interface Boss {
-  name: string;
-  difficulty: string;
-  price: number;
-  img: string;
-  drops: string[];
-}
-
-export interface BossCalculateResult {
-  index: number;
-  data: CalResult[];
-}
-
-export interface CalResult {
-  name: string;
-  difficulty: string;
-  price: number;
-  count: number;
-  img: string;
-  drops: string[];
-}
+import { Boss } from "@/pages/Menu/01_Crystal/DTO/index.js";
 
 export const dailyBosses: Boss[] = [
   { name: "Zakum", difficulty: "EZ", price: 1000000, img: "Zakum", drops: [] },

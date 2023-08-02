@@ -1,20 +1,12 @@
 import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
-import { Button, Input, SVG } from "@/context/Index";
+import { Input, SVG } from "@/context/Index";
 import Modal from "@/pages/Menu/01_Crystal/Components/CrystalModal.js";
 import * as BOSSDATA from "@/data/mockup_maple_const/bossDatas.js";
 import { useState } from "react";
-import {
-  ButtonArea,
-  InputArea,
-  SelectArea,
-  Wrapper,
-} from "./Components/styles.js";
-
-interface FinalType {
-  daily: BOSSDATA.Boss[];
-  weekly: BOSSDATA.Boss[];
-}
+import { InputArea, SelectArea, Wrapper } from "./Components/styles.js";
+import { Boss, BossCalculateResult, FinalType } from "./DTO/index.js";
+import ButtonAreaComponent from "./Components/ButtonArea.js";
 
 const Crystal = () => {
   const [toggleModal, setToggleModal] = useState(false);
@@ -28,17 +20,14 @@ const Crystal = () => {
 
   const [finalData, setFinalData] = useState<FinalType[]>(initialFinalData);
 
-  const [remainingCrystalsState, setRemainingCrystalsState] =
-    useState<number>(numCrystals);
   const [bossResultsState, setBossResultsState] = useState<
-    BOSSDATA.BossCalculateResult[]
+    BossCalculateResult[]
   >(
     finalData.map(() => ({
       index: 0,
       data: [],
     }))
   );
-  const [totalCountsState, setTotalCountsState] = useState<number>(0);
   const [finalRemainingCrystals, setFinalRemainingCrystals] =
     useState<number>(0);
 
@@ -89,7 +78,7 @@ const Crystal = () => {
         newFinalData.push({ daily: [], weekly: [] });
       }
 
-      const bossToAdd: BOSSDATA.Boss = { name, difficulty, price, img, drops };
+      const bossToAdd: Boss = { name, difficulty, price, img, drops };
       const isAlreadyChecked = name.includes("-")
         ? newFinalData[index]?.weekly.some(
             (boss) => boss.name === name && boss.difficulty === difficulty
@@ -128,7 +117,7 @@ const Crystal = () => {
   };
 
   const renderCheckboxSection = (
-    bossArray: BOSSDATA.Boss[],
+    bossArray: Boss[],
     index: number
   ): JSX.Element => {
     return (
@@ -309,7 +298,7 @@ const Crystal = () => {
 
   const handleCheckAllWeekly = (
     characterIndex: number,
-    weeklyBossesArray: BOSSDATA.Boss[]
+    weeklyBossesArray: Boss[]
   ) => {
     setFinalData((prevData) => {
       const updatedFinalData = [...prevData];
@@ -326,86 +315,6 @@ const Crystal = () => {
     });
   };
 
-  const calculateCrystalsRemaining = () => {
-    let remainingCrystals = numCrystals;
-    const bossResults: BOSSDATA.BossCalculateResult[] = finalData.map(() => ({
-      index: 0,
-      data: [],
-    }));
-
-    finalData.forEach((v, i) => {
-      remainingCrystals -= v.weekly.length;
-      if (v.daily.length > 0 || v.weekly.length > 0) {
-        v.daily.sort((a, b) => b.price - a.price);
-        let bossIndex = 0;
-        while (bossIndex < v.daily.length) {
-          const boss = v.daily[bossIndex];
-          bossResults[i].data.push({
-            name: boss.name,
-            difficulty: boss.difficulty,
-            price: boss.price,
-            count: 7,
-            img: boss.img,
-            drops: boss.drops,
-          });
-          bossIndex++;
-        }
-      }
-    });
-
-    let totalCounts = 0;
-    bossResults.forEach((bossResult) => {
-      bossResult.data.forEach((bossData) => {
-        totalCounts += bossData.count;
-      });
-    });
-
-    while (remainingCrystals < totalCounts) {
-      bossResults.forEach((bossResult) => {
-        let minPriceBossIndex = 0;
-        let minPrice = bossResult.data[0]?.price || 0;
-        bossResult.data.forEach((bossData, index) => {
-          if (bossData.price && bossData.price < minPrice) {
-            minPrice = bossData.price;
-            minPriceBossIndex = index;
-          }
-        });
-        if (remainingCrystals >= totalCounts) {
-          return;
-        }
-        if (bossResult.data[minPriceBossIndex]?.count) {
-          totalCounts -= bossResult.data[minPriceBossIndex].count;
-        }
-        bossResult.data.splice(minPriceBossIndex, 1);
-      });
-    }
-
-    finalData.forEach((v, i) => {
-      if (v.daily.length > 0 || v.weekly.length > 0) {
-        let bossIndex = 0;
-        while (bossIndex < v.weekly.length) {
-          const boss = v.weekly[bossIndex];
-          bossResults[i].data.push({
-            name: boss.name,
-            difficulty: boss.difficulty,
-            price: boss.price,
-            count: 1,
-            img: boss.img,
-            drops: boss.drops,
-          });
-          bossIndex++;
-        }
-      }
-      bossResults[i].data.sort((a, b) => b.price - a.price);
-    });
-
-    setRemainingCrystalsState(remainingCrystals);
-    setBossResultsState(bossResults);
-    setTotalCountsState(totalCounts);
-    setFinalRemainingCrystals(remainingCrystals - totalCounts);
-    setToggleModal(!toggleModal);
-  };
-
   return (
     <Layout>
       {toggleModal && (
@@ -420,22 +329,13 @@ const Crystal = () => {
         desc="For making your maple life easier."
       />
       <Wrapper>
-        <ButtonArea>
-          <div style={{ width: "100px" }}></div>
-          <div className="introduce-text">
-            <p>* Check the maximum difficulty level of bosses can defeat *</p>
-            <p>* This is only for GMS Reboot *</p>
-          </div>
-          <Button
-            width="100"
-            height="30px"
-            padding="1"
-            paddingType="all"
-            onClick={calculateCrystalsRemaining}
-          >
-            CALCULATE
-          </Button>
-        </ButtonArea>
+        <ButtonAreaComponent
+          numCrystals={numCrystals}
+          finalData={finalData}
+          setBossResultsState={setBossResultsState}
+          setFinalRemainingCrystals={setFinalRemainingCrystals}
+          setToggleModal={setToggleModal}
+        />
         <InputArea>
           <div className="input-container">
             <p> How many Characters? (maximum 9)</p>
