@@ -53,8 +53,7 @@ const Title = styled.p<{ fontC: string | null }>`
   position: absolute;
   width: 90%;
   top: 50%;
-  left: 50%;
-  transform: translate(-55%, -50%);
+  transform: translate(0, -50%);
   margin: 0 1rem;
   color: ${(props) => (props.fontC === "true" ? "#fff" : "#000")};
 `;
