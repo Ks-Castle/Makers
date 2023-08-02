@@ -95,5 +95,4 @@ async function sendDiscordWebhook(url: string, message: string): Promise<void> {
 
 const webhookUrl = process.env["WEBHOOK"];
 
-if (webhookUrl && updateItems.length !== 0)
-  sendDiscordWebhook(webhookUrl, process.env["MENTION"] || "");
+if (webhookUrl && updateItems.length !== 0) sendDiscordWebhook(webhookUrl, "");
