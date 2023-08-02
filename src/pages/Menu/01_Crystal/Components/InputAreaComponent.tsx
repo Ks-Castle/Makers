@@ -9,31 +9,21 @@ interface IPropsType {
 }
 
 const InputAreaComponent = (props: IPropsType) => {
-  const onCharacterInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const maxValue = 9;
-
-    if (e.target.value.length > e.target.maxLength)
-      e.target.value = String(maxValue);
-    if (Number(e.target.value) > maxValue) e.target.value = String(maxValue);
-    const enteredValue = parseInt(e.target.value, 10);
-
-    const valueToSet =
-      isNaN(enteredValue) || enteredValue > maxValue ? maxValue : enteredValue;
-
-    props.setNumCharacters(valueToSet);
-  };
-
-  const onCrstalInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const maxValue = 180;
-
+  const onInputHandler = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    max: number,
+    setter: Setter<number>
+  ): void => {
+    const maxValue = max;
     if (e.target.value.length > e.target.maxLength)
       e.target.value = String(maxValue);
     if (Number(e.target.value) > maxValue) e.target.value = String(maxValue);
     const enteredValue = parseInt(e.target.value, 10);
     const valueToSet =
       isNaN(enteredValue) || enteredValue > maxValue ? maxValue : enteredValue;
-    props.setNumCrystals(valueToSet);
+    setter(valueToSet);
   };
+
   return (
     <InputArea>
       <div className="input-container">
@@ -44,7 +34,7 @@ const InputAreaComponent = (props: IPropsType) => {
           center
           type="number"
           maxlength={1}
-          onChange={onCharacterInput}
+          onChange={(e) => onInputHandler(e, 9, props.setNumCharacters)}
           defaultValue="1"
           border="1px solid var(--dark-020)"
           borderType="all"
@@ -58,7 +48,7 @@ const InputAreaComponent = (props: IPropsType) => {
           center
           type="number"
           maxlength={3}
-          onChange={onCrstalInput}
+          onChange={(e) => onInputHandler(e, 180, props.setNumCrystals)}
           defaultValue="180"
           border="1px solid var(--dark-020)"
           borderType="all"
