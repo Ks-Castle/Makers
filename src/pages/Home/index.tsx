@@ -4,7 +4,7 @@ import styled from "styled-components";
 import menu from "@/data/navigation/menu.json";
 import main from "@/data/navigation/main.json";
 import Head from "@/components/UI/Head";
-import { IMAGES, RESOLUTION, UI } from "@/data/str";
+import { IMAGES, RESOLUTION } from "@/data/str";
 import { getImage } from "@/utils/getImage";
 import { useEffect, useState } from "react";
 import { HoverBox } from "@/context/Index";
@@ -57,8 +57,8 @@ const Home = () => {
               link={links[i]}
               key={"home" + i}
               type="b"
-              width={`${UI._200}`}
-              height={`${UI._200}`}
+              width={`200`}
+              height={`200`}
               title={titles[i]}
             />
           );

@@ -1,5 +1,5 @@
 import { Button } from "@/context/Index";
-import { LOCALSTORAGE, RESOLUTION, SHADOW, UI, Z_INDEX } from "@/data/str";
+import { LOCALSTORAGE, RESOLUTION, SHADOW, Z_INDEX } from "@/data/str";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import flex from "@/assets/styles/flex";
@@ -15,8 +15,8 @@ const Tier = ({ data }: { data: TierListDTO }) => {
   return (
     <Wrapper theme={theme}>
       <StyledButton
-        width={`${UI._200}`}
-        height={`${UI._300}`}
+        width={`200`}
+        height={`300`}
         onClick={navigationHandler}
         image
         shadow={theme === "true" ? SHADOW.LIGHT_X_1_Y_4 : SHADOW.DARK_X_1_Y_4}
@@ -95,9 +95,9 @@ const Wrapper = styled.div<{ theme: string }>`
 const StyledButton = styled(Button)`
   z-index: ${Z_INDEX.TIER};
   @media (max-width: ${RESOLUTION.TABLET}px) {
-    height: ${UI._200}px;
+    height: 200px;
   }
   @media (max-width: ${RESOLUTION.MOBILE}px) {
-    height: ${UI._250}px;
+    height: 250px;
   }
 `;

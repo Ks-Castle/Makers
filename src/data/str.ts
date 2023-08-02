@@ -4,14 +4,6 @@ export enum RESOLUTION {
   MOBILE = 350,
 }
 
-export enum UI {
-  _300 = 300,
-  _250 = 250,
-  _200 = 200,
-  _150 = 150,
-  _100 = 100,
-}
-
 export enum Z_INDEX {
   LOWEST = 1,
   TIER = 5,
