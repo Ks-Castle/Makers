@@ -79,7 +79,7 @@ const HoverBox = ({ img, title, link, width, height, type }: IPropsType) => {
 
 export default HoverBox;
 
-const BoxWrapper = styled.a`
+const BoxWrapper = styled.div`
   position: relative;
   cursor: pointer;
   width: 100%;

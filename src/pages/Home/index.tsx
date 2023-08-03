@@ -1,37 +1,28 @@
 import Layout from "@/components/UI/Layout";
 import styled from "styled-components";
-
 import Head from "@/components/UI/Head";
 import { IMAGES, RESOLUTION } from "@/data/str";
-import { getImage } from "@/utils/getImage";
 import { useEffect, useState } from "react";
 import { HoverBox } from "@/context/Index.js";
 import { links, titles } from "@/data/homeMenu";
+import { getImage } from "@/utils/getImage";
 
-const Home = () => {
+const IMAGE_PATHS = [
+  IMAGES.HOME_TIER,
+  IMAGES.HOME_MAPLE_CRYSTAL,
+  IMAGES.HOME_MAPLE_NEWS,
+  ...new Array(13).fill(IMAGES.HOME_UNDER),
+];
+
+const useImages = () => {
   const [imgs, setImgs] = useState<string[]>([]);
 
   useEffect(() => {
     async function fetchImage() {
       try {
-        const promisedImages = await Promise.all([
-          getImage({ path: IMAGES.HOME_TIER }),
-          getImage({ path: IMAGES.HOME_MAPLE_CRYSTAL }),
-          getImage({ path: IMAGES.HOME_MAPLE_NEWS }),
-          getImage({ path: IMAGES.HOME_UNDER }),
-          getImage({ path: IMAGES.HOME_UNDER }),
-          getImage({ path: IMAGES.HOME_UNDER }),
-          getImage({ path: IMAGES.HOME_UNDER }),
-          getImage({ path: IMAGES.HOME_UNDER }),
-          getImage({ path: IMAGES.HOME_UNDER }),
-          getImage({ path: IMAGES.HOME_UNDER }),
-          getImage({ path: IMAGES.HOME_UNDER }),
-          getImage({ path: IMAGES.HOME_UNDER }),
-          getImage({ path: IMAGES.HOME_UNDER }),
-          getImage({ path: IMAGES.HOME_UNDER }),
-          getImage({ path: IMAGES.HOME_UNDER }),
-          getImage({ path: IMAGES.HOME_UNDER }),
-        ]);
+        const promisedImages = await Promise.all(
+          IMAGE_PATHS.map((path) => getImage({ path }))
+        );
         setImgs(promisedImages);
       } catch (error) {
         console.error(error);
@@ -40,6 +31,12 @@ const Home = () => {
     fetchImage();
   }, []);
 
+  return imgs;
+};
+
+const Home = () => {
+  const imgs = useImages();
+
   return (
     <Layout>
       <Head
@@ -47,19 +44,17 @@ const Home = () => {
         desc="Welcome to Makers. Feel Free to Generate Your Own Tier Table or Stat Cards."
       />
       <Wrapper>
-        {imgs.map((img: string, i: number) => {
-          return (
-            <HoverBox
-              img={img}
-              link={links[i]}
-              key={"home" + i}
-              type="b"
-              width={`200`}
-              height={`200`}
-              title={titles[i]}
-            />
-          );
-        })}
+        {imgs.map((img: string, i: number) => (
+          <HoverBox
+            img={img}
+            link={links[i]}
+            key={"home" + i}
+            type="b"
+            width={`200`}
+            height={`200`}
+            title={titles[i]}
+          />
+        ))}
       </Wrapper>
     </Layout>
   );
