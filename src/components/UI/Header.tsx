@@ -1,4 +1,4 @@
-import { SVG } from "@/context/Index";
+import { SVG } from "@/context";
 import { LOCALSTORAGE, RESOLUTION, SHADOW, STR, Z_INDEX } from "@/data/str";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";

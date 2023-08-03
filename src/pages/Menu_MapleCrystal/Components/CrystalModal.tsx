@@ -1,7 +1,7 @@
 import { Setter } from "@/data/globalDTO";
 import { RESOLUTION, Z_INDEX } from "@/data/str";
 import styled from "styled-components";
-import { Button, SVG } from "@/context/Index";
+import { Button, SVG } from "@/context";
 import { useEffect, useState } from "react";
 import { flex, font } from "@/assets/styles/index";
 import { BossCalculateResult, CalResult } from "../DTO/index";

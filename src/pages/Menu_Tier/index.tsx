@@ -2,7 +2,7 @@ import flex from "@/assets/styles/flex";
 import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
 import Tier from "@/pages/Menu_Tier/components/Tier";
-import { Input, Pagination } from "@/context/Index";
+import { Input, Pagination } from "@/context";
 import { db } from "@/data/config/firebase";
 import { tierListArrayState } from "@/data/config/recoil";
 import { RESOLUTION } from "@/data/str";

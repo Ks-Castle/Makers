@@ -1,5 +1,5 @@
 import { font } from "@/assets/styles/index";
-import { Button } from "@/context/Index";
+import { Button } from "@/context";
 import { LOCALSTORAGE, SHADOW, Z_INDEX } from "@/data/str";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
