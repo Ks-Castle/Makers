@@ -25,6 +25,7 @@
   - upload on firebase storage
   - get url and add it to repo secret
   - add env on yml file
+- Test: Have to change webhook url to dev one in vscode and repo both
   
 ![image](https://github.com/Ks-Castle/Makers/assets/59503331/dd2302ba-f9e8-47a7-8e94-2280cf8ce341)
 
