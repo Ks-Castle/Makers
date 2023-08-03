@@ -1,5 +1,6 @@
 import axios from "axios";
 import "dotenv/config";
+import fs from "fs";
 import new_update from "./new_update.json" assert { type: "json" };
 
 interface UpdateItemType {
@@ -95,4 +96,9 @@ async function sendDiscordWebhook(url: string, message: string): Promise<void> {
 
 const webhookUrl = process.env["WEBHOOK"];
 
-if (webhookUrl && updateItems.length !== 0) sendDiscordWebhook(webhookUrl, "");
+if (webhookUrl && updateItems.length !== 0) {
+  sendDiscordWebhook(webhookUrl, "");
+  const new_update: UpdateItemType[] = [];
+  const jsonData = JSON.stringify(new_update, null, 2);
+  fs.writeFileSync("./new_update.json", jsonData);
+}
