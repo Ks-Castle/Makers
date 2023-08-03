@@ -28,46 +28,50 @@ const HoverBox = ({ img, title, link, width, height, type }: IPropsType) => {
   return (
     <>
       {type === "a" ? (
-        <Wrapper
-          href={link}
-          target="_blank"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
+        <BoxWrapper>
           <Title fontC={theme} isHovered={isHovered}>
             {title}
           </Title>
-          <StyledButton
-            image
-            imageURL={img}
-            imageSize="cover"
-            shadow={
-              theme === "true" ? SHADOW.LIGHT_X_1_Y_4 : SHADOW.DARK_X_1_Y_4
-            }
-            label="home_button"
-          />
-        </Wrapper>
+          <ContentsWrapper
+            href={link}
+            target="_blank"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <StyledButton
+              image
+              imageURL={img}
+              imageSize="cover"
+              shadow={
+                theme === "true" ? SHADOW.LIGHT_X_1_Y_4 : SHADOW.DARK_X_1_Y_4
+              }
+              label="home_button"
+            />
+          </ContentsWrapper>
+        </BoxWrapper>
       ) : (
-        <Wrapper
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
+        <BoxWrapper>
           <Title fontC={theme} isHovered={isHovered}>
             {title}
           </Title>
-          <StyledButton
-            image
-            width={width}
-            height={height}
-            imageURL={img}
-            imageSize="cover"
-            shadow={
-              theme === "true" ? SHADOW.LIGHT_X_1_Y_4 : SHADOW.DARK_X_1_Y_4
-            }
-            onClick={navigationHandler}
-            label="home_button"
-          />
-        </Wrapper>
+          <ContentsWrapper
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <StyledButton
+              image
+              width={width}
+              height={height}
+              imageURL={img}
+              imageSize="cover"
+              shadow={
+                theme === "true" ? SHADOW.LIGHT_X_1_Y_4 : SHADOW.DARK_X_1_Y_4
+              }
+              onClick={navigationHandler}
+              label="home_button"
+            />
+          </ContentsWrapper>
+        </BoxWrapper>
       )}
     </>
   );
@@ -75,7 +79,7 @@ const HoverBox = ({ img, title, link, width, height, type }: IPropsType) => {
 
 export default HoverBox;
 
-const Wrapper = styled.a`
+const BoxWrapper = styled.a`
   position: relative;
   cursor: pointer;
   width: 100%;
@@ -91,8 +95,15 @@ const Title = styled.p<{ fontC: string | null; isHovered: boolean }>`
   top: 50%;
   transform: translate(0, -50%);
   margin: 0 1rem;
-  z-index: ${Z_INDEX.TIER};
   color: ${(props) => (props.fontC === "true" ? "#fff" : "#000")};
+`;
+
+const ContentsWrapper = styled.a`
+  width: 100%;
+  height: 100%;
+  :hover {
+    opacity: 10%;
+  }
 `;
 
 const StyledButton = styled(Button)``;
