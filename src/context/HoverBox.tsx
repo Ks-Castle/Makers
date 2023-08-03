@@ -96,6 +96,7 @@ const Title = styled.p<{ fontC: string | null; isHovered: boolean }>`
   transform: translate(0, -50%);
   margin: 0 1rem;
   color: ${(props) => (props.fontC === "true" ? "#fff" : "#000")};
+  z-index: -1;
 `;
 
 const ContentsWrapper = styled.a`

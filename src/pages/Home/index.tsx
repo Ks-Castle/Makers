@@ -20,7 +20,7 @@ const titles: string[] = [
   menu.TierList.name,
   menu.MapleCrystalCalculator.name,
   menu.MapleEvents.name,
-  main.Home.name,
+  main.UnderConstruction.name,
 ];
 
 const Home = () => {

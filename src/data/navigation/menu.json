@@ -1,6 +1,6 @@
 {
     "TierList": {
-      "name": "Tier List",
+      "name": "Tier Maker",
       "path": "/TierList"
     },
     "TierMaking": {
@@ -8,11 +8,11 @@
       "path": "/TierMaking"
     },
     "MapleCrystalCalculator": {
-      "name": "Maplestory Boss Crystal Calculator",
+      "name": "MapleStory Crystal Calculator",
       "path": "/MapleCrystalCalculator"
     },
     "MapleEvents": {
-      "name": "MapleEvents",
+      "name": "MapleStory Event News",
       "path": "/MapleEvents"
     }
   }

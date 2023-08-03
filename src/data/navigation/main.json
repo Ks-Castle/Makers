@@ -10,5 +10,9 @@
   "UploadTier_New": {
     "name": "UploadTier New",
     "path": "/UploadTier_New"
+  },
+  "UnderConstruction": {
+    "name": "Coming Soon",
+    "path": "/Home"
   }
 }
