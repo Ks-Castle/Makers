@@ -7,7 +7,7 @@ import Head from "@/components/UI/Head";
 import { IMAGES, RESOLUTION } from "@/data/str";
 import { getImage } from "@/utils/getImage";
 import { useEffect, useState } from "react";
-import { HoverBox } from "@/context";
+import { HoverBox } from "@/context/index.js";
 
 const links: string[] = [
   menu.TierList.path,

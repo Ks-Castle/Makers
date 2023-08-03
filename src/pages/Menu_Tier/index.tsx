@@ -2,7 +2,6 @@ import flex from "@/assets/styles/flex";
 import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
 import Tier from "@/pages/Menu_Tier/components/Tier";
-import { Input, Pagination } from "@/context";
 import { db } from "@/data/config/firebase";
 import { tierListArrayState } from "@/data/config/recoil";
 import { RESOLUTION } from "@/data/str";
@@ -11,6 +10,7 @@ import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { TierListDTO } from "./DTO";
+import { Input, Pagination } from "@/context/index.js";
 
 const TierList = () => {
   const [data, setData] = useRecoilState(tierListArrayState);

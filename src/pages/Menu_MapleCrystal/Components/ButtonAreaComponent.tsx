@@ -1,7 +1,7 @@
 import { Setter } from "@/data/globalDTO";
 import { BossCalculateResult, FinalType } from "../DTO/index";
 import { ButtonArea } from "./styles";
-import { Button } from "@/context";
+import { Button } from "@/context/index.js";
 
 interface IPropsType {
   numCrystals: number;

@@ -11,7 +11,7 @@ import {
   DropResult,
 } from "react-beautiful-dnd";
 import { useCallback, useRef, useState } from "react";
-import { SVG } from "@/context";
+import { SVG } from "@/context/index.js";
 import { toPng } from "html-to-image";
 import format from "date-fns/format";
 import { flex, font } from "@/assets/styles/index";

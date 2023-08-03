@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import main from "@/data/navigation/main.json";
 import { flex, font } from "@/assets/styles/index";
-import { SVG } from "@/context";
+import { SVG } from "@/context/index.js";
 
 interface HeaderProps {
   darkMode: boolean;

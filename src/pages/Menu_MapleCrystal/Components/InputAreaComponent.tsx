@@ -1,4 +1,4 @@
-import { Input } from "@/context";
+import { Input } from "@/context/index.js";
 import React from "react";
 import { InputArea } from "./styles";
 import { Setter } from "@/data/globalDTO";

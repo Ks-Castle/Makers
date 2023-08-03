@@ -1,9 +1,9 @@
 import { font } from "@/assets/styles/index";
-import { Button } from "@/context";
 import { LOCALSTORAGE, SHADOW, Z_INDEX } from "@/data/str";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { Button } from "./index.js";
 
 interface IPropsType {
   img: string;

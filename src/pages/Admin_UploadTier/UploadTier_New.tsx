@@ -1,11 +1,11 @@
 import { flex, font } from "@/assets/styles/index";
 import Head from "@/components/UI/Head";
 import Layout from "@/components/UI/Layout";
-import { Input } from "@/context";
 
 import { useState } from "react";
 import styled from "styled-components";
 import UploadTierSendBtn from "./Components/UploadTierSendBtn";
+import { Input } from "@/context/index.js";
 
 const UploadTier_New = () => {
   const [gameName, setGameName] = useState<string>("");
