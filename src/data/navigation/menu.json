@@ -8,11 +8,11 @@
       "path": "/TierMaking"
     },
     "MapleCrystalCalculator": {
-      "name": "MapleStory Crystal Calculator",
+      "name": "MapleStory Crystal Calculator (Reboot)",
       "path": "/MapleCrystalCalculator"
     },
     "MapleEvents": {
-      "name": "MapleStory Event News",
+      "name": "MapleStory Event News (Discord Bot)",
       "path": "/MapleEvents"
     }
   }
