@@ -1,27 +1,12 @@
-import flex from "@/assets/styles/flex";
 import Layout from "@/components/UI/Layout";
 import styled from "styled-components";
-import menu from "@/data/navigation/menu.json";
-import main from "@/data/navigation/main.json";
+
 import Head from "@/components/UI/Head";
 import { IMAGES, RESOLUTION } from "@/data/str";
 import { getImage } from "@/utils/getImage";
 import { useEffect, useState } from "react";
 import { HoverBox } from "@/context/Index.js";
-
-const links: string[] = [
-  menu.TierList.path,
-  menu.MapleCrystalCalculator.path,
-  menu.MapleEvents.path,
-  main.Home.path,
-];
-
-const titles: string[] = [
-  menu.TierList.name,
-  menu.MapleCrystalCalculator.name,
-  menu.MapleEvents.name,
-  main.UnderConstruction.name,
-];
+import { links, titles } from "@/data/homeMenu";
 
 const Home = () => {
   const [imgs, setImgs] = useState<string[]>([]);
@@ -33,6 +18,18 @@ const Home = () => {
           getImage({ path: IMAGES.HOME_TIER }),
           getImage({ path: IMAGES.HOME_MAPLE_CRYSTAL }),
           getImage({ path: IMAGES.HOME_MAPLE_NEWS }),
+          getImage({ path: IMAGES.HOME_UNDER }),
+          getImage({ path: IMAGES.HOME_UNDER }),
+          getImage({ path: IMAGES.HOME_UNDER }),
+          getImage({ path: IMAGES.HOME_UNDER }),
+          getImage({ path: IMAGES.HOME_UNDER }),
+          getImage({ path: IMAGES.HOME_UNDER }),
+          getImage({ path: IMAGES.HOME_UNDER }),
+          getImage({ path: IMAGES.HOME_UNDER }),
+          getImage({ path: IMAGES.HOME_UNDER }),
+          getImage({ path: IMAGES.HOME_UNDER }),
+          getImage({ path: IMAGES.HOME_UNDER }),
+          getImage({ path: IMAGES.HOME_UNDER }),
           getImage({ path: IMAGES.HOME_UNDER }),
         ]);
         setImgs(promisedImages);
@@ -71,10 +68,16 @@ const Home = () => {
 export default Home;
 
 const Wrapper = styled.div`
-  ${flex({})}
   display: grid;
-  grid-template-columns: repeat(2, 200px);
+  grid-template-columns: repeat(4, 200px);
   grid-gap: 1rem;
+  height: 100%;
+  @media (max-width: ${RESOLUTION.PC}px) {
+    grid-template-columns: repeat(3, 150px);
+    .buttonContext {
+      height: 150px;
+    }
+  }
   @media (max-width: ${RESOLUTION.TABLET}px) {
     grid-template-columns: repeat(2, 150px);
     .buttonContext {
