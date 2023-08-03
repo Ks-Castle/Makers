@@ -10,8 +10,9 @@ const Tier = ({ data }: { data: TierListDTO }) => {
   const theme = localStorage.getItem(LOCALSTORAGE.THEME);
   const navigate = useNavigate();
   const navigationHandler = () => {
-    navigate(`${menu.TierMaking}/${data.id}`);
+    navigate(`${menu.TierMaking.path}/${data.id}`);
   };
+
   return (
     <Wrapper theme={theme}>
       <StyledButton
