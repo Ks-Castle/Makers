@@ -1,6 +1,6 @@
 import { SelectArea } from "./styles";
 import * as BOSSDATA from "@/data/mockup_maple_const/bossDatas";
-import { SVG } from "@/context/index.js";
+import { SVG } from "@/context/Index.js";
 import { Boss, FinalType } from "../DTO/index";
 import { Setter } from "@/data/globalDTO";
 

@@ -1,4 +1,4 @@
-import { Button } from "@/context/index.js";
+import { Button } from "@/context/Index.js";
 import { db, storage } from "@/data/config/firebase";
 import { TierListDTO } from "@/pages/Menu_Tier/DTO/index";
 import { getDownloadURL, ref, uploadBytes } from "@firebase/storage";

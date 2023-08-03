@@ -1,7 +1,7 @@
 import useGetMapleNews from "@/api/hooks_maple/useGetMapleNews";
 import useGetMapleOldNews from "@/api/hooks_maple/useGetMapleOldNews";
 import { flex } from "@/assets/styles/index";
-import { HoverBox } from "@/context/index.js";
+import { HoverBox } from "@/context/Index.js";
 import { RESOLUTION } from "@/data/str";
 import styled from "styled-components";
 import { fetchingDefaultDTO } from "../DTO/index";

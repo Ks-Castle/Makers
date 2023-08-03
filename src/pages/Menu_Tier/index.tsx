@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { TierListDTO } from "./DTO";
-import { Input, Pagination } from "@/context/index.js";
+import { Input, Pagination } from "@/context/Index.js";
 
 const TierList = () => {
   const [data, setData] = useRecoilState(tierListArrayState);

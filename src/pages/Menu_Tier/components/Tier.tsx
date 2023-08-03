@@ -1,4 +1,4 @@
-import { Button } from "@/context/index.js";
+import { Button } from "@/context/Index.js";
 import { LOCALSTORAGE, RESOLUTION, SHADOW, Z_INDEX } from "@/data/str";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";

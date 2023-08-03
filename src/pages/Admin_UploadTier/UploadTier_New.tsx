@@ -5,7 +5,7 @@ import Layout from "@/components/UI/Layout";
 import { useState } from "react";
 import styled from "styled-components";
 import UploadTierSendBtn from "./Components/UploadTierSendBtn";
-import { Input } from "@/context/index.js";
+import { Input } from "@/context/Index.js";
 
 const UploadTier_New = () => {
   const [gameName, setGameName] = useState<string>("");
