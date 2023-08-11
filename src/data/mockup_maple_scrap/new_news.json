@@ -1,8 +1,16 @@
 [
   {
+    "title": "Kaling and Shangri-La are Live",
+    "content": "The Shangri-La area is available now and you can challenge the new boss Kaling.",
+    "time": "1 hour ago",
+    "actualDate": "Aug 11, 2023",
+    "photo": "https://nxcache.nexon.net/cms/2023/q3/1728/msw-6510-230807-kaling-and-shangri-la-live-news-post-540x304.png",
+    "link": "https://maplestory.nexon.net//news/85230/kaling-and-shangri-la-are-live"
+  },
+  {
     "title": "[Completed] Scheduled Minor Patch - August 10, 2023",
     "content": "The maintenance has been completed and we have extended Cash Shop items for 6 hours. Please restart your Nexon Launcher or Steam to make sure that you get the latest client! Thank you for your patience.",
-    "time": "5 hours ago",
+    "time": "6 hours ago",
     "actualDate": "Aug 11, 2023",
     "photo": "https://nxcache.nexon.net/umbraco/4781/160510_ms_maintenance_template_01.jpg",
     "link": "https://maplestory.nexon.net//news/85259/completed-scheduled-minor-patch-august-10-2023"
@@ -26,8 +34,8 @@
   {
     "title": "Community Livestream - Sixth Star Showdown w/ Team Pink Bean!",
     "content": "Join Community Manager Ezrabell alongside Team Pink Bean from the Sixth Star Showdown event in a Community Livestream!",
-    "time": "6 days ago",
-    "actualDate": "Aug 05, 2023",
+    "time": "Aug 03, 2023",
+    "actualDate": "Aug 03, 2023",
     "photo": "https://nxcache.nexon.net/cms/2022/q3/1130/news-post-540x304-community-livestream-news-maplestory.png",
     "link": "https://maplestory.nexon.net//news/84680/community-livestream-sixth-star-showdown-w-team-pink-bean"
   },
@@ -38,13 +46,5 @@
     "actualDate": "Aug 03, 2023",
     "photo": "https://nxcache.nexon.net/umbraco/4781/160510_ms_maintenance_template_01.jpg",
     "link": "https://maplestory.nexon.net//news/85094/completed-scheduled-maintenance-august-3-2023"
-  },
-  {
-    "title": "August 2023 Community Contests and Events",
-    "content": "Take a look at the new and upcoming Community Contests below, and be prepared to test your imagination!",
-    "time": "Aug 02, 2023",
-    "actualDate": "Aug 02, 2023",
-    "photo": "https://nxcache.nexon.net/cms/2023/q3/1598/540x304-maplestory-community-contests.jpg",
-    "link": "https://maplestory.nexon.net//news/85132/august-2023-community-contests-and-events"
   }
 ]
