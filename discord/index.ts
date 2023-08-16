@@ -60,11 +60,6 @@ async function sendDiscordWebhook(url: string, message: string): Promise<void> {
             inline: true,
           },
           {
-            name: "Custom Site",
-            value: `[Makers](${"https://makers-plum.vercel.app/Home"})`,
-            inline: true,
-          },
-          {
             name: "",
             value:
               time &&
