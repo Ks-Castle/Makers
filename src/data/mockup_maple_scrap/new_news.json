@@ -1,33 +1,41 @@
 [
   {
+    "title": "Unscheduled Maintenance - September 1, 2023",
+    "content": "We will be performing an unscheduled maintenance on Friday, September 1, 2023 at 7:00 AM PDT (10:00 AM EDT / 4:00 PM CEST / 12:00 AM AEST Sep. 2).",
+    "time": "4 minutes ago",
+    "actualDate": "Sep 01, 2023",
+    "photo": "https://nxcache.nexon.net/umbraco/4781/160510_ms_maintenance_template_01.jpg",
+    "link": "https://maplestory.nexon.net//news/85886/unscheduled-maintenance-september-1-2023"
+  },
+  {
     "title": "Check Out the August 2023 Art Corner",
     "content": "Look at this month's roundup of our favorite fan art!",
-    "time": "3 hours ago",
-    "actualDate": "Aug 31, 2023",
+    "time": "4 hours ago",
+    "actualDate": "Sep 01, 2023",
     "photo": "https://nxcache.nexon.net/cms/2019/2040/msw-3707-190313-art-corner-posts-news_post_540x304.jpg",
     "link": "https://maplestory.nexon.net//news/85668/check-out-the-august-2023-art-corner"
   },
   {
     "title": "Chaos Vellum Access Temporarily Unavailable",
     "content": "We will be temporarily disabling access to Chaos Vellum until further notice.",
-    "time": "20 hours ago",
-    "actualDate": "Aug 31, 2023",
+    "time": "22 hours ago",
+    "actualDate": "Sep 01, 2023",
     "photo": "https://nxcache.nexon.net/cms/2023/q2/2099/120516_540x304_generic_news_6410.jpg",
     "link": "https://maplestory.nexon.net//news/85874/chaos-vellum-access-temporarily-unavailable"
   },
   {
     "title": "Journey Toward the Sixth Star - Ch. III and Ch. IV",
     "content": "It's time to Journey Toward the Sixth Star! Play through the different chapters of the Journey Toward the Sixth Star event and earn some unique rewards.",
-    "time": "23 hours ago",
-    "actualDate": "Aug 31, 2023",
+    "time": "1 day ago",
+    "actualDate": "1 day ago",
     "photo": "https://nxcache.nexon.net/cms/2023/q3/2112/230713_540x304_sixthstarwarm-upevent_6470.jpg",
     "link": "https://maplestory.nexon.net//news/85576/journey-toward-the-sixth-star-ch-iii-and-ch-iv"
   },
   {
     "title": "MapleStory Fest 2023 returns on October 14!",
     "content": "We are happy to announce that MapleStory Fest is returning for 2023 on Saturday, October 14!",
-    "time": "23 hours ago",
-    "actualDate": "Aug 31, 2023",
+    "time": "1 day ago",
+    "actualDate": "1 day ago",
     "photo": "https://nxcache.nexon.net/cms/2023/q3/1948/540x304-maplestory-fest-2023.jpg",
     "link": "https://maplestory.nexon.net//news/85597/maplestory-fest-2023-returns-on-october-14"
   },
@@ -38,13 +46,5 @@
     "actualDate": "1 day ago",
     "photo": "https://nxcache.nexon.net/cms/2023/q2/2099/120516_540x304_generic_news_6410.jpg",
     "link": "https://maplestory.nexon.net//news/85757/updated-investigation-of-special-sunny-sunday-pet-box"
-  },
-  {
-    "title": "v.244 Punch King Palooza Patch Notes",
-    "content": "Click here to read the patch notes for v.244 Punch King Palooza",
-    "time": "1 day ago",
-    "actualDate": "1 day ago",
-    "photo": "https://nxcache.nexon.net/cms/2023/q3/2017/msw-6513-230825-v244-patch-notes-news-post-540x304.png",
-    "link": "https://maplestory.nexon.net//news/85511/v-244-punch-king-palooza-patch-notes"
   }
 ]
