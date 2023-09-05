@@ -1,5 +1,13 @@
 [
   {
+    "title": "World's Best Punch King",
+    "content": "It's time to see who's the best! Give it your all in World's Best Punch King!",
+    "time": "5 minutes ago",
+    "actualDate": "Sep 05, 2023",
+    "photo": "https://nxcache.nexon.net/cms/2023/q3/2213/230901_worldsbestpunchking_newspost_540x304.jpg",
+    "link": "https://maplestory.nexon.net//news/85968/world-s-best-punch-king"
+  },
+  {
     "title": "[Completed] Unscheduled Maintenance - September 1, 2023",
     "content": "The maintenance has been completed and we have extended Cash Shop items for 4 hours. Please restart your Nexon Launcher or Steam to make sure that you get the latest client! Thank you for your patience.",
     "time": "4 days ago",
@@ -38,13 +46,5 @@
     "actualDate": "Aug 31, 2023",
     "photo": "https://nxcache.nexon.net/cms/2023/q3/2112/230713_540x304_sixthstarwarm-upevent_6470.jpg",
     "link": "https://maplestory.nexon.net//news/85576/journey-toward-the-sixth-star-ch-iii-and-ch-iv"
-  },
-  {
-    "title": "MapleStory Fest 2023 returns on October 14!",
-    "content": "We are happy to announce that MapleStory Fest is returning for 2023 on Saturday, October 14!",
-    "time": "5 days ago",
-    "actualDate": "Aug 31, 2023",
-    "photo": "https://nxcache.nexon.net/cms/2023/q3/1948/540x304-maplestory-fest-2023.jpg",
-    "link": "https://maplestory.nexon.net//news/85597/maplestory-fest-2023-returns-on-october-14"
   }
 ]
