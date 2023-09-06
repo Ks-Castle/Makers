@@ -1,8 +1,16 @@
 [
   {
+    "title": "Scheduled Maintenance - September 7, 2023",
+    "content": "We are currently performing a scheduled maintenance on Thursday, September 7, 2023 at 7:00 AM PDT (10:00 AM EDT / 4:00 PM CEST / 12:00 AM AEST Sep. 8)",
+    "time": "9 minutes ago",
+    "actualDate": "Sep 06, 2023",
+    "photo": "https://nxcache.nexon.net/umbraco/4781/160510_ms_maintenance_template_01.jpg",
+    "link": "https://maplestory.nexon.net//news/85982/scheduled-maintenance-september-7-2023"
+  },
+  {
     "title": "Cash Shop Update for September 6",
     "content": "Gachapon Update, Autumn Surprise Style Box, Autumn Permanent Equips, and more!",
-    "time": "26 minutes ago",
+    "time": "50 minutes ago",
     "actualDate": "Sep 06, 2023",
     "photo": "https://nxcache.nexon.net/cms/2023/q3/2156/540x304-september-13-cash-shop-update-maplestory.jpg",
     "link": "https://maplestory.nexon.net//news/85705/cash-shop-update-for-september-6"
@@ -38,13 +46,5 @@
     "actualDate": "Sep 01, 2023",
     "photo": "https://nxcache.nexon.net/cms/2019/2040/msw-3707-190313-art-corner-posts-news_post_540x304.jpg",
     "link": "https://maplestory.nexon.net//news/85668/check-out-the-august-2023-art-corner"
-  },
-  {
-    "title": "Chaos Vellum Access Temporarily Unavailable",
-    "content": "We will be temporarily disabling access to Chaos Vellum until further notice.",
-    "time": "5 days ago",
-    "actualDate": "Sep 01, 2023",
-    "photo": "https://nxcache.nexon.net/cms/2023/q2/2099/120516_540x304_generic_news_6410.jpg",
-    "link": "https://maplestory.nexon.net//news/85874/chaos-vellum-access-temporarily-unavailable"
   }
 ]
