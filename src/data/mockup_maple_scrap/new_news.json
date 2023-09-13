@@ -1,5 +1,13 @@
 [
   {
+    "title": "Livestream - Community Hangout w/ CM Ezrabell!",
+    "content": "Come hang out with CM Ezrabell as he plays MapleStory with fellow Maplers!",
+    "time": "2 minutes ago",
+    "actualDate": "Sep 13, 2023",
+    "photo": "https://nxcache.nexon.net/cms/2022/q3/1109/msw-6101-220707-evergreen-generic-livestream-banners-news-post-540x304.png",
+    "link": "https://maplestory.nexon.net//news/86129/livestream-community-hangout-w-cm-ezrabell"
+  },
+  {
     "title": "Scheduled Maintenance - September 14, 2023",
     "content": "We will be performing a scheduled maintenance for EU Worlds on Thursday, September 14, 2023 at 5:00 AM PDT (8:00 AM EDT / 2:00 PM CEST / 10:00 PM AEST).",
     "time": "21 hours ago",
@@ -10,7 +18,7 @@
   {
     "title": "[Update Sept 13] Cash Shop Update for September 13",
     "content": "Premium Surprise Style Box, Change Royal Styles, and Mystery Mix Coupons!",
-    "time": "21 hours ago",
+    "time": "22 hours ago",
     "actualDate": "Sep 13, 2023",
     "photo": "https://nxcache.nexon.net/cms/2023/q3/2307/news-post-540x304-september-13-cash-shop-update-maplestory.png",
     "link": "https://maplestory.nexon.net//news/85914/update-sept-13-cash-shop-update-for-september-13"
@@ -38,13 +46,5 @@
     "actualDate": "Sep 07, 2023",
     "photo": "https://nxcache.nexon.net/cms/2022/q3/1109/msw-6101-220707-evergreen-generic-livestream-banners-news-post-540x304.png",
     "link": "https://maplestory.nexon.net//news/86006/livestream-community-hangout-w-cm-ezrabell-august-8-2023"
-  },
-  {
-    "title": "[Completed] Scheduled Maintenance - September 7, 2023",
-    "content": "The maintenance has been completed and we have extended Cash Shop items for 5 hours. Please restart your Nexon Launcher or Steam to make sure that you get the latest client! Thank you for your patience.",
-    "time": "6 days ago",
-    "actualDate": "Sep 07, 2023",
-    "photo": "https://nxcache.nexon.net/umbraco/4781/160510_ms_maintenance_template_01.jpg",
-    "link": "https://maplestory.nexon.net//news/85982/completed-scheduled-maintenance-september-7-2023"
   }
 ]
