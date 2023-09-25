@@ -11,6 +11,7 @@ const Router = () => {
       <Route path={menu.TierMaking.path + "/:id"} element={<_.TierMaking />} />
       <Route path={menu.MapleCrystalCalculator.path} element={<_.Crystal />} />
       <Route path={menu.MapleEvents.path} element={<_.MapleEvents />} />
+      <Route path={menu.Todd.path} element={<_.Todd />} />
       <Route path={main.UploadTier_New.path} element={<_.UploadTier_New />} />
       <Route path="*" element={<_.Error />} />
     </Routes>

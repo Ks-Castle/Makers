@@ -34,6 +34,7 @@ export const IMAGES = {
   HOME_UNDER: "home/Under.png",
   HOME_MAPLE_CRYSTAL: "home/MapleCrystal.png",
   HOME_MAPLE_NEWS: "home/MapleNews.PNG",
+  HOME_TODD: "home/Todd.jfif",
 };
 
 export const LOCALSTORAGE = {
