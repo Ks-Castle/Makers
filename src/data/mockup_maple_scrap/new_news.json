@@ -1,8 +1,16 @@
 [
   {
+    "title": "Community Livestream - v.245 Update Preview",
+    "content": "Join Community Managers Ezrabell and Veeraah in the next Community Livestream as they preview the upcoming events and contents in v.245 Midnight Carnival - Nautilus!",
+    "time": "8 minutes ago",
+    "actualDate": "Sep 27, 2023",
+    "photo": "https://nxcache.nexon.net/cms/2022/q3/1109/msw-6101-220707-evergreen-generic-livestream-banners-news-post-540x304.png",
+    "link": "https://maplestory.nexon.net//news/86350/community-livestream-v-245-update-preview"
+  },
+  {
     "title": "Cash Shop Update for September 27",
     "content": "Autumn Surprise Bags, Erda Package, and more!",
-    "time": "7 minutes ago",
+    "time": "37 minutes ago",
     "actualDate": "Sep 27, 2023",
     "photo": "https://nxcache.nexon.net/cms/2023/q3/2493/540x304-september-27-cash-shop-update-maplestory.png",
     "link": "https://maplestory.nexon.net//news/86183/cash-shop-update-for-september-27"
@@ -10,8 +18,8 @@
   {
     "title": "Check Out the September 2023 Art Corner",
     "content": "Look at this month's roundup of our favorite fan art!",
-    "time": "3 days ago",
-    "actualDate": "Sep 24, 2023",
+    "time": "4 days ago",
+    "actualDate": "Sep 23, 2023",
     "photo": "https://nxcache.nexon.net/cms/2019/2040/msw-3707-190313-art-corner-posts-news_post_540x304.jpg",
     "link": "https://maplestory.nexon.net//news/86305/check-out-the-september-2023-art-corner"
   },
@@ -38,13 +46,5 @@
     "actualDate": "Sep 19, 2023",
     "photo": "https://nxcache.nexon.net/umbraco/10846/170418mntnpp540x304.jpg",
     "link": "https://maplestory.nexon.net//news/86232/completed-scheduled-minor-patch-september-21-2023"
-  },
-  {
-    "title": "v.244 Hotfixes - September 15, 2023",
-    "content": "Here you'll find a list of hotfixes that addresses a variety of bugs and issues reported within the v.244 Punch King Palooza update.",
-    "time": "Sep 15, 2023",
-    "actualDate": "Sep 15, 2023",
-    "photo": "https://nxcache.nexon.net/umbraco/4781/160510_ms_maintenance_template_01.jpg",
-    "link": "https://maplestory.nexon.net//news/86074/v-244-hotfixes-september-15-2023"
   }
 ]
