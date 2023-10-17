@@ -1,8 +1,16 @@
 [
   {
+    "title": "Scheduled NA Maintenance - October 19, 2023",
+    "content": "We will be performing a scheduled maintenance for NA Worlds on Thursday, October 19, 2023 at 5:00 AM PDT (8:00 AM EDT / 2:00 PM CEST / 11:00 PM AEDT).",
+    "time": "29 minutes ago",
+    "actualDate": "Oct 17, 2023",
+    "photo": "https://nxcache.nexon.net/umbraco/4781/160510_ms_maintenance_template_01.jpg",
+    "link": "https://maplestory.nexon.net//news/86750/scheduled-na-maintenance-october-19-2023"
+  },
+  {
     "title": "Maple Memo: GMS Roadmap Q4 2023",
     "content": "We share our Global MapleStory Roadmap that includes the updates and changes coming in v.245 - v.247 2023.",
-    "time": "6 hours ago",
+    "time": "7 hours ago",
     "actualDate": "Oct 17, 2023",
     "photo": "https://nxcache.nexon.net/umbraco/9226/mm785tg7.jpg",
     "link": "https://maplestory.nexon.net//news/86609/maple-memo-gms-roadmap-q4-2023"
@@ -18,16 +26,16 @@
   {
     "title": "Cash Shop Update for October 11",
     "content": "Premium Surprise Style Box and more!",
-    "time": "5 days ago",
-    "actualDate": "Oct 12, 2023",
+    "time": "6 days ago",
+    "actualDate": "Oct 11, 2023",
     "photo": "https://nxcache.nexon.net/cms/2023/q4/1122/news-post-540x304-october-11-cash-shop-update-maplestory.png",
     "link": "https://maplestory.nexon.net//news/86300/cash-shop-update-for-october-11"
   },
   {
     "title": "[Completed] Scheduled Minor Patch - October 12, 2023",
     "content": "The maintenance has been completed and we have extended Cash Shop items for 6 hours. Please restart your Nexon Launcher or Steam to make sure that you get the latest client! Thank you for your patience.",
-    "time": "5 days ago",
-    "actualDate": "Oct 12, 2023",
+    "time": "6 days ago",
+    "actualDate": "Oct 11, 2023",
     "photo": "https://nxcache.nexon.net/umbraco/10846/170418mntnpp540x304.jpg",
     "link": "https://maplestory.nexon.net//news/86690/completed-scheduled-minor-patch-october-12-2023"
   },
@@ -38,13 +46,5 @@
     "actualDate": "Oct 11, 2023",
     "photo": "https://nxcache.nexon.net/cms/2023/q3/2112/230713_540x304_sixthstarwarm-upevent_6470.jpg",
     "link": "https://maplestory.nexon.net//news/86534/updated-oct-12th-journey-toward-the-sixth-star-ch-v"
-  },
-  {
-    "title": "Community Livestream - Sixth Star Showdown w/ Team Green Slime!",
-    "content": "Join Community Manager Ezrabell alongside Team Green Slime from the Sixth Star Showdown event in a Community Livestream!",
-    "time": "Oct 05, 2023",
-    "actualDate": "Oct 05, 2023",
-    "photo": "https://nxcache.nexon.net/cms/2022/q3/1109/msw-6101-220707-evergreen-generic-livestream-banners-news-post-540x304.png",
-    "link": "https://maplestory.nexon.net//news/86601/community-livestream-sixth-star-showdown-w-team-green-slime"
   }
 ]
