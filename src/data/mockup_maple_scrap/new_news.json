@@ -1,5 +1,13 @@
 [
   {
+    "title": "Investigation on NA Reboot Server Issues - October 19, 2023",
+    "content": "We are currently investigating the issues with logging into NA Reboot world.",
+    "time": "13 minutes ago",
+    "actualDate": "Oct 19, 2023",
+    "photo": "https://nxcache.nexon.net/cms/2023/q2/2099/120516_540x304_generic_news_6410.jpg",
+    "link": "https://maplestory.nexon.net//news/86829/investigation-on-na-reboot-server-issues-october-19-2023"
+  },
+  {
     "title": "[Completed] Scheduled NA Maintenance - October 19, 2023",
     "content": "The maintenance has been completed and we have extended Cash Shop items for 7 hours. Please restart your Nexon Launcher or Steam to make sure that you get the latest client! Thank you for your patience.",
     "time": "1 hour ago",
@@ -16,12 +24,12 @@
     "link": "https://maplestory.nexon.net//news/86751/october-2023-community-contests-and-events"
   },
   {
-    "title": "Issue with Pumpkin Pets in Reboot Worlds",
+    "title": "[Updated] Issue with Pumpkin Pets in Reboot Worlds",
     "content": "We will be removing the pet buffs from the Pumpkin pets that were rewarded in the Wisp's Wondrous Wonderberry for Reboot worlds.",
-    "time": "18 hours ago",
+    "time": "19 hours ago",
     "actualDate": "Oct 19, 2023",
     "photo": "https://nxcache.nexon.net/cms/2023/q2/2099/120516_540x304_generic_news_6410.jpg",
-    "link": "https://maplestory.nexon.net//news/86807/issue-with-pumpkin-pets-in-reboot-worlds"
+    "link": "https://maplestory.nexon.net//news/86807/updated-issue-with-pumpkin-pets-in-reboot-worlds"
   },
   {
     "title": "Cash Shop Update for October 18",
@@ -38,13 +46,5 @@
     "actualDate": "1 day ago",
     "photo": "https://nxcache.nexon.net/cms/2023/q4/1233/news-thumb-540x304-maplestory-worlds-best-punch-king-winners.jpg",
     "link": "https://maplestory.nexon.net//news/86734/world-s-best-punch-king-winners"
-  },
-  {
-    "title": "Halloween Events",
-    "content": "It's time for some spooky events to decorate both your home and your characters!",
-    "time": "2 days ago",
-    "actualDate": "Oct 17, 2023",
-    "photo": "https://nxcache.nexon.net/cms/2023/q4/1247/231013-wgc-327-ms-myhomehalloween-540x304.jpg",
-    "link": "https://maplestory.nexon.net//news/86766/halloween-events"
   }
 ]
