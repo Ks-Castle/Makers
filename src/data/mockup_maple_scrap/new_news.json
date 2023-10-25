@@ -1,5 +1,21 @@
 [
   {
+    "title": "Cash Shop Update for October 25",
+    "content": "Halloween Surprise Style Box, Royal Styles, Ghost Bride Package, Vampire Phantom Package, and more!",
+    "time": "8 minutes ago",
+    "actualDate": "Oct 25, 2023",
+    "photo": "https://nxcache.nexon.net/cms/2023/q4/1291/news-post-540x304-oct-25-cash-shop-update-maplestory.png",
+    "link": "https://maplestory.nexon.net//news/86525/cash-shop-update-for-october-25"
+  },
+  {
+    "title": "Scheduled Minor Patch - October 26, 2023",
+    "content": "We will be performing a scheduled minor patch on Thursday, October 26, 2023 at 5:00 AM PDT (8:00 AM EDT / 2:00 PM CEST / 11:00 PM AEDT).",
+    "time": "14 minutes ago",
+    "actualDate": "Oct 25, 2023",
+    "photo": "https://nxcache.nexon.net/umbraco/4781/160510_ms_maintenance_template_01.jpg",
+    "link": "https://maplestory.nexon.net//news/86901/scheduled-minor-patch-october-26-2023"
+  },
+  {
     "title": "MapleStory Fest 2023 Recap",
     "content": "On October 14, MapleStory Fest returned to sunny Los Angeles, CA, for an in-person gathering.",
     "time": "3 days ago",
@@ -30,21 +46,5 @@
     "actualDate": "Oct 21, 2023",
     "photo": "https://nxcache.nexon.net/umbraco/4781/160510_ms_maintenance_template_01.jpg",
     "link": "https://maplestory.nexon.net//news/86846/v-245-hotfixes-october-19-2023"
-  },
-  {
-    "title": "[Resolved] Investigation on NA Reboot Server Issues - October 19, 2023",
-    "content": "We are currently investigating the issues with logging into NA Reboot world.",
-    "time": "5 days ago",
-    "actualDate": "Oct 20, 2023",
-    "photo": "https://nxcache.nexon.net/cms/2023/q2/2099/120516_540x304_generic_news_6410.jpg",
-    "link": "https://maplestory.nexon.net//news/86829/resolved-investigation-on-na-reboot-server-issues-october-19-2023"
-  },
-  {
-    "title": "[Completed] Scheduled NA Maintenance - October 19, 2023",
-    "content": "The maintenance has been completed and we have extended Cash Shop items for 7 hours. Please restart your Nexon Launcher or Steam to make sure that you get the latest client! Thank you for your patience.",
-    "time": "5 days ago",
-    "actualDate": "Oct 20, 2023",
-    "photo": "https://nxcache.nexon.net/umbraco/4781/160510_ms_maintenance_template_01.jpg",
-    "link": "https://maplestory.nexon.net//news/86750/completed-scheduled-na-maintenance-october-19-2023"
   }
 ]
