@@ -1,5 +1,13 @@
 [
   {
+    "title": "Scheduled Game Update - November 15, 2023",
+    "content": "We will be performing a scheduled game update on Wednesday, November 15, 2023 at 5:00 AM PST (8:00 AM EST / 2:00 PM CET / 12:00 AM AEDT).",
+    "time": "2 minutes ago",
+    "actualDate": "Nov 14, 2023",
+    "photo": "https://nxcache.nexon.net/umbraco/4781/160510_ms_maintenance_template_01.jpg",
+    "link": "https://maplestory.nexon.net//news/87408/scheduled-game-update-november-15-2023"
+  },
+  {
     "title": "What's Your MapleStory? - Skywired",
     "content": "We take a look at some of the great stories that our players have had with MapleStory over the years!",
     "time": "3 days ago",
@@ -38,13 +46,5 @@
     "actualDate": "Nov 03, 2023",
     "photo": "https://nxcache.nexon.net/cms/2019/2040/msw-3707-190313-art-corner-posts-news_post_540x304.jpg",
     "link": "https://maplestory.nexon.net//news/86978/check-out-the-november-2023-art-corner"
-  },
-  {
-    "title": "Maple Memo: World Selection Reorganization and a New World",
-    "content": "We share our plans to update the MapleStory world selection screen and introduce a new world.",
-    "time": "Nov 01, 2023",
-    "actualDate": "Nov 01, 2023",
-    "photo": "https://nxcache.nexon.net/umbraco/9226/mm785tg7.jpg",
-    "link": "https://maplestory.nexon.net//news/87022/maple-memo-world-selection-reorganization-and-a-new-world"
   }
 ]
