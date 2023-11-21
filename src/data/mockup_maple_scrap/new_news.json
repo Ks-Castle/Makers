@@ -8,6 +8,14 @@
     "link": "https://maplestory.nexon.net//news/87269/black-friday-2023-sales"
   },
   {
+    "title": "Scheduled Maintenance - November 21, 2023",
+    "content": "We will be performing a scheduled maintenance on Tuesday, November 21, 2023 at 6:00 AM PST (9:00 AM EST / 3:00 PM CET / 1:00 AM AEDT).",
+    "time": "1 day ago",
+    "actualDate": "1 day ago",
+    "photo": "https://nxcache.nexon.net/umbraco/10846/170418mntnpp540x304.jpg",
+    "link": "https://maplestory.nexon.net//news/87650/scheduled-maintenance-november-21-2023"
+  },
+  {
     "title": "Community Livestream - Let's Play Hyperion w/ CM Jade",
     "content": "Join Community Manager Jade in the next Community Livestream as she explores the new server, Hyperion, and gets to know the players!",
     "time": "4 days ago",
@@ -38,13 +46,5 @@
     "actualDate": "Nov 16, 2023",
     "photo": "https://nxcache.nexon.net/umbraco/9226/mm785tg7.jpg",
     "link": "https://maplestory.nexon.net//news/87462/maple-memo-v-246-new-age-update-clarification"
-  },
-  {
-    "title": "[Updated November 15] v.246 - New Age: 6th Job Patch Notes",
-    "content": "Click here to read the patch notes for v.246 - New Age: 6th Job.",
-    "time": "6 days ago",
-    "actualDate": "Nov 15, 2023",
-    "photo": "https://nxcache.nexon.net/cms/2023/q4/1703/maplestory-newage-pn-540x304.jpg",
-    "link": "https://maplestory.nexon.net//news/86907/updated-november-15-v-246-new-age-6th-job-patch-notes"
   }
 ]
