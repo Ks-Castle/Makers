@@ -1,8 +1,16 @@
 [
   {
+    "title": "Unscheduled Channel Maintenance - January 3, 2024",
+    "content": "We will be performing an unscheduled channel maintenance today, January 3, 2024 at 1:30 PM PST (4:30 PM EST / 10:30 PM CET / 8:30 AM AEDT January 4).",
+    "time": "1 minute ago",
+    "actualDate": "1 minute ago",
+    "photo": "https://nxcache.nexon.net/umbraco/4781/160510_ms_maintenance_template_01.jpg",
+    "link": "https://maplestory.nexon.net//news/88801/unscheduled-channel-maintenance-january-3-2024"
+  },
+  {
     "title": "MapleStory x Sunright Tea Livestream",
     "content": "Join Community Manager Veeraah in the next Community Livestream as he showcases the Sunright Tea drinks available now!",
-    "time": "17 hours ago",
+    "time": "18 hours ago",
     "actualDate": "Jan 03, 2024",
     "photo": "https://nxcache.nexon.net/cms/2022/q3/1109/msw-6101-220707-evergreen-generic-livestream-banners-news-post-540x304.png",
     "link": "https://maplestory.nexon.net//news/88796/maplestory-x-sunright-tea-livestream"
@@ -38,13 +46,5 @@
     "actualDate": "Dec 26, 2023",
     "photo": "https://nxcache.nexon.net/cms/2023/q4/2783/540x304-december-27-cash-shop-update-maplestory.jpg",
     "link": "https://maplestory.nexon.net//news/88317/cash-shop-update-for-december-27"
-  },
-  {
-    "title": "December 2023 Community Contests and Events",
-    "content": "Take a look at the new and upcoming Community Contests below, and be prepared to test your imagination!",
-    "time": "Dec 22, 2023",
-    "actualDate": "Dec 22, 2023",
-    "photo": "https://nxcache.nexon.net/cms/2023/q4/2003/210406_540x304_communitycontests.jpg",
-    "link": "https://maplestory.nexon.net//news/88689/december-2023-community-contests-and-events"
   }
 ]
