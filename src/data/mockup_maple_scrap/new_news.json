@@ -1,5 +1,13 @@
 [
   {
+    "title": "Unscheduled Maintenance - March 11th, 2024",
+    "content": "We will be performing an unscheduled maintenance tonight, March 11, 2024 at 9:00 PM PST (12:00 AM EST March 12/ 6:00 AM CET March 12/ 4:00 PM AEDT March 12).",
+    "time": "4 minutes ago",
+    "actualDate": "Mar 12, 2024",
+    "photo": "https://nxcache.nexon.net/umbraco/10846/170418mntnpp540x304.jpg",
+    "link": "https://maplestory.nexon.net//news/90524/unscheduled-maintenance-march-11th-2024"
+  },
+  {
     "title": "[Completed] Unscheduled Maintenance - March 8th, 2024",
     "content": "The maintenance has been completed and we have extended Cash Shop items for 2 hours. Please restart your Nexon Launcher or Steam to make sure that you get the latest client! Thank you for your patience.",
     "time": "4 days ago",
@@ -38,13 +46,5 @@
     "actualDate": "Feb 27, 2024",
     "photo": "https://nxcache.nexon.net/umbraco/10846/170418mntnpp540x304.jpg",
     "link": "https://maplestory.nexon.net//news/90141/completed-scheduled-maintenance-february-29-2024"
-  },
-  {
-    "title": "Cash Shop Update for February 28",
-    "content": "Royal Styles, Spring Frog Pets, and more!",
-    "time": "Feb 27, 2024",
-    "actualDate": "Feb 27, 2024",
-    "photo": "https://nxcache.nexon.net/cms/2024/q1/2020/540x304-february-28-cash-shop-update-maplestory.jpg",
-    "link": "https://maplestory.nexon.net//news/89928/cash-shop-update-for-february-28"
   }
 ]
