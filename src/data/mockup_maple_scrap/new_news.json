@@ -1,13 +1,5 @@
 [
   {
-    "title": "v.249 - Minar Picnic Update Preview",
-    "content": "What better way to welcome the Spring season than with a wonderful picnic in the Minar Forest!",
-    "time": "3 hours ago",
-    "actualDate": "Mar 13, 2024",
-    "photo": "https://nxcache.nexon.net/cms/2024/q1/2386/240311-wgc-780-ms-v249-minarpicnic-540x304-v2.png",
-    "link": "https://maplestory.nexon.net//news/90547/v-249-minar-picnic-update-preview"
-  },
-  {
     "title": "Cash Shop Update for March 13",
     "content": "St. Patrick's Day Surprise Style Box, St. Patrick's Day Equip Covers, and more!",
     "time": "20 hours ago",
@@ -46,5 +38,13 @@
     "actualDate": "Mar 05, 2024",
     "photo": "https://nxcache.nexon.net/cms/2024/q1/2109/240301_goldrichiessafe_newspost_540x304.jpg",
     "link": "https://maplestory.nexon.net//news/90138/gold-richie-s-safe"
+  },
+  {
+    "title": "Upcoming Website Refresh and News Post Changes",
+    "content": "Within the next several weeks, the MapleStory website will be revamped, however some older news posts will not be migrated to the new website.",
+    "time": "Mar 05, 2024",
+    "actualDate": "Mar 05, 2024",
+    "photo": "https://nxcache.nexon.net/cms/2023/q2/2099/120516_540x304_generic_news_6410.jpg",
+    "link": "https://maplestory.nexon.net//news/89612/upcoming-website-refresh-and-news-post-changes"
   }
 ]
