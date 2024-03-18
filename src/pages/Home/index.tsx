@@ -44,7 +44,7 @@ const Home = () => {
         link="Home"
         desc="Welcome to Makers. Feel Free to Generate Your Own Tier Table or Stat Cards."
       />
-      <Wrapper>
+      {/* <Wrapper>
         {imgs.map((img: string, i: number) => (
           <HoverBox
             img={img}
@@ -56,7 +56,10 @@ const Home = () => {
             title={titles[i]}
           />
         ))}
-      </Wrapper>
+      </Wrapper> */}
+      <a href="mailto:test@example.com?subject=Testing out mailto!">
+        click here
+      </a>
     </Layout>
   );
 };
