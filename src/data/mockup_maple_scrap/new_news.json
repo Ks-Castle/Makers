@@ -1,17 +1,25 @@
 [
   {
+    "title": "Scheduled Maintenance - April 11, 2024",
+    "content": "We will be performing a scheduled maintenance on Thursday, April 11, 2024 at 7:00 AM PDT (10:00 AM EDT / 4:00 PM CEST / 12:00 AM AEST Apr. 12).",
+    "time": "1 hour ago",
+    "actualDate": "Apr 10, 2024",
+    "photo": "https://nxcache.nexon.net/umbraco/10846/170418mntnpp540x304.jpg",
+    "link": "https://maplestory.nexon.net//news/91358/scheduled-maintenance-april-11-2024"
+  },
+  {
     "title": "Once More! Halflinger Flower Viewing",
     "content": "Upgrade your Halflinger skill even further to maximize your training!",
-    "time": "21 minutes ago",
-    "actualDate": "Apr 09, 2024",
+    "time": "1 hour ago",
+    "actualDate": "Apr 10, 2024",
     "photo": "https://nxcache.nexon.net/cms/2024/q2/1116/240405-wgc-883-ms-halflingerflowerviewingevent-540x304-v2.png",
     "link": "https://maplestory.nexon.net//news/91059/once-more-halflinger-flower-viewing"
   },
   {
     "title": "Maple Memo: Font Change Update",
     "content": "We’d like to provide an update and context regarding the recent font change from the v.249 update.",
-    "time": "3 hours ago",
-    "actualDate": "Apr 09, 2024",
+    "time": "4 hours ago",
+    "actualDate": "Apr 10, 2024",
     "photo": "https://nxcache.nexon.net/umbraco/9226/mm785tg7.jpg",
     "link": "https://maplestory.nexon.net//news/91063/maple-memo-font-change-update"
   },
@@ -19,7 +27,7 @@
     "title": "Cash Shop Update for April 3",
     "content": "Luna Crystal, Gachapon Update, Wisp's Wondrous Wonderberry, and more!",
     "time": "6 days ago",
-    "actualDate": "Apr 03, 2024",
+    "actualDate": "Apr 04, 2024",
     "photo": "https://nxcache.nexon.net/cms/2024/q1/2868/540x304-april-3-cash-shop-update-maplestory.jpg",
     "link": "https://maplestory.nexon.net//news/90927/cash-shop-update-for-april-3"
   },
@@ -38,13 +46,5 @@
     "actualDate": "Mar 26, 2024",
     "photo": "https://nxcache.nexon.net/cms/2024/q1/2700/540x304-march-27-cash-shop-update-maplestory.jpg",
     "link": "https://maplestory.nexon.net//news/90767/cash-shop-update-for-march-27"
-  },
-  {
-    "title": "[Completed] Scheduled Maintenance - March 28, 2024",
-    "content": "The maintenance has been completed and we have extended Cash Shop items for 6 hours. Thank you for your patience.",
-    "time": "Mar 26, 2024",
-    "actualDate": "Mar 26, 2024",
-    "photo": "https://nxcache.nexon.net/umbraco/10846/170418mntnpp540x304.jpg",
-    "link": "https://maplestory.nexon.net//news/91032/completed-scheduled-maintenance-march-28-2024"
   }
 ]
