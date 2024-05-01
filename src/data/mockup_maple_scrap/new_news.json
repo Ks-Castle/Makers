@@ -1,5 +1,13 @@
 [
   {
+    "title": "Forest Child Lynn is Now Available!",
+    "content": "Celebrate the release of new character Lynn with a new event!",
+    "time": "10 minutes ago",
+    "actualDate": "May 01, 2024",
+    "photo": "https://nxcache.nexon.net/cms/2024/q2/1380/240501_lynn_ms_newspost_540x304.jpg",
+    "link": "https://maplestory.nexon.net//news/91603/forest-child-lynn-is-now-available"
+  },
+  {
     "title": "Cash Shop Update for May 1",
     "content": "Gachapon Update, Anniversary Deals, Royal Styles, Maple Chic Packages, Choice Styles, and more!",
     "time": "16 hours ago",
@@ -16,12 +24,12 @@
     "link": "https://maplestory.nexon.net//news/91576/updated-5-1-v-250-mayple-island-patch-notes"
   },
   {
-    "title": "Scheduled Game Update - May 1, 2024",
-    "content": "We will be performing a scheduled game update on Wednesday, May 1, 2024 at 5:00 AM PDT (8:00 AM EDT / 2:00 PM CEST / 10:00 PM AEST).",
+    "title": "[Completed] Scheduled Game Update - May 1, 2024",
+    "content": "The maintenance has been completed and we have extended Cash Shop items for 6 hours. Please restart your Nexon Launcher or Steam to make sure that you get the latest client! Thank you for your patience.",
     "time": "1 day ago",
     "actualDate": "1 day ago",
     "photo": "https://nxcache.nexon.net/umbraco/10846/170418mntnpp540x304.jpg",
-    "link": "https://maplestory.nexon.net//news/91833/scheduled-game-update-may-1-2024"
+    "link": "https://maplestory.nexon.net//news/91833/completed-scheduled-game-update-may-1-2024"
   },
   {
     "title": "Maple Memo: GMS Roadmap Q2 2024",
@@ -38,13 +46,5 @@
     "actualDate": "Apr 25, 2024",
     "photo": "https://nxcache.nexon.net/cms/2022/q3/1109/msw-6101-220707-evergreen-generic-livestream-banners-news-post-540x304.png",
     "link": "https://maplestory.nexon.net//news/91608/community-livestream-v-250-update-preview"
-  },
-  {
-    "title": "v.249 Hotfixes - April 24, 2024",
-    "content": "Here you'll find a list of hotfixes that addresses a variety of bugs and issues reported within the v.249 Minar Picnic update.",
-    "time": "6 days ago",
-    "actualDate": "Apr 25, 2024",
-    "photo": "https://nxcache.nexon.net/umbraco/10846/170418mntnpp540x304.jpg",
-    "link": "https://maplestory.nexon.net//news/91634/v-249-hotfixes-april-24-2024"
   }
 ]
